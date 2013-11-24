@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29FB3CE91842442400EC43FA /* FenLeiListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FB3CE41842442400EC43FA /* FenLeiListViewController.m */; };
+		29FB3CEA1842442400EC43FA /* FenLeiListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29FB3CE51842442400EC43FA /* FenLeiListViewController.xib */; };
+		29FB3CEB1842442400EC43FA /* GuolvViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FB3CE71842442400EC43FA /* GuolvViewController.m */; };
+		29FB3CEC1842442400EC43FA /* GuolvViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29FB3CE81842442400EC43FA /* GuolvViewController.xib */; };
+		29FB3CFF1842446700EC43FA /* TypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FB3CF51842446700EC43FA /* TypeCell.m */; };
+		29FB3D001842446700EC43FA /* TypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29FB3CF61842446700EC43FA /* TypeCell.xib */; };
+		29FB3D011842446700EC43FA /* TypeClickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FB3CF81842446700EC43FA /* TypeClickCell.m */; };
+		29FB3D021842446700EC43FA /* TypeClickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29FB3CF91842446700EC43FA /* TypeClickCell.xib */; };
+		29FB3D031842446700EC43FA /* whiteColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FB3CFA1842446700EC43FA /* whiteColor.png */; };
+		29FB3D07184246CB00EC43FA /* fenLeiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FB3D05184246CB00EC43FA /* fenLeiViewController.m */; };
+		29FB3D08184246CB00EC43FA /* fenLeiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29FB3D06184246CB00EC43FA /* fenLeiViewController.xib */; };
+		29FB3D0E1842476800EC43FA /* FenLeiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FB3D0A1842476800EC43FA /* FenLeiCell.m */; };
+		29FB3D0F1842476800EC43FA /* FenLeiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29FB3D0B1842476800EC43FA /* FenLeiCell.xib */; };
+		29FB3D101842476800EC43FA /* FenLeiCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FB3D0D1842476800EC43FA /* FenLeiCell2.m */; };
+		29FB3D12184247DA00EC43FA /* FenLeiCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29FB3D11184247DA00EC43FA /* FenLeiCell2.xib */; };
 		9B11EAF91840AC7E001F94A7 /* NetCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B11EAF81840AC7E001F94A7 /* NetCommand.m */; };
 		9B11EAFC1840ADA4001F94A7 /* NetConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B11EAFB1840ADA4001F94A7 /* NetConfig.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9B11EAFF1840AF1F001F94A7 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B11EAFE1840AF1F001F94A7 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -38,8 +53,6 @@
 		9BBB338C183E619A0014D2A4 /* pinPaiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB338A183E619A0014D2A4 /* pinPaiViewController.xib */; };
 		9BBB3390183E61D80014D2A4 /* cheXingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB338E183E61D80014D2A4 /* cheXingViewController.m */; };
 		9BBB3391183E61D80014D2A4 /* cheXingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB338F183E61D80014D2A4 /* cheXingViewController.xib */; };
-		9BBB3395183E62700014D2A4 /* fenLeiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB3393183E62700014D2A4 /* fenLeiViewController.m */; };
-		9BBB3396183E62700014D2A4 /* fenLeiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB3394183E62700014D2A4 /* fenLeiViewController.xib */; };
 		9BBB3467183E62CB0014D2A4 /* bg_brand_hot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB3398183E62CA0014D2A4 /* bg_brand_hot@2x.png */; };
 		9BBB3468183E62CB0014D2A4 /* bg_brand_hot_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB3399183E62CA0014D2A4 /* bg_brand_hot_press@2x.png */; };
 		9BBB3469183E62CB0014D2A4 /* bg_brand_sort@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB339A183E62CA0014D2A4 /* bg_brand_sort@2x.png */; };
@@ -267,6 +280,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29FB3CE31842442400EC43FA /* FenLeiListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenLeiListViewController.h; sourceTree = "<group>"; };
+		29FB3CE41842442400EC43FA /* FenLeiListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenLeiListViewController.m; sourceTree = "<group>"; };
+		29FB3CE51842442400EC43FA /* FenLeiListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FenLeiListViewController.xib; sourceTree = "<group>"; };
+		29FB3CE61842442400EC43FA /* GuolvViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuolvViewController.h; sourceTree = "<group>"; };
+		29FB3CE71842442400EC43FA /* GuolvViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuolvViewController.m; sourceTree = "<group>"; };
+		29FB3CE81842442400EC43FA /* GuolvViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuolvViewController.xib; sourceTree = "<group>"; };
+		29FB3CF41842446700EC43FA /* TypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeCell.h; sourceTree = "<group>"; };
+		29FB3CF51842446700EC43FA /* TypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeCell.m; sourceTree = "<group>"; };
+		29FB3CF61842446700EC43FA /* TypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeCell.xib; sourceTree = "<group>"; };
+		29FB3CF71842446700EC43FA /* TypeClickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeClickCell.h; sourceTree = "<group>"; };
+		29FB3CF81842446700EC43FA /* TypeClickCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeClickCell.m; sourceTree = "<group>"; };
+		29FB3CF91842446700EC43FA /* TypeClickCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeClickCell.xib; sourceTree = "<group>"; };
+		29FB3CFA1842446700EC43FA /* whiteColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteColor.png; sourceTree = "<group>"; };
+		29FB3D04184246CB00EC43FA /* fenLeiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fenLeiViewController.h; sourceTree = "<group>"; };
+		29FB3D05184246CB00EC43FA /* fenLeiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fenLeiViewController.m; sourceTree = "<group>"; };
+		29FB3D06184246CB00EC43FA /* fenLeiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = fenLeiViewController.xib; sourceTree = "<group>"; };
+		29FB3D091842476800EC43FA /* FenLeiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenLeiCell.h; sourceTree = "<group>"; };
+		29FB3D0A1842476800EC43FA /* FenLeiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenLeiCell.m; sourceTree = "<group>"; };
+		29FB3D0B1842476800EC43FA /* FenLeiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FenLeiCell.xib; sourceTree = "<group>"; };
+		29FB3D0C1842476800EC43FA /* FenLeiCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenLeiCell2.h; sourceTree = "<group>"; };
+		29FB3D0D1842476800EC43FA /* FenLeiCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenLeiCell2.m; sourceTree = "<group>"; };
+		29FB3D11184247DA00EC43FA /* FenLeiCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FenLeiCell2.xib; sourceTree = "<group>"; };
 		9B11EAF71840AC7E001F94A7 /* NetCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetCommand.h; sourceTree = "<group>"; };
 		9B11EAF81840AC7E001F94A7 /* NetCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetCommand.m; sourceTree = "<group>"; };
 		9B11EAFA1840ADA4001F94A7 /* NetConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetConfig.h; sourceTree = "<group>"; };
@@ -315,9 +350,6 @@
 		9BBB338D183E61D80014D2A4 /* cheXingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cheXingViewController.h; sourceTree = "<group>"; };
 		9BBB338E183E61D80014D2A4 /* cheXingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cheXingViewController.m; sourceTree = "<group>"; };
 		9BBB338F183E61D80014D2A4 /* cheXingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cheXingViewController.xib; sourceTree = "<group>"; };
-		9BBB3392183E62700014D2A4 /* fenLeiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fenLeiViewController.h; sourceTree = "<group>"; };
-		9BBB3393183E62700014D2A4 /* fenLeiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fenLeiViewController.m; sourceTree = "<group>"; };
-		9BBB3394183E62700014D2A4 /* fenLeiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = fenLeiViewController.xib; sourceTree = "<group>"; };
 		9BBB3398183E62CA0014D2A4 /* bg_brand_hot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_brand_hot@2x.png"; sourceTree = "<group>"; };
 		9BBB3399183E62CA0014D2A4 /* bg_brand_hot_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_brand_hot_press@2x.png"; sourceTree = "<group>"; };
 		9BBB339A183E62CA0014D2A4 /* bg_brand_sort@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_brand_sort@2x.png"; sourceTree = "<group>"; };
@@ -576,6 +608,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29FB3CED1842446700EC43FA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				29FB3D091842476800EC43FA /* FenLeiCell.h */,
+				29FB3D0A1842476800EC43FA /* FenLeiCell.m */,
+				29FB3D0B1842476800EC43FA /* FenLeiCell.xib */,
+				29FB3D0C1842476800EC43FA /* FenLeiCell2.h */,
+				29FB3D0D1842476800EC43FA /* FenLeiCell2.m */,
+				29FB3D11184247DA00EC43FA /* FenLeiCell2.xib */,
+				29FB3CF41842446700EC43FA /* TypeCell.h */,
+				29FB3CF51842446700EC43FA /* TypeCell.m */,
+				29FB3CF61842446700EC43FA /* TypeCell.xib */,
+				29FB3CF71842446700EC43FA /* TypeClickCell.h */,
+				29FB3CF81842446700EC43FA /* TypeClickCell.m */,
+				29FB3CF91842446700EC43FA /* TypeClickCell.xib */,
+				29FB3CFA1842446700EC43FA /* whiteColor.png */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		9B19B8CE1841E433002EF846 /* dataFunc */ = {
 			isa = PBXGroup;
 			children = (
@@ -653,15 +705,22 @@
 		9BBB3354183E4E940014D2A4 /* YiPei */ = {
 			isa = PBXGroup;
 			children = (
+				29FB3CED1842446700EC43FA /* Cell */,
 				9B19B8CE1841E433002EF846 /* dataFunc */,
 				9BA1B5B1183F0AC100C1DB6D /* customTabBar */,
 				9BA1B5A9183EFE8600C1DB6D /* leveytabbar */,
 				9BBB3534183E6B200014D2A4 /* NetCommand */,
 				9BBB3397183E62CA0014D2A4 /* 切图640×960 */,
 				9BBB340D183E62CA0014D2A4 /* 切图320×480 */,
-				9BBB3392183E62700014D2A4 /* fenLeiViewController.h */,
-				9BBB3393183E62700014D2A4 /* fenLeiViewController.m */,
-				9BBB3394183E62700014D2A4 /* fenLeiViewController.xib */,
+				29FB3CE31842442400EC43FA /* FenLeiListViewController.h */,
+				29FB3CE41842442400EC43FA /* FenLeiListViewController.m */,
+				29FB3CE51842442400EC43FA /* FenLeiListViewController.xib */,
+				29FB3D04184246CB00EC43FA /* fenLeiViewController.h */,
+				29FB3D05184246CB00EC43FA /* fenLeiViewController.m */,
+				29FB3D06184246CB00EC43FA /* fenLeiViewController.xib */,
+				29FB3CE61842442400EC43FA /* GuolvViewController.h */,
+				29FB3CE71842442400EC43FA /* GuolvViewController.m */,
+				29FB3CE81842442400EC43FA /* GuolvViewController.xib */,
 				9BBB3388183E619A0014D2A4 /* pinPaiViewController.h */,
 				9BBB338D183E61D80014D2A4 /* cheXingViewController.h */,
 				9BBB338E183E61D80014D2A4 /* cheXingViewController.m */,
@@ -1109,6 +1168,7 @@
 				9BBB351C183E62CB0014D2A4 /* input_radio_press.png in Resources */,
 				9BBB3530183E62CB0014D2A4 /* topbtn_intercalate.png in Resources */,
 				9BBB3518183E62CB0014D2A4 /* input_choose_press.png in Resources */,
+				29FB3D12184247DA00EC43FA /* FenLeiCell2.xib in Resources */,
 				9BBB34A2183E62CB0014D2A4 /* icon_update@2x.png in Resources */,
 				9BBB34F8183E62CB0014D2A4 /* btn_sort.png in Resources */,
 				9BBB3478183E62CB0014D2A4 /* bg_number@2x.png in Resources */,
@@ -1121,6 +1181,7 @@
 				9BBB3501183E62CB0014D2A4 /* icon_arrow1_down.png in Resources */,
 				9BBB3480183E62CB0014D2A4 /* btn_car_ general@2x.png in Resources */,
 				9BBB346D183E62CB0014D2A4 /* bg_car_letter@2x.png in Resources */,
+				29FB3D08184246CB00EC43FA /* fenLeiViewController.xib in Resources */,
 				9BBB34B5183E62CB0014D2A4 /* menu_car_press@2x.png in Resources */,
 				9BBB349F183E62CB0014D2A4 /* icon_pay_press@2x.png in Resources */,
 				9BBB34B8183E62CB0014D2A4 /* menu_home@2x.png in Resources */,
@@ -1158,6 +1219,7 @@
 				9BBB34FE183E62CB0014D2A4 /* icon_add1.png in Resources */,
 				9BBB34A7183E62CB0014D2A4 /* icon_user_press@2x.png in Resources */,
 				9BBB3506183E62CB0014D2A4 /* icon_arrow_up.png in Resources */,
+				29FB3D021842446700EC43FA /* TypeClickCell.xib in Resources */,
 				9BBB3509183E62CB0014D2A4 /* icon_contact.png in Resources */,
 				9BBB3471183E62CB0014D2A4 /* bg_class2@2x.png in Resources */,
 				9BBB3488183E62CB0014D2A4 /* btn_sort1@2x.png in Resources */,
@@ -1169,6 +1231,7 @@
 				9BBB3467183E62CB0014D2A4 /* bg_brand_hot@2x.png in Resources */,
 				9BBB3504183E62CB0014D2A4 /* icon_arrow_down.png in Resources */,
 				9BBB34CC183E62CB0014D2A4 /* 分类-列表筛选(1).jpg in Resources */,
+				29FB3D031842446700EC43FA /* whiteColor.png in Resources */,
 				9BBB3494183E62CB0014D2A4 /* icon_arrow2_down@2x.png in Resources */,
 				9BBB3493183E62CB0014D2A4 /* icon_arrow1_up@2x.png in Resources */,
 				9BBB352A183E62CB0014D2A4 /* topbtn_back_press.png in Resources */,
@@ -1191,11 +1254,13 @@
 				9BBB34AF183E62CB0014D2A4 /* input_search_press@2x.png in Resources */,
 				9BBB3529183E62CB0014D2A4 /* topbtn_back.png in Resources */,
 				9BBB352D183E62CB0014D2A4 /* topbtn_cart_press.png in Resources */,
+				29FB3D0F1842476800EC43FA /* FenLeiCell.xib in Resources */,
 				9BBB34BE183E62CB0014D2A4 /* topbtn_car_press@2x.png in Resources */,
 				9BBB34A1183E62CB0014D2A4 /* icon_quit_press@2x.png in Resources */,
 				9BBB3505183E62CB0014D2A4 /* icon_arrow_gray.png in Resources */,
 				9BBB34D5183E62CB0014D2A4 /* 登录1.jpg in Resources */,
 				9BBB3510183E62CB0014D2A4 /* icon_quit_press.png in Resources */,
+				29FB3CEC1842442400EC43FA /* GuolvViewController.xib in Resources */,
 				9BBB34CA183E62CB0014D2A4 /* 分类-分类二级(1).jpg in Resources */,
 				9BBB3487183E62CB0014D2A4 /* btn_search_press@2x.png in Resources */,
 				9BBB34F0183E62CB0014D2A4 /* btn_car_ general.png in Resources */,
@@ -1225,15 +1290,16 @@
 				9BBB349A183E62CB0014D2A4 /* icon_contact@2x.png in Resources */,
 				9BBB34D3183E62CB0014D2A4 /* 品牌二级(1).jpg in Resources */,
 				9BBB3528183E62CB0014D2A4 /* menu_home_press.png in Resources */,
-				9BBB3396183E62700014D2A4 /* fenLeiViewController.xib in Resources */,
 				9BBB34EA183E62CB0014D2A4 /* bg_white.png in Resources */,
 				9BBB34F6183E62CB0014D2A4 /* btn_search.png in Resources */,
+				29FB3D001842446700EC43FA /* TypeCell.xib in Resources */,
 				9BBB3524183E62CB0014D2A4 /* menu_car_press.png in Resources */,
 				9BBB3523183E62CB0014D2A4 /* menu_car.png in Resources */,
 				9BBB3498183E62CB0014D2A4 /* icon_cart@2x.png in Resources */,
 				9BBB349C183E62CB0014D2A4 /* icon_home@2x.png in Resources */,
 				9BBB350E183E62CB0014D2A4 /* icon_pay_press.png in Resources */,
 				9BBB350D183E62CB0014D2A4 /* icon_pay.png in Resources */,
+				29FB3CEA1842442400EC43FA /* FenLeiListViewController.xib in Resources */,
 				9BBB34DE183E62CB0014D2A4 /* bg_brand_sort_press.png in Resources */,
 				9BBB34DB183E62CB0014D2A4 /* bg_brand_hot.png in Resources */,
 				9BBB34FC183E62CB0014D2A4 /* header_title.png in Resources */,
@@ -1295,19 +1361,25 @@
 				9B19B8D11841E468002EF846 /* todayMarketfunc.m in Sources */,
 				9BBB3381183E51910014D2A4 /* shouYeViewController.m in Sources */,
 				9BA1B5AE183EFE9D00C1DB6D /* LeveyTabBar.m in Sources */,
+				29FB3CFF1842446700EC43FA /* TypeCell.m in Sources */,
+				29FB3D07184246CB00EC43FA /* fenLeiViewController.m in Sources */,
+				29FB3CE91842442400EC43FA /* FenLeiListViewController.m in Sources */,
+				29FB3CEB1842442400EC43FA /* GuolvViewController.m in Sources */,
 				9BBB3550183E6BCE0014D2A4 /* ASIInputStream.m in Sources */,
 				9BBB3390183E61D80014D2A4 /* cheXingViewController.m in Sources */,
 				9BBB354D183E6BCE0014D2A4 /* ASIDownloadCache.m in Sources */,
 				9BBB354B183E6BCE0014D2A4 /* ASIDataCompressor.m in Sources */,
+				29FB3D011842446700EC43FA /* TypeClickCell.m in Sources */,
 				9BBB338B183E619A0014D2A4 /* pinPaiViewController.m in Sources */,
 				9BBB3555183E6C2A0014D2A4 /* model.m in Sources */,
 				9B11EAFC1840ADA4001F94A7 /* NetConfig.m in Sources */,
+				29FB3D0E1842476800EC43FA /* FenLeiCell.m in Sources */,
 				9BA1B5C4183F12FD00C1DB6D /* CustomTabBar.m in Sources */,
+				29FB3D101842476800EC43FA /* FenLeiCell2.m in Sources */,
 				9B11EAFF1840AF1F001F94A7 /* JSONKit.m in Sources */,
 				9B11EAF91840AC7E001F94A7 /* NetCommand.m in Sources */,
 				9BBB354F183E6BCE0014D2A4 /* ASIHTTPRequest.m in Sources */,
 				9BA1B5AF183EFE9D00C1DB6D /* LeveyTabBarController.m in Sources */,
-				9BBB3395183E62700014D2A4 /* fenLeiViewController.m in Sources */,
 				9BBB354C183E6BCE0014D2A4 /* ASIDataDecompressor.m in Sources */,
 				9BA1B5A0183EFB0800C1DB6D /* Reachability.m in Sources */,
 				9BBB335F183E4E940014D2A4 /* AppDelegate.m in Sources */,
