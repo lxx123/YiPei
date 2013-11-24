@@ -21,4 +21,10 @@
 - (void)hideRealTabBar;
 
 - (void)customTabBar;
+
+//将自定义的tabbar显示出来
+- (void)bringCustomTabBarToFront;
+//隐藏自定义tabbar
+- (void)hideCustomTabBar;
+
 @end
