@@ -15,6 +15,7 @@
 
 //@synthesize callback=_callback;
 
+
 - (void)getTodayMarket:(NSString *)index;
 {
     NetCommand *command = [[NetCommand alloc] init];
