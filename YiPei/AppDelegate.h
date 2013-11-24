@@ -27,4 +27,5 @@
 @property (strong, nonatomic) UINavigationController *pinPaiNavCtrl;
 @property (strong, nonatomic) UINavigationController *cheXingNavCtrl;
 
++(AppDelegate *)shsharedeApp;
 @end
