@@ -173,7 +173,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.isOpen&&self.selectIndex.section == indexPath.section&&indexPath.row!=0) {
-        static NSString *CellIdentifier = @"Cell2";
+        static NSString *CellIdentifier = @"FenLeiCell2";
         FenLeiCell2 *cell = (FenLeiCell2*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         if (!cell) {
@@ -194,7 +194,7 @@
         return cell;
     }else
     {
-        static NSString *CellIdentifier = @"Cell1";
+        static NSString *CellIdentifier = @"FenLeiCell";
         FenLeiCell *cell = (FenLeiCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil] objectAtIndex:0];
