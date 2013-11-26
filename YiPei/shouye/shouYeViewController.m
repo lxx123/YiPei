@@ -8,7 +8,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "shouYeViewController.h"
 #import "model.h"
-#import "todayMarketfunc.h"
+#import "todayDiscountFunc.h"
 #import "ProductDetailsViewController.h"
 
 
@@ -18,7 +18,7 @@
 @end
 
 @implementation shouYeViewController
-@synthesize todayMarket=_todayMarket;
+@synthesize todayDiscount=_todayDiscount;
 @synthesize tableview=_tableview;
 @synthesize personalInfoView=_personalInfoView;
 @synthesize searchView=_searchView;
@@ -64,6 +64,9 @@
 
 @synthesize leftitem=_leftitem;
 @synthesize rightitem=_rightitem;
+
+@synthesize todayNewData=_todayNewData;
+@synthesize todayDisCountArray =_todayDisCountArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -116,16 +119,43 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    _todayMarket = [[todayMarketfunc alloc] init];
-    _todayMarket.delegate = self;
-    [_todayMarket getTodayMarket:@"0"];
+    _todayDiscount = [[todayDiscountFunc alloc] init];
+    _todayDiscount.delegate = self;
+    [_todayDiscount getTodayDiscount:@"0" Index:@"0" sortPrice:@"0" sortSale:@"0"];
 }
-- (void) didDataSuccess : (NSString *)data
+- (void) didTodayDiscountDataSuccess : (id)data
 {
     NSLog(@"shouYeViewController:didDataSuccess!");
+    NSArray *trans = (NSArray *)data;
+    NSArray *disCount = [trans objectAtIndex:0];
+    _todayDisCountArray = [[NSMutableArray alloc] init];
+    for (int i=0; i<disCount.count;i++ ) {
+        todayDiscountGoods *goods = [[todayDiscountGoods alloc] init];
+        goods.min_price = [[disCount objectAtIndex:i]objectForKey:@"min_price"];    //最低价格
+        goods.market_price = [[disCount objectAtIndex:i]objectForKey:@"market_price"]; //商品原价
+        goods.goods_id = [[disCount objectAtIndex:i]objectForKey:@"goods_id"];     //商品id
+        goods.goods_sn = [[disCount objectAtIndex:i]objectForKey:@"goods_sn"];     //商品编号
+        goods.goods_name = [[disCount objectAtIndex:i]objectForKey:@"goods_name"];   //商品名称
+        goods.goods_sale_amount = [[disCount objectAtIndex:i]objectForKey:@"goods_sale_amount"];//商品销售量
+        goods.goods_format = [[disCount objectAtIndex:i]objectForKey:@"goods_format"];
+        goods.goodsAttrs = [[disCount objectAtIndex:i]objectForKey:@"goodsAttrs"];//商品属性（有多个），基本数据结构如下
+        [_todayDisCountArray addObject:goods];
+    }
+    @try {
+        NSDictionary* newDic =  [trans objectAtIndex:1];
+        _todayNewData = [[todayNew alloc]init];
+        _todayNewData.goods_id = [newDic objectForKey:@"goods_id"];
+        _todayNewData.goods_name = [newDic objectForKey:@"goods_name"];
+        _todayNewData.goods_sn = [newDic objectForKey:@"goods_sn"];
+        _todayNewData.market_price = [newDic objectForKey:@"market_price"];
+        _todayNewData.min_price = [newDic objectForKey:@"min_price"];
+        
+    }@catch (NSException *e) {
+        NSLog(@"didTodayDiscountDataSuccess err=%@",e);
+    }
 }
 
-- (void) didDataFailed : (NSString *)err
+- (void) didTodayDiscountDataFailed:(NSString *)err
 {
     NSLog(@"shouYeViewController:didDataFailed!");
 }
@@ -292,9 +322,9 @@
     label.textColor=[UIColor darkGrayColor];
     [headerView addSubview:label];
     if (section==0) {
-        label.text=@"今天特价";
-    }else{
         label.text=@"今天发布";
+    }else{
+        label.text=@"今天特价";
     }
     return headerView;
 }
@@ -303,7 +333,7 @@
     if (section==0) {
         return 1;
     }else if (section==1){
-        return 10;
+        return _todayDisCountArray.count;
     }
     return 0;
 }
@@ -321,19 +351,41 @@
         spcell=[nib objectAtIndex:0];
         [cell addSubview:spcell];
     }
+    NSString *name;
+    NSString *xingHao;
+    NSString *yuanjia;
+    NSString *price;
+    NSString *imageUrl;
+    if (indexPath.section  == 0) {
+        name = _todayNewData.goods_name;
+        xingHao = _todayNewData.goods_format;
+        yuanjia = _todayNewData.market_price;
+        price = _todayNewData.min_price;
+//        imageUrl = _todayNewData.
+    }
+    else if(indexPath.section == 1)
+    {
+        todayDiscountGoods *goods = [_todayDisCountArray objectAtIndex:indexPath.row];
+        name = goods.goods_name;
+        xingHao = goods.goods_format;
+        price = goods.min_price;
+    }
+//    NSImage *image = [[NSImage alloc]initWithContentsOfURL:(NSURL *)];
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+//    
     UILabel *NameLa=(UILabel *)[spcell viewWithTag:2];
-    NameLa.text=@"MANN 空气滤清器";
+    NameLa.text=name;//@"MANN 空气滤清器";
     NameLa.textColor=[UIColor blackColor];
     NameLa.font=[UIFont systemFontOfSize:15.0f];
     UILabel *xingHaoLa=(UILabel *)[spcell viewWithTag:3];
-    xingHaoLa.text=@"美孚（ow-40）sn 1l装";
+    xingHaoLa.text=xingHao;//@"美孚（ow-40）sn 1l装";
     xingHaoLa.textColor=[UIColor darkGrayColor];
     xingHaoLa.font=[UIFont systemFontOfSize:14.0f];
     
     
     UILabel *yuanPrice=(UILabel *)[spcell viewWithTag:5];
     yuanPrice.frame=CGRectMake(yuanPrice.frame.origin.x, 18, yuanPrice.frame.size.width, yuanPrice.frame.size.height);
-    yuanPrice.text=@"¥92.00";
+    yuanPrice.text=yuanjia;//@"¥92.00";
     yuanPrice.hidden=NO;
     yuanPrice.textColor=[UIColor darkGrayColor];
     yuanPrice.font=[UIFont systemFontOfSize:14.0f];
@@ -344,15 +396,26 @@
         priceLabel.frame=CGRectMake(priceLabel.frame.origin.x, 42, priceLabel.frame.size.width, priceLabel.frame.size.height);
     }
     priceLabel.hidden=NO;
-    priceLabel.text=@"¥100.00";
+    priceLabel.text=price;//@"¥100.00";
     priceLabel.textColor=[UIColor redColor];
     priceLabel.font=[UIFont systemFontOfSize:15.0f];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ProductDetailsViewController *ProductVc=[[ProductDetailsViewController alloc]initWithNibName:@"ProductDetailsViewController" bundle:nil];
-    [self.navigationController pushViewController:ProductVc animated:YES];
+    if (indexPath.section == 0)
+    {
+        
+    }
+    else if(indexPath.section == 1)
+    {
+        ProductDetailsViewController *ProductVc=[[ProductDetailsViewController alloc]initWithNibName:@"ProductDetailsViewController" bundle:nil];
+        NSLog(@"section=%d,index=%d",indexPath.section,indexPath.row);
+        todayDiscountGoods *goods = [_todayDisCountArray objectAtIndex:indexPath.row];
+        ProductVc.pid = goods.goods_id;
+        [self.navigationController pushViewController:ProductVc animated:YES];
+    }
+
 }
 
 

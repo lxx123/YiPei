@@ -9,12 +9,10 @@
 
 @implementation NetCommand
 
-//@synthesize state;
 @synthesize data;
 @synthesize errorCode;
 @synthesize errorMsg;
 
-//@synthesize cmdUrl;
 @synthesize paramDict;
 @synthesize isComplete;
 
@@ -53,43 +51,59 @@
 //	[reqUrl appendString:cmdUrl];
 	
 	if ([paramDict count] > 0) {
-		BOOL isFirst = TRUE;
+//		BOOL isFirst = TRUE;
 		NSArray *allkeys = [paramDict allKeys];
-		if ([[[UIDevice currentDevice] systemVersion] doubleValue] < 4.0){
+//		if ([[[UIDevice currentDevice] systemVersion] doubleValue] < 4.0){
 			
 //			NSSortDescriptor *sd1 = [[NSSortDescriptor alloc] initWithKey:@"self" ascending:NO];
 //			NSArray *arrSort = [allkeys sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sd1, nil]];
-//			
+//
+            [reqUrl appendString:@"?"];
+            
+            [reqUrl appendString:@"m"];
+            [reqUrl appendString:@"="];
+            [reqUrl appendString:[paramDict valueForKey:@"m"]];
+        
+            [reqUrl appendString:@"&"];
+
+            [reqUrl appendString:@"a"];
+            [reqUrl appendString:@"="];
+            [reqUrl appendString:[paramDict valueForKey:@"a"]];
+            
 			for (NSString *key in allkeys) {
-                if (isFirst) {
-					isFirst = FALSE;
-					[reqUrl appendString:@"?"];
-				} else {
-					[reqUrl appendString:@"&"];
-				}
-				[reqUrl appendString:key];
-				[reqUrl appendString:@"="];
-				[reqUrl appendString:[paramDict valueForKey:key]];
+//                if (isFirst) {
+//					isFirst = FALSE;
+//					[reqUrl appendString:@"?"];
+//				} else {
+//					[reqUrl appendString:@"&"];
+//				}
+                if (![key isEqualToString:@"m"] && ![key isEqualToString:@"m"]) {
+                    [reqUrl appendString:@"&"];
+                    [reqUrl appendString:key];
+                    [reqUrl appendString:@"="];
+                    [reqUrl appendString:[paramDict valueForKey:key]];
+                }
+
 			}
-			NSLog(@"1111111111111111111111111111111");
-		}else {
+//			NSLog(@"1111111111111111111111111111111");
+//		}else {
 //			NSSortDescriptor *sd1 = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:NO];
 //			NSArray *arrSort = [allkeys sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sd1, nil]];
 //			NSLog(@"222222222222222222222222222222");
-			for (NSString *key in allkeys) {
-				if (isFirst) {
-					isFirst = FALSE;
-					[reqUrl appendString:@"?"];
-				} else {
-					[reqUrl appendString:@"&"];
-				}
-				[reqUrl appendString:key];
-				[reqUrl appendString:@"="];
-				[reqUrl appendString:[paramDict valueForKey:key]];
-			}
-		}
+//			for (NSString *key in allkeys) {
+//				if (isFirst) {
+//					isFirst = FALSE;
+//					[reqUrl appendString:@"?"];
+//				} else {
+//					[reqUrl appendString:@"&"];
+//				}
+//				[reqUrl appendString:key];
+//				[reqUrl appendString:@"="];
+//				[reqUrl appendString:[paramDict valueForKey:key]];
+//			}
+//		}
 
-}
+    }
 
 
     NSLog(@"reqUrl = %@", reqUrl);
