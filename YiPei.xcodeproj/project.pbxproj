@@ -76,6 +76,7 @@
 		9B22542A1844428600E5776F /* goodInfoDetailFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2254291844428600E5776F /* goodInfoDetailFunc.m */; };
 		9B22542D184444C500E5776F /* lowPriceFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B22542C184444C500E5776F /* lowPriceFunc.m */; };
 		9B22543018444DBD00E5776F /* fenLeiFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B22542F18444DBD00E5776F /* fenLeiFunc.m */; };
+		9B2254331844FB1600E5776F /* UIHTTPImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2254311844FB1600E5776F /* UIHTTPImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9BA1B5A2183EFB3500C1DB6D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA1B5A1183EFB3500C1DB6D /* CFNetwork.framework */; };
 		9BA1B5A4183EFB8300C1DB6D /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA1B5A3183EFB8300C1DB6D /* libz.1.2.5.dylib */; };
 		9BA1B5A6183EFB8F00C1DB6D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA1B5A5183EFB8F00C1DB6D /* SystemConfiguration.framework */; };
@@ -422,6 +423,8 @@
 		9B22542C184444C500E5776F /* lowPriceFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lowPriceFunc.m; sourceTree = "<group>"; };
 		9B22542E18444DBD00E5776F /* fenLeiFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fenLeiFunc.h; sourceTree = "<group>"; };
 		9B22542F18444DBD00E5776F /* fenLeiFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fenLeiFunc.m; sourceTree = "<group>"; };
+		9B2254311844FB1600E5776F /* UIHTTPImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIHTTPImageView.m; sourceTree = "<group>"; };
+		9B2254321844FB1600E5776F /* UIHTTPImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIHTTPImageView.h; sourceTree = "<group>"; };
 		9BA1B5A1183EFB3500C1DB6D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9BA1B5A3183EFB8300C1DB6D /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		9BA1B5A5183EFB8F00C1DB6D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -813,6 +816,8 @@
 		9B2253F61843784D00E5776F /* NetCommand */ = {
 			isa = PBXGroup;
 			children = (
+				9B2254311844FB1600E5776F /* UIHTTPImageView.m */,
+				9B2254321844FB1600E5776F /* UIHTTPImageView.h */,
 				9B2253F71843784D00E5776F /* ASIHTTPRequest */,
 				9B22540C1843784D00E5776F /* command */,
 				9B2254141843784D00E5776F /* JSONKit.h */,
@@ -1573,6 +1578,7 @@
 				9B22541E1843784D00E5776F /* ASIInputStream.m in Sources */,
 				0A7D0B0618423EA20015C6F1 /* Cell1.m in Sources */,
 				9B22541B1843784D00E5776F /* ASIDownloadCache.m in Sources */,
+				9B2254331844FB1600E5776F /* UIHTTPImageView.m in Sources */,
 				9B2253E41843781400E5776F /* FenLeiCell2.m in Sources */,
 				9B2253E81843781400E5776F /* TypeClickCell.m in Sources */,
 				0A7D0B0D18423EA20015C6F1 /* shouYeViewController.m in Sources */,

@@ -5,7 +5,8 @@
 //  Created by lee on 13-11-21.
 //  Copyright (c) 2013年 lee. All rights reserved.
 //
-
+#import "model.h"
+#import "fenLeiFunc.h"
 #import "fenLeiViewController.h"
 
 #import "FenLeiListViewController.h"
@@ -32,6 +33,7 @@
 @synthesize fenLeiTableView = _fenLeiTableView;
 @synthesize fenLeiDataArray = _fenLeiDataArray;
 
+@synthesize feiLFunction=_feiLFunction;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,6 +47,84 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    _feiLFunction = [[fenLeiFunc alloc] init];
+    _feiLFunction.delegateGoodsCateByPid = self;
+    [_feiLFunction getGoodsCateByPid:@"0"];
+}
+
+- (void) didGoodsCategoryByPidDataSuccess : (id)data
+{
+    NSLog(@"didGoodsCategoryByPidDataSuccess!");
+    self.isOpen = NO;
+    
+    NSArray *cbData = (NSArray *)data;
+    _fenLeiDataArray = [[NSMutableArray alloc] init];
+    NSMutableDictionary * dic ;
+    NSMutableArray  * arry;
+    
+    for (int i=0; i<cbData.count; i++) {
+        if (i==0) {
+            arry = [[NSMutableArray alloc] initWithObjects: nil];
+            dic = [[NSMutableDictionary alloc] init];
+            [dic setValue:@"全部分类" forKey:@"name"];
+            [_fenLeiDataArray addObject:dic];
+            continue;
+        }
+        arry = [[NSMutableArray alloc] init];
+        dic = [[NSMutableDictionary alloc] init];
+        [dic setValue:arry forKey:[[NSString alloc] initWithFormat:@"%d",i]];
+        [dic setValue:[[cbData objectAtIndex:i] objectForKey:@"cat_name"] forKey:@"name"];
+        [dic setValue:[[cbData objectAtIndex:i] objectForKey:@"cat_id"] forKey:@"cat_id"];
+        [dic setValue:[[cbData objectAtIndex:i] objectForKey:@"category_img"] forKey:@"category_img"];
+
+        [_fenLeiDataArray addObject:dic];
+
+    }
+
+//    [dic setValue:arry forKey:@"0"];
+//    [_fenLeiDataArray addObject:dic];
+//    
+//    arry = [[NSMutableArray alloc] init];
+//    dic = [[NSMutableDictionary alloc] init];
+//    [dic setValue:arry forKey:@"1"];
+//    [dic setValue:@"第一" forKey:@"name"];
+//    [_fenLeiDataArray addObject:dic];
+//    
+//    arry = [[NSMutableArray alloc] initWithObjects:@"21",@"22",@"23", nil];
+//    dic = [[NSMutableDictionary alloc] init];
+//    [dic setValue:@"第二" forKey:@"name"];
+//    
+//    [dic setValue:arry forKey:@"2"];
+//    [_fenLeiDataArray addObject:dic];
+//    
+//    arry = [[NSMutableArray alloc] initWithObjects:@"31",@"32",@"33", nil];
+//    dic = [[NSMutableDictionary alloc] init];
+//    [dic setValue:@"第三" forKey:@"name"];
+//    
+//    [dic setValue:arry forKey:@"3"];
+//    [_fenLeiDataArray addObject:dic];
+//    
+//    arry = [[NSMutableArray alloc] initWithObjects:@"41",@"42",@"43", nil];
+//    dic = [[NSMutableDictionary alloc] init];
+//    [dic setValue:@"第四" forKey:@"name"];
+//    
+//    [dic setValue:arry forKey:@"4"];
+//    [_fenLeiDataArray addObject:dic];
+    
+    [_fenLeiTableView reloadData];
+    _fenLeiTableView.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
+
+}
+
+- (void) didGoodsCategoryByPidDataFailed : (NSString *)err
+{
+    NSLog(@"shouYeViewController:didDataFailed!");
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -53,48 +133,6 @@
     [self initRightBarButtonItem];
    
     
-    self.isOpen = NO;
-    
-    _fenLeiDataArray = [[NSMutableArray alloc] init];
-    NSMutableDictionary * dic ;
-    NSMutableArray  * arry;
-    
-    arry = [[NSMutableArray alloc] initWithObjects: nil];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"全部分类" forKey:@"name"];
-    
-    [dic setValue:arry forKey:@"0"];
-    [_fenLeiDataArray addObject:dic];
-    
-    arry = [[NSMutableArray alloc] initWithObjects:@"11",@"12",@"13", nil];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:arry forKey:@"1"];
-    [dic setValue:@"第一" forKey:@"name"];
-    [_fenLeiDataArray addObject:dic];
-    
-    arry = [[NSMutableArray alloc] initWithObjects:@"21",@"22",@"23", nil];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"第二" forKey:@"name"];
-
-    [dic setValue:arry forKey:@"2"];
-    [_fenLeiDataArray addObject:dic];
-    
-    arry = [[NSMutableArray alloc] initWithObjects:@"31",@"32",@"33", nil];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"第三" forKey:@"name"];
-
-    [dic setValue:arry forKey:@"3"];
-    [_fenLeiDataArray addObject:dic];
-    
-    arry = [[NSMutableArray alloc] initWithObjects:@"41",@"42",@"43", nil];
-    dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:@"第四" forKey:@"name"];
-
-    [dic setValue:arry forKey:@"4"];
-    [_fenLeiDataArray addObject:dic];
-    
-     [_fenLeiTableView reloadData];
-    _fenLeiTableView.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
 
 }
 -(void)initLeftBarButtonItem{
@@ -188,8 +226,10 @@
 
         NSArray *list = [dic objectForKey:str];
      
-        
-        cell.titleLabel.text = [list objectAtIndex:indexPath.row-1];
+        NSLog(@"%d",indexPath.row-1);
+//
+        NSDictionary* category = (NSDictionary*)[list objectAtIndex:indexPath.row-1];
+        cell.titleLabel.text = [category objectForKey:@"cat_name"];
         cell.titleLabel.textColor = [UIColor colorWithRed:129/255.0 green:129/255.0 blue:129/255.0 alpha:1.0];
         return cell;
     }else
@@ -215,9 +255,16 @@
         NSString *name = [dic objectForKey:@"name"];
         cell.titleLabel.text = name;
         cell.titleLabel.textColor = [UIColor colorWithRed:129/255.0 green:129/255.0 blue:129/255.0 alpha:1.0];
-        UIImage * image =[UIImage imageNamed:@"bg_brand_hot.png"];
-       
-        
+        UIImage * image;
+        NSString *imageurl = [dic objectForKey:@"category_img"];
+        if (![imageurl isEqualToString:@""]) {
+            image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageurl]]];
+        }
+        else
+        {
+            image =[UIImage imageNamed:@"bg_brand_hot.png"];
+        }
+    
         [cell showImage:image];
         [cell changeArrowWithUp:([self.selectIndex isEqual:indexPath]?YES:NO)];
         return cell;
@@ -278,9 +325,13 @@
     NSString * str = [NSString stringWithFormat:@"%i",self.selectIndex.section +1];
     NSMutableDictionary * dic =[_fenLeiDataArray objectAtIndex:self.selectIndex.section+1];
    
-    NSMutableArray * array =[dic objectForKey:str];
-    
+    NSArray * array = [dic objectForKey:str];
+    if (array.count == 0) {
+        array = [_feiLFunction getGoodsSubCateByPId:[dic objectForKey:@"cat_id"]];
+        [dic setValue:array forKey:str];
+    }
     int contentCount = [array count];
+    
 	NSMutableArray* rowToInsert = [[NSMutableArray alloc] init];
 	for (NSUInteger i = 1; i < contentCount + 1; i++) {
 		NSIndexPath* indexPathToInsert = [NSIndexPath indexPathForRow:i inSection:section];

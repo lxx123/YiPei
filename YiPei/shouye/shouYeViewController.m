@@ -355,11 +355,13 @@
     NSString *xingHao;
     NSString *yuanjia;
     NSString *price;
+    NSString *imageUrl;
     if (indexPath.section  == 0) {
         name = _todayNewData.goods_name;
         xingHao = _todayNewData.goods_format;
         yuanjia = _todayNewData.market_price;
         price = _todayNewData.min_price;
+//        imageUrl = _todayNewData.
     }
     else if(indexPath.section == 1)
     {
@@ -368,6 +370,9 @@
         xingHao = goods.goods_format;
         price = goods.min_price;
     }
+//    NSImage *image = [[NSImage alloc]initWithContentsOfURL:(NSURL *)];
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+//    
     UILabel *NameLa=(UILabel *)[spcell viewWithTag:2];
     NameLa.text=name;//@"MANN 空气滤清器";
     NameLa.textColor=[UIColor blackColor];

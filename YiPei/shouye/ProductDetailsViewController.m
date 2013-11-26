@@ -79,6 +79,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     _goodInfoFunc = [[goodInfoDetailFunc alloc] init];
     _goodInfoFunc.delegate = self;
     [_goodInfoFunc getGoodInfoDetail:_pid];

@@ -40,5 +40,6 @@
 - (void)getGoodsAllBrand:(NSString *)firstLetter sortBy:(NSString *)sort;//是否按照首字母排序升序排列（0：否1：是）
 - (void)getGoodsAllBrand:(NSString *)firstLetter;
 
+- (NSArray *)getGoodsSubCateByPId:(NSString *)pid;
 
 @end
