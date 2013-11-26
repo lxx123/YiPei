@@ -85,6 +85,7 @@
     model.value = @"100";
     [fenLeiListArray addObject:model];
     
+    _smallTableView.delegate = self;
     [_fenLeiListTableView reloadData];
     _fenLeiListTableView.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
     _smallTableView.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];

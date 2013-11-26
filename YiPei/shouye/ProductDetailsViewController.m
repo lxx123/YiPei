@@ -13,6 +13,10 @@
 #import "Cell2.h"
 #import "AppDelegate.h"
 #import "CustomTabBar.h"
+
+#import "goodInfoDetailFunc.h"
+#import "model.h"
+
 @interface ProductDetailsViewController (){
     float scrollheight;
     float AdditionHeight;
@@ -58,6 +62,9 @@
 @synthesize leftitem=_leftitem;
 @synthesize rightitem=_rightitem;
 
+@synthesize goodInfoFunc=_goodInfoFunc;
+@synthesize pid=_pid;
+@synthesize guiGeArray=_guiGeArray;
 
 @synthesize isOpen,selectIndex;
 
@@ -70,10 +77,66 @@
     return self;
 }
 
-
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    _goodInfoFunc = [[goodInfoDetailFunc alloc] init];
+    _goodInfoFunc.delegate = self;
+    [_goodInfoFunc getGoodInfoDetail:_pid];
+
+}
+
+- (void) didGoodsInfoDataSuccess : (id)data;
+{
+    NSLog(@"didGoodsInfoDataSuccess");
+    _info = [[GoodsInfo alloc] init];
+    
+    _info.min_price = [data objectForKey:@"min_price"];
+    _info.market_price = [data objectForKey:@"market_price"];
+    _info.goods_id = [data objectForKey:@"goods_id"];
+    _info.goods_sn = [data objectForKey:@"goods_sn"];
+    _info.goods_barcode = [data objectForKey:@"goods_barcode"];
+    _info.goods_format = [data objectForKey:@"goods_format"];
+    _info.goods_name = [data objectForKey:@"min_price"];
+    _info.goods_brief = [data objectForKey:@"goods_name"];
+    _info.goods_desc = [data objectForKey:@"goods_desc"];
+    _info.goods_sale_amount = [data objectForKey:@"goods_sale_amount"];
+    _info.goods_attrs = [data objectForKey:@"goods_attrs"];
+    
+    _info.package_format = [data objectForKey:@"package_format"];
+    _info.brand_name = [data objectForKey:@"brand_name"];
+    _info.measure_unit = [data objectForKey:@"measure_unit"];
+    _info.product_company = [data objectForKey:@"product_company"];
+    _info.original_img = [data objectForKey:@"original_img"];
+    _info.goods_car = [data objectForKey:@"goods_car"];
+    _info.service_after_title = [data objectForKey:@"service_after_title"];
+    _info.service_after_content = [data objectForKey:@"service_after_content"];
+    _info.slogan_title = [data objectForKey:@"slogan_title"];
+    _info.slogan_content = [data objectForKey:@"slogan_content"];
+    _info.goods_gallery = [data objectForKey:@"goods_gallery"];
+//    _info.volume_price = [data objectForKey:@"vo"]//等待补充
+    
+    _nameLabel.text = _info.goods_name;
+    _jianJieLabel.text = _info.goods_brief;
+    _NowPrice.text = _info.min_price;
+    
+    if ([_info.market_price isEqualToString:@""]) {
+        _yuanPrice.text=@"";
+    }
+    else
+    {
+        _yuanPrice.text = [[NSString alloc] initWithFormat:@"原价: %@",_info.market_price];
+    }
+//    if ([_info.goods_sale_amount isEqualToString:@""]) {
+//        _chengJiaoLiangLa.text=@"";
+//    }
+//    else
+//    {
+//        _chengJiaoLiangLa.text = [[NSString alloc] initWithFormat:@"销售量: %@",_info.goods_sale_amount];
+//    }
+    
+    _guiGeArray = _info.goods_attrs;
+    sheHeCheXingArray = _info.goods_car;
+    
     AppDelegate *app=[AppDelegate shsharedeApp];
     [app.tabBarController hideCustomTabBar];
     scrollheight=448;
@@ -115,14 +178,13 @@
     _detailedTable.rowHeight=40.f;
     _detailedTable.scrollEnabled=NO;
     _detailedTable.backgroundColor=[UIColor clearColor];
-    infoArray=[[NSArray alloc]initWithObjects:@"适用车型",@"售后服务",@"买汽车配件，我只上淘气猫", nil];
-    sheHeCheXingArray=[[NSArray alloc]initWithObjects:@"1",@"2",@"3", nil];
+    infoArray=[[NSArray alloc]initWithObjects:@"适用车型",_info.service_after_title,_info.slogan_title, nil];
     [_detailedTable reloadData];
     scrollheight=scrollheight+_detailedTable.frame.size.height+10;
     
-//    _butView.frame=CGRectMake(0, scrollheight, 320, 45);
-//    butViewY=_butView.frame.origin.y;
-//    scrollheight=scrollheight+_butView.frame.size.height;
+    //    _butView.frame=CGRectMake(0, scrollheight, 320, 45);
+    //    butViewY=_butView.frame.origin.y;
+    //    scrollheight=scrollheight+_butView.frame.size.height;
     _contenrBack.frame=CGRectMake(0, 0, 320, scrollheight);
     BackY=_contenrBack.frame.origin.y;
     
@@ -132,6 +194,17 @@
     [_ContenrScroll addSubview:_guiGeView];
     [_ContenrScroll addSubview:_detailedTable];
     [self.view addSubview:_butView];
+
+}
+- (void) didGoodsInfoDataFailed : (NSString *)err
+{
+    NSLog(@"didGoodsInfoDataFailed");
+
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
 
     
 }
@@ -265,7 +338,7 @@
             canShuLabel.backgroundColor=[UIColor clearColor];
             canShuLabel.textColor=[UIColor lightGrayColor];
             canShuLabel.font=[UIFont systemFontOfSize:14.0f];
-            canShuLabel.text=@"商品编码";
+//            canShuLabel.text=@"商品编码";
             canShuLabel.tag=1;
             [cell addSubview:canShuLabel];
             
@@ -274,13 +347,16 @@
             canShuZhi.backgroundColor=[UIColor clearColor];
             canShuZhi.textColor=[UIColor darkGrayColor];
             canShuZhi.font=[UIFont systemFontOfSize:14.0f];
-            canShuZhi.text=@"e120f700002";
+//            canShuZhi.text=@"e120f700002";
             [cell addSubview:canShuZhi];
         }
         UILabel *canshu=(UILabel *)[cell viewWithTag:1];
-        canshu.text=@"商品编码";
+        
+        goodsAttr *attr = [_guiGeArray objectAtIndex:indexPath.row];
+        
+        canshu.text = attr.attr_name;
         UILabel *canshuzhi=(UILabel *)[cell viewWithTag:2];
-        canshuzhi.text=@"e120f700002";
+        canshuzhi.text=attr.attr_value;
         return cell;
     }
     return nil;

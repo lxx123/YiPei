@@ -8,21 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol dataProcessProtocol <NSObject>
+@protocol dataTodayNewProcessProtocol <NSObject>
 @required
-- (void) didTodayMarketDataSuccess : (NSString *)data;
-- (void) didTodayMarketDataFailed : (NSString *)err;
+- (void) didTodayNewDataSuccess : (id)data;
+- (void) didTodayNewDataFailed : (NSString *)err;
 @end
 
 @protocol dataTodayDiscountProcessProtocol <NSObject>
 @required
-- (void) didTodayDiscountDataSuccess : (NSString *)data;
+- (void) didTodayDiscountDataSuccess : (id)data;
 - (void) didTodayDiscountDataFailed : (NSString *)err;
 @end
 
 @protocol dataGoodsInfoProcessProtocol <NSObject>
 @required
-- (void) didGoodsInfoDataSuccess : (NSString *)data;
+- (void) didGoodsInfoDataSuccess : (id)data;
 - (void) didGoodsInfoDataFailed : (NSString *)err;
 
 @end
@@ -36,20 +36,20 @@
 
 @protocol dataUploadImagedProcessProtocol <NSObject>
 @required
-- (void) didUploadImageDataSuccess : (NSString *)data;
+- (void) didUploadImageDataSuccess : (id)data;
 - (void) didUploadImageDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataLowPriceNotifyProcessProtocol <NSObject>
 @required
-- (void) didLowPriceNotifyDataSuccess : (NSString *)data;
+- (void) didLowPriceNotifyDataSuccess : (id)data;
 - (void) didLowPriceNotifyDataFailed : (NSString *)err;
 @end
 
 @protocol dataLoadCarInfoByPidProcessProtocol <NSObject>
 @required
-- (void) didLoadCarInfoByPidDataSuccess : (NSString *)data;
+- (void) didLoadCarInfoByPidDataSuccess : (id)data;
 - (void) didLoadCarInfoByPidDataFailed : (NSString *)err;
 
 @end
@@ -57,105 +57,105 @@
 
 @protocol dataLoadCarInfoByLevelProcessProtocol <NSObject>
 @required
-- (void) didLoadCarInfoByLevelDataSuccess : (NSString *)data;
+- (void) didLoadCarInfoByLevelDataSuccess : (id)data;
 - (void) didLoadCarInfoByLevelDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataGoodsCategoryByPidProcessProtocol <NSObject>
 @required
-- (void) didGoodsCategoryByPidDataSuccess : (NSString *)data;
+- (void) didGoodsCategoryByPidDataSuccess : (id)data;
 - (void) didGoodsCategoryByPidDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataGoodsAllBrandProcessProtocol <NSObject>
 @required
-- (void) didGoodsAllBrandDataSuccess : (NSString *)data;
+- (void) didGoodsAllBrandDataSuccess : (id)data;
 - (void) didGoodsAllBrandDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataGoodsListProcessProtocol <NSObject>
 @required
-- (void) didGoodsListDataSuccess : (NSString *)data;
+- (void) didGoodsListDataSuccess : (id)data;
 - (void) didGoodsListDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataFilterAttrByCateProcessProtocol <NSObject>
 @required
-- (void) didFilterAttrByCateDataSuccess : (NSString *)data;
+- (void) didFilterAttrByCateDataSuccess : (id)data;
 - (void) didFilterAttrByCateDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataGoodsCarModelByCateProcessProtocol <NSObject>
 @required
-- (void) didGoodsCarModelByCateDataSuccess : (NSString *)data;
+- (void) didGoodsCarModelByCateDataSuccess : (id)data;
 - (void) didGoodsCarModelByCateatDaFailed : (NSString *)err;
 
 @end
 
 @protocol dataGoodsCategoryByBrandProcessProtocol <NSObject>
 @required
-- (void) didGoodsCategoryByBrandDataSuccess : (NSString *)data;
+- (void) didGoodsCategoryByBrandDataSuccess : (id)data;
 - (void) didGoodsCategoryByBrandDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataGoodsBrandByCarModelProcessProtocol <NSObject>
 @required
-- (void) didGoodsBrandByCarModelDataSuccess : (NSString *)data;
+- (void) didGoodsBrandByCarModelDataSuccess : (id)data;
 - (void) didGoodsBrandByCarModelDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataGoodsCategoryByCarModelProcessProtocol <NSObject>
 @required
-- (void) didGoodsCategoryByCarModelDataSuccess : (NSString *)data;
+- (void) didGoodsCategoryByCarModelDataSuccess : (id)data;
 - (void) didGoodsCategoryByCarModelDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataSearchGoodsProcessProtocol <NSObject>
 @required
-- (void) didSearchGoodsDataSuccess : (NSString *)data;
+- (void) didSearchGoodsDataSuccess : (id)data;
 - (void) didSearchGoodsDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataSearchGoodsByBarCodeProcessProtocol <NSObject>
 @required
-- (void) didSearchGoodsByBarCodeDataSuccess : (NSString *)data;
+- (void) didSearchGoodsByBarCodeDataSuccess : (id)data;
 - (void) didSearchGoodsByBarCodeDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataSearchGoodsByVinCodeProcessProtocol <NSObject>
 @required
-- (void) didSearchGoodsByVinCodeDataSuccess : (NSString *)data;
+- (void) didSearchGoodsByVinCodeDataSuccess : (id)data;
 - (void) didSearchGoodsByVinCodeDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataMyOrderListsProcessProtocol <NSObject>
 @required
-- (void) didMyOrderListsDataSuccess : (NSString *)data;
+- (void) didMyOrderListsDataSuccess : (id)data;
 - (void) didMyOrderListsDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataProfileProcessProtocol <NSObject>
 @required
-- (void) didProfileDataSuccess : (NSString *)data;
+- (void) didProfileDataSuccess : (id)data;
 - (void) didProfileDataFailed : (NSString *)err;
 
 @end
 
 @protocol dataProfileIndexProcessProtocol <NSObject>
 @required
-- (void) didProfileIndexDataSuccess : (NSString *)data;
+- (void) didProfileIndexDataSuccess : (id)data;
 - (void) didProfileIndexDataFailed : (NSString *)err;
 
 @end
