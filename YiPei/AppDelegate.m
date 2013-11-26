@@ -41,19 +41,19 @@ static AppDelegate *appDelegate=nil;
     
     _shouYeVc=[[shouYeViewController alloc] initWithNibName:@"shouYeViewController" bundle:nil];
     _shouYeNavCtrl = [[UINavigationController alloc]initWithRootViewController:_shouYeVc];
-    _shouYeNavCtrl.navigationBar.hidden=YES;
+    _shouYeNavCtrl.navigationBar.hidden=NO;
 
     _fenLeiVc=[[fenLeiViewController alloc] initWithNibName:@"fenLeiViewController" bundle:nil];
     _fenLeiNavCtrl = [[UINavigationController alloc]initWithRootViewController:_fenLeiVc];
-    _fenLeiNavCtrl.navigationBar.hidden=YES;
+    _fenLeiNavCtrl.navigationBar.hidden=NO;
 
     _pinPaiVc=[[pinPaiViewController alloc] initWithNibName:@"pinPaiViewController" bundle:nil];
     _pinPaiNavCtrl = [[UINavigationController alloc]initWithRootViewController:_pinPaiVc];
-    _pinPaiNavCtrl.navigationBar.hidden=YES;
+    _pinPaiNavCtrl.navigationBar.hidden=NO;
 
     _cheXingVc=[[cheXingViewController alloc] initWithNibName:@"cheXingViewController" bundle:nil];
     _cheXingNavCtrl = [[UINavigationController alloc]initWithRootViewController:_cheXingVc];
-    _cheXingNavCtrl.navigationBar.hidden=YES;
+    _cheXingNavCtrl.navigationBar.hidden=NO;
 
     NSMutableDictionary *shouImgDic = [NSMutableDictionary dictionaryWithCapacity:3];
     [shouImgDic setObject:[UIImage imageNamed:@"menu_home.png"] forKey:@"Default"];

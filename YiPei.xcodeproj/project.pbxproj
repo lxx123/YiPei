@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A007B1E18439780000BE964 /* JiangJiaTongZhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A007B1C18439780000BE964 /* JiangJiaTongZhiViewController.m */; };
+		0A007B1F18439780000BE964 /* JiangJiaTongZhiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A007B1D18439780000BE964 /* JiangJiaTongZhiViewController.xib */; };
 		0A7D0ADB18423E7B0015C6F1 /* probg_buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D0AC218423E7A0015C6F1 /* probg_buy.png */; };
 		0A7D0ADC18423E7B0015C6F1 /* probg_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D0AC318423E7A0015C6F1 /* probg_pic.png */; };
 		0A7D0ADD18423E7B0015C6F1 /* probtn_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D0AC418423E7A0015C6F1 /* probtn_add.png */; };
@@ -301,6 +303,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A007B1B18439780000BE964 /* JiangJiaTongZhiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiangJiaTongZhiViewController.h; sourceTree = "<group>"; };
+		0A007B1C18439780000BE964 /* JiangJiaTongZhiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiangJiaTongZhiViewController.m; sourceTree = "<group>"; };
+		0A007B1D18439780000BE964 /* JiangJiaTongZhiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JiangJiaTongZhiViewController.xib; sourceTree = "<group>"; };
 		0A7D0AC218423E7A0015C6F1 /* probg_buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = probg_buy.png; sourceTree = "<group>"; };
 		0A7D0AC318423E7A0015C6F1 /* probg_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = probg_pic.png; sourceTree = "<group>"; };
 		0A7D0AC418423E7A0015C6F1 /* probtn_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = probtn_add.png; sourceTree = "<group>"; };
@@ -694,19 +699,22 @@
 		0A7D0AF818423EA10015C6F1 /* shouye */ = {
 			isa = PBXGroup;
 			children = (
+				0A7D0B0318423EA10015C6F1 /* shouYeViewController.h */,
+				0A7D0B0418423EA10015C6F1 /* shouYeViewController.m */,
+				0A7D0B0518423EA10015C6F1 /* shouYeViewController.xib */,
+				0A7D0B0218423EA10015C6F1 /* shouYeCell.xib */,
+				0A7D0AFF18423EA10015C6F1 /* ProductDetailsViewController.h */,
+				0A7D0B0018423EA10015C6F1 /* ProductDetailsViewController.m */,
+				0A7D0B0118423EA10015C6F1 /* ProductDetailsViewController.xib */,
 				0A7D0AF918423EA10015C6F1 /* Cell1.h */,
 				0A7D0AFA18423EA10015C6F1 /* Cell1.m */,
 				0A7D0AFB18423EA10015C6F1 /* Cell1.xib */,
 				0A7D0AFC18423EA10015C6F1 /* Cell2.h */,
 				0A7D0AFD18423EA10015C6F1 /* Cell2.m */,
 				0A7D0AFE18423EA10015C6F1 /* Cell2.xib */,
-				0A7D0AFF18423EA10015C6F1 /* ProductDetailsViewController.h */,
-				0A7D0B0018423EA10015C6F1 /* ProductDetailsViewController.m */,
-				0A7D0B0118423EA10015C6F1 /* ProductDetailsViewController.xib */,
-				0A7D0B0218423EA10015C6F1 /* shouYeCell.xib */,
-				0A7D0B0318423EA10015C6F1 /* shouYeViewController.h */,
-				0A7D0B0418423EA10015C6F1 /* shouYeViewController.m */,
-				0A7D0B0518423EA10015C6F1 /* shouYeViewController.xib */,
+				0A007B1B18439780000BE964 /* JiangJiaTongZhiViewController.h */,
+				0A007B1C18439780000BE964 /* JiangJiaTongZhiViewController.m */,
+				0A007B1D18439780000BE964 /* JiangJiaTongZhiViewController.xib */,
 			);
 			path = shouye;
 			sourceTree = "<group>";
@@ -1380,6 +1388,7 @@
 				9BBB3512183E62CB0014D2A4 /* icon_update_press.png in Resources */,
 				9BBB3470183E62CB0014D2A4 /* bg_class1_press@2x.png in Resources */,
 				9BBB34D1183E62CB0014D2A4 /* 品牌-列表筛选(1).jpg in Resources */,
+				0A007B1F18439780000BE964 /* JiangJiaTongZhiViewController.xib in Resources */,
 				9BBB34DD183E62CB0014D2A4 /* bg_brand_sort.png in Resources */,
 				9BBB34B6183E62CB0014D2A4 /* menu_class@2x.png in Resources */,
 				9BBB3497183E62CB0014D2A4 /* icon_arrow_up@2x.png in Resources */,
@@ -1458,6 +1467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A7D0B0A18423EA20015C6F1 /* ProductDetailsViewController.m in Sources */,
+				0A007B1E18439780000BE964 /* JiangJiaTongZhiViewController.m in Sources */,
 				9B19B8D11841E468002EF846 /* todayMarketfunc.m in Sources */,
 				9BA1B5AE183EFE9D00C1DB6D /* LeveyTabBar.m in Sources */,
 				9BBB3550183E6BCE0014D2A4 /* ASIInputStream.m in Sources */,

@@ -126,11 +126,14 @@
     _contenrBack.frame=CGRectMake(0, 0, 320, scrollheight);
     BackY=_contenrBack.frame.origin.y;
     
-    [_ContenrScroll setContentSize:CGSizeMake(320,scrollheight+200)];
+    [_ContenrScroll setContentSize:CGSizeMake(320,scrollheight+100)];
     [_ContenrScroll addSubview:_imageView];
     [_ContenrScroll addSubview:_infoView];
     [_ContenrScroll addSubview:_guiGeView];
     [_ContenrScroll addSubview:_detailedTable];
+    
+    float height=[[UIScreen mainScreen] bounds].size.height;
+    _butView.frame=CGRectMake(0, height-45-45-20, 320, 45);
     [self.view addSubview:_butView];
 
     
@@ -147,7 +150,7 @@
     _detailedTable.frame=CGRectMake(15, _detailedTable.frame.origin.y, 290, 120+AdditionHeight);
     //_butView.frame=CGRectMake(0, butViewY+AdditionHeight, 320, 45);
     _contenrBack.frame=CGRectMake(0, 0, 320, BackY+AdditionHeight);
-    [_ContenrScroll setContentSize:CGSizeMake(320, scrollheight+200+AdditionHeight)];
+    [_ContenrScroll setContentSize:CGSizeMake(320, scrollheight+100+AdditionHeight)];
 }
 
 
