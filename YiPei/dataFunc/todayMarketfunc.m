@@ -27,14 +27,14 @@
         NSLog(@"_todayMarketCmd success!");
         homeTodayMarket *htm = (homeTodayMarket *)command.data;
         NSLog(@"htm=%@",htm);
-        if (self.delegate &&[self.delegate respondsToSelector:@selector(didDataSuccess:)]) {
-            [self.delegate performSelector:@selector(didDataSuccess:) withObject:htm];
+        if (self.delegate &&[self.delegate respondsToSelector:@selector(didTodayMarketDataSuccess:)]) {
+            [self.delegate performSelector:@selector(didTodayMarketDataSuccess:) withObject:htm];
         }
     }
     else if (command.errorCode==1) {
         NSLog(@"_todayMarketCmd err!");
-        if (self.delegate &&[self.delegate respondsToSelector:@selector(didDataFailed:)]) {
-            [self.delegate performSelector:@selector(didDataFailed:) withObject:command.errorMsg];
+        if (self.delegate &&[self.delegate respondsToSelector:@selector(didTodayMarketDataFailed:)]) {
+            [self.delegate performSelector:@selector(didTodayMarketDataFailed:) withObject:command.errorMsg];
         }
     }
 }

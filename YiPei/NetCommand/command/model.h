@@ -534,7 +534,7 @@
 @end
 
 //我的个人信息
-@interface ProfileQuery : NSObject
+@interface profileQuery : NSObject
 {
     NSString *clientsId;//	门店ID
     NSString *uid;      //	会员ID

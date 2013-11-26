@@ -55,6 +55,7 @@
 
 
 @synthesize fenLeiListTableView = _fenLeiListTableView;
+@synthesize smallTableView = _smallTableView;
 @synthesize sortButton = _sortButton;
 @synthesize filterButton = _filterButton;
 

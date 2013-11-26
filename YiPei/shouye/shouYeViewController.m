@@ -120,12 +120,12 @@
     _todayMarket.delegate = self;
     [_todayMarket getTodayMarket:@"0"];
 }
-- (void) didDataSuccess : (NSString *)data
+- (void) didTodayMarketDataSuccess : (NSString *)data
 {
     NSLog(@"shouYeViewController:didDataSuccess!");
 }
 
-- (void) didDataFailed : (NSString *)err
+- (void) didTodayMarketDataFailed : (NSString *)err
 {
     NSLog(@"shouYeViewController:didDataFailed!");
 }
