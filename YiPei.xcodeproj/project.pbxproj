@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0A007B1E18439780000BE964 /* JiangJiaTongZhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A007B1C18439780000BE964 /* JiangJiaTongZhiViewController.m */; };
 		0A007B1F18439780000BE964 /* JiangJiaTongZhiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A007B1D18439780000BE964 /* JiangJiaTongZhiViewController.xib */; };
+		0A1A15CA1844EA2F00DBED3E /* GuoWuCheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A15C81844EA2F00DBED3E /* GuoWuCheViewController.m */; };
+		0A1A15CB1844EA2F00DBED3E /* GuoWuCheViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A15C91844EA2F00DBED3E /* GuoWuCheViewController.xib */; };
+		0A1A15CD1844EAEF00DBED3E /* GuoWuCheCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A15CC1844EAEF00DBED3E /* GuoWuCheCell.xib */; };
 		0A7D0ADB18423E7B0015C6F1 /* probg_buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D0AC218423E7A0015C6F1 /* probg_buy.png */; };
 		0A7D0ADC18423E7B0015C6F1 /* probg_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D0AC318423E7A0015C6F1 /* probg_pic.png */; };
 		0A7D0ADD18423E7B0015C6F1 /* probtn_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D0AC418423E7A0015C6F1 /* probtn_add.png */; };
@@ -306,6 +309,10 @@
 		0A007B1B18439780000BE964 /* JiangJiaTongZhiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiangJiaTongZhiViewController.h; sourceTree = "<group>"; };
 		0A007B1C18439780000BE964 /* JiangJiaTongZhiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiangJiaTongZhiViewController.m; sourceTree = "<group>"; };
 		0A007B1D18439780000BE964 /* JiangJiaTongZhiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JiangJiaTongZhiViewController.xib; sourceTree = "<group>"; };
+		0A1A15C71844EA2F00DBED3E /* GuoWuCheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuoWuCheViewController.h; sourceTree = "<group>"; };
+		0A1A15C81844EA2F00DBED3E /* GuoWuCheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuoWuCheViewController.m; sourceTree = "<group>"; };
+		0A1A15C91844EA2F00DBED3E /* GuoWuCheViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuoWuCheViewController.xib; sourceTree = "<group>"; };
+		0A1A15CC1844EAEF00DBED3E /* GuoWuCheCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuoWuCheCell.xib; sourceTree = "<group>"; };
 		0A7D0AC218423E7A0015C6F1 /* probg_buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = probg_buy.png; sourceTree = "<group>"; };
 		0A7D0AC318423E7A0015C6F1 /* probg_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = probg_pic.png; sourceTree = "<group>"; };
 		0A7D0AC418423E7A0015C6F1 /* probtn_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = probtn_add.png; sourceTree = "<group>"; };
@@ -654,6 +661,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A1A15C61844EA1800DBED3E /* gouwuche */ = {
+			isa = PBXGroup;
+			children = (
+				0A1A15C71844EA2F00DBED3E /* GuoWuCheViewController.h */,
+				0A1A15C81844EA2F00DBED3E /* GuoWuCheViewController.m */,
+				0A1A15C91844EA2F00DBED3E /* GuoWuCheViewController.xib */,
+				0A1A15CC1844EAEF00DBED3E /* GuoWuCheCell.xib */,
+			);
+			path = gouwuche;
+			sourceTree = "<group>";
+		};
 		0A7D0AC118423E7A0015C6F1 /* 商品详情320*480 */ = {
 			isa = PBXGroup;
 			children = (
@@ -797,6 +815,7 @@
 		9BBB3354183E4E940014D2A4 /* YiPei */ = {
 			isa = PBXGroup;
 			children = (
+				0A1A15C61844EA1800DBED3E /* gouwuche */,
 				0A7D0AF818423EA10015C6F1 /* shouye */,
 				0A7D0AF418423E950015C6F1 /* customControls */,
 				9B19B8CE1841E433002EF846 /* dataFunc */,
@@ -1348,6 +1367,7 @@
 				9BBB34C8183E62CB0014D2A4 /* 今日特价1.jpg in Resources */,
 				9BBB352F183E62CB0014D2A4 /* topbtn_complete_press.png in Resources */,
 				9BBB3474183E62CB0014D2A4 /* bg_dialog_press@2x.png in Resources */,
+				0A1A15CD1844EAEF00DBED3E /* GuoWuCheCell.xib in Resources */,
 				9BBB34E8183E62CB0014D2A4 /* bg_number.png in Resources */,
 				9BBB351B183E62CB0014D2A4 /* input_radio.png in Resources */,
 				9BBB346F183E62CB0014D2A4 /* bg_class1@2x.png in Resources */,
@@ -1372,6 +1392,7 @@
 				0A7D0ADC18423E7B0015C6F1 /* probg_pic.png in Resources */,
 				9BBB34E5183E62CB0014D2A4 /* bg_grey.png in Resources */,
 				9BBB3483183E62CB0014D2A4 /* btn_car_choose_press@2x.png in Resources */,
+				0A1A15CB1844EA2F00DBED3E /* GuoWuCheViewController.xib in Resources */,
 				9BBB3361183E4E940014D2A4 /* Images.xcassets in Resources */,
 				9BBB3525183E62CB0014D2A4 /* menu_class.png in Resources */,
 				9BBB34FF183E62CB0014D2A4 /* icon_add1_press.png in Resources */,
@@ -1479,6 +1500,7 @@
 				9BBB3555183E6C2A0014D2A4 /* model.m in Sources */,
 				9B11EAFC1840ADA4001F94A7 /* NetConfig.m in Sources */,
 				9BA1B5C4183F12FD00C1DB6D /* CustomTabBar.m in Sources */,
+				0A1A15CA1844EA2F00DBED3E /* GuoWuCheViewController.m in Sources */,
 				9B11EAFF1840AF1F001F94A7 /* JSONKit.m in Sources */,
 				9B11EAF91840AC7E001F94A7 /* NetCommand.m in Sources */,
 				9BBB354F183E6BCE0014D2A4 /* ASIHTTPRequest.m in Sources */,

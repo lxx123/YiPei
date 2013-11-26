@@ -20,6 +20,7 @@
 @synthesize paiZhaoV=_paiZhaoV;
 @synthesize paiZhaoBT=_paiZhaoBT;
 @synthesize zhaoPianV=_zhaoPianV;
+@synthesize BackImage=_BackImage;
 @synthesize zhaoPian=_zhaoPian;
 @synthesize leftitem=_leftitem;
 @synthesize rightitem=_rightitem;
@@ -32,6 +33,27 @@
     }
     return self;
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    _paiZhaoV.hidden=NO;
+    _zhaoPianV.hidden=YES;
+    float height=[[UIScreen mainScreen] bounds].size.height;
+    _paiZhaoV.frame=CGRectMake(_paiZhaoV.frame.origin.x, _paiZhaoV.frame.origin.y, _paiZhaoV.frame.size.width, height-283);
+    _zhaoPianV.frame=CGRectMake(_zhaoPianV.frame.origin.x, _zhaoPianV.frame.origin.y, _zhaoPianV.frame.size.width, height-283);
+    
+    if (height==480) {
+        _paiZhaoBT.frame=CGRectMake(_paiZhaoBT.frame.origin.x, height-283-160, _paiZhaoBT.frame.size.width, _paiZhaoBT.frame.size.height);
+        _BackImage.frame=CGRectMake(58, 0, 207, 114);
+        _zhaoPian.frame=CGRectMake(58, 0,207, 114);
+    }else{
+        _paiZhaoBT.frame=CGRectMake(_paiZhaoBT.frame.origin.x, height-283-190, _paiZhaoBT.frame.size.width, _paiZhaoBT.frame.size.height);
+        _BackImage.frame=CGRectMake(28, 5, 267, 204);
+        _zhaoPian.frame=CGRectMake(28, 5, 267, 204);
+    }
+}
+
+
+
 
 - (void)viewDidLoad
 {
@@ -51,12 +73,12 @@
     [_leftitem addTarget:self action:@selector(clickFanHuiBT:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:_leftitem];
     
-    _rightitem=[[UIButton alloc]initWithFrame:CGRectMake(270, 14, 30, 30)] ;
+    _rightitem=[[UIButton alloc]initWithFrame:CGRectMake(270, 14, 50, 30)] ;
     _rightitem.tag=3;
     _rightitem.backgroundColor=[UIColor clearColor];
-    [_rightitem setImage:[UIImage imageNamed:@"topbtn_cart.png"] forState:UIControlStateNormal];
-    [_rightitem setImage:[UIImage imageNamed:@"topbtn_cart_press.png"] forState:UIControlStateHighlighted];
-    [_rightitem addTarget:self action:@selector(clickShoppingCartBT:) forControlEvents:UIControlEventTouchUpInside];
+    [_rightitem setImage:[UIImage imageNamed:@"topbtn_complete.png"] forState:UIControlStateNormal];
+    [_rightitem setImage:[UIImage imageNamed:@"topbtn_complete_press.png"] forState:UIControlStateHighlighted];
+    [_rightitem addTarget:self action:@selector(clickWangChangBT:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:_rightitem];
     
     _caiGouPriceText.delegate=self;
@@ -65,15 +87,21 @@
 }
 
 
+//返回
+-(IBAction)clickFanHuiBT:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 
+}
 
+//完成
+-(void)clickWangChangBT:(id)sender{
 
+}
 
+//照相按钮
+-(IBAction)ZhaoXiang:(id)sender{
 
-
-
-
-
+}
 
 
 

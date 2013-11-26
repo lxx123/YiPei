@@ -13,6 +13,7 @@
 #import "Cell2.h"
 #import "AppDelegate.h"
 #import "CustomTabBar.h"
+#import "JiangJiaTongZhiViewController.h"
 @interface ProductDetailsViewController (){
     float scrollheight;
     float AdditionHeight;
@@ -175,7 +176,8 @@
 }
 //降价通知
 -(IBAction)clickjianJiaBT:(id)sender{
-
+    JiangJiaTongZhiViewController *jiangJiaVC=[[JiangJiaTongZhiViewController alloc]initWithNibName:@"JiangJiaTongZhiViewController" bundle:nil];
+    [self.navigationController pushViewController:jiangJiaVC animated:YES];
 }
 //减数量
 -(IBAction)clickJianNumBT:(id)sender{

@@ -17,8 +17,21 @@
 @property(nonatomic,strong)IBOutlet UIView *paiZhaoV;
 @property(nonatomic,strong)IBOutlet UIButton *paiZhaoBT;
 @property(nonatomic,strong)IBOutlet UIView *zhaoPianV;
+@property(nonatomic,strong)IBOutlet UIImageView *BackImage;
 @property(nonatomic,strong)IBOutlet UIImageView *zhaoPian;
 
 @property(nonatomic,strong)UIButton *leftitem;
 @property(nonatomic,strong)UIButton *rightitem;
+
+
+//返回
+-(IBAction)clickFanHuiBT:(id)sender;
+
+//完成
+-(void)clickWangChangBT:(id)sender;
+
+//照相按钮
+-(IBAction)ZhaoXiang:(id)sender;
+
+
 @end
