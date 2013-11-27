@@ -20,6 +20,7 @@
 @property (strong, nonatomic) CustomTabBar *tabBarController;
 @property (strong, nonatomic) shouYeViewController *shouYeVc;
 @property (strong, nonatomic) fenLeiViewController *fenLeiVc;
+
 @property (strong, nonatomic) pinPaiViewController *pinPaiVc;
 @property (strong, nonatomic) cheXingViewController *cheXingVc;
 @property (strong, nonatomic) UINavigationController *shouYeNavCtrl;
@@ -27,4 +28,5 @@
 @property (strong, nonatomic) UINavigationController *pinPaiNavCtrl;
 @property (strong, nonatomic) UINavigationController *cheXingNavCtrl;
 
++(AppDelegate *)shsharedeApp;
 @end

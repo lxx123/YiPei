@@ -24,6 +24,14 @@
 @synthesize cheXingNavCtrl=_cheXingNavCtrl;
 @synthesize tabBarController=_tabBarController;
 
+static AppDelegate *appDelegate=nil;
++(AppDelegate *)shsharedeApp{
+    if (appDelegate==nil) {
+        appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+    }
+    return appDelegate;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
