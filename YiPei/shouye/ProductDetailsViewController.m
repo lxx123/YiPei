@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "CustomTabBar.h"
 #import "JiangJiaTongZhiViewController.h"
+#import "GuoWuCheViewController.h"
 @interface ProductDetailsViewController (){
     float scrollheight;
     float AdditionHeight;
@@ -164,7 +165,8 @@
 }
 //购物车
 -(IBAction)clickShoppingCartBT:(id)sender{
-
+    GuoWuCheViewController *guowucheVC=[[GuoWuCheViewController alloc]initWithNibName:@"GuoWuCheViewController" bundle:nil];
+    [self.navigationController pushViewController:guowucheVC animated:YES];
 }
 //左图片按钮
 -(IBAction)clickLeftImageBT:(id)sender{
