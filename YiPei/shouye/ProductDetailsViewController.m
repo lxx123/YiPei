@@ -21,6 +21,9 @@
 #import "model.h"
 
 
+#import "goodInfoDetailFunc.h"
+#import "model.h"
+
 @interface ProductDetailsViewController (){
     float scrollheight;
     float AdditionHeight;
