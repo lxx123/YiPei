@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class scannerVinViewController;
+@class scannerZxingViewController;
+
 @interface scannerViewController : UIViewController
+{
+    scannerVinViewController *vinVc;
+    scannerZxingViewController *zxingVc;
+}
+
+@property(nonatomic, retain) scannerVinViewController *vinVc;
+@property(nonatomic, retain) scannerZxingViewController *zxingVc;
 
 @end

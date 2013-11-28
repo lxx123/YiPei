@@ -142,9 +142,9 @@
     [app.tabBarController hideCustomTabBar];
     scrollheight=448;
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.extendedLayoutIncludesOpaqueBars = NO;
-        self.modalPresentationCapturesStatusBarAppearance = NO;
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//        self.extendedLayoutIncludesOpaqueBars = NO;
+//        self.modalPresentationCapturesStatusBarAppearance = NO;
     }
     self.navigationController.navigationBar.backgroundColor=[UIColor darkGrayColor];
     self.title=@"淘汽档口";

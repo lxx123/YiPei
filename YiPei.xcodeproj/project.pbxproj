@@ -84,10 +84,11 @@
 		9B2254DC1845D32500E5776F /* Tesseract.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9B2254D91845D32500E5776F /* Tesseract.mm */; };
 		9B2254E41845F28000E5776F /* scannerVinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2254E21845F28000E5776F /* scannerVinViewController.m */; };
 		9B2254E51845F28000E5776F /* scannerVinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2254E31845F28000E5776F /* scannerVinViewController.xib */; };
-		9B2254E71845F30400E5776F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2254E61845F30400E5776F /* AVFoundation.framework */; };
+		9B2254E71845F30400E5776F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2254E61845F30400E5776F /* AVFoundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		9B2254E91845F31000E5776F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2254E81845F31000E5776F /* AudioToolbox.framework */; };
-		9B2254F01845F5AA00E5776F /* AROverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2254ED1845F5AA00E5776F /* AROverlayViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		9B2254F11845F5AA00E5776F /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2254EF1845F5AA00E5776F /* CaptureSessionManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9B22559E184619F700E5776F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B22559D184619F700E5776F /* MBProgressHUD.m */; };
+		9B2255A218461DE000E5776F /* scannerZxingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9B2255A018461DE000E5776F /* scannerZxingViewController.mm */; };
+		9B2255A318461DE000E5776F /* scannerZxingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2255A118461DE000E5776F /* scannerZxingViewController.xib */; };
 		9BA1B5A2183EFB3500C1DB6D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA1B5A1183EFB3500C1DB6D /* CFNetwork.framework */; };
 		9BA1B5A4183EFB8300C1DB6D /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA1B5A3183EFB8300C1DB6D /* libz.1.2.5.dylib */; };
 		9BA1B5A6183EFB8F00C1DB6D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA1B5A5183EFB8F00C1DB6D /* SystemConfiguration.framework */; };
@@ -96,12 +97,17 @@
 		9BA1B5AF183EFE9D00C1DB6D /* LeveyTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA1B5AD183EFE9D00C1DB6D /* LeveyTabBarController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9BA1B5BE183F0F2E00C1DB6D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA1B5BD183F0F2E00C1DB6D /* MediaPlayer.framework */; };
 		9BA1B5C4183F12FD00C1DB6D /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA1B5C3183F12FD00C1DB6D /* CustomTabBar.m */; };
+		9BB5AE8E18462583005F4791 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB5AE8C18462583005F4791 /* AddressBook.framework */; };
+		9BB5AE8F18462583005F4791 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB5AE8D18462583005F4791 /* AddressBookUI.framework */; };
+		9BB5AE9118462592005F4791 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB5AE9018462592005F4791 /* CoreMedia.framework */; };
+		9BB5AE931846259B005F4791 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB5AE921846259B005F4791 /* CoreVideo.framework */; };
+		9BB5B0F818462C8D005F4791 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB5B0F718462C8D005F4791 /* libiconv.dylib */; };
 		9BBB334F183E4E940014D2A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBB334E183E4E940014D2A4 /* Foundation.framework */; };
 		9BBB3351183E4E940014D2A4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBB3350183E4E940014D2A4 /* CoreGraphics.framework */; };
 		9BBB3353183E4E940014D2A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBB3352183E4E940014D2A4 /* UIKit.framework */; };
 		9BBB3359183E4E940014D2A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB3357183E4E940014D2A4 /* InfoPlist.strings */; };
-		9BBB335B183E4E940014D2A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB335A183E4E940014D2A4 /* main.m */; };
-		9BBB335F183E4E940014D2A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB335E183E4E940014D2A4 /* AppDelegate.m */; };
+		9BBB335B183E4E940014D2A4 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB335A183E4E940014D2A4 /* main.mm */; };
+		9BBB335F183E4E940014D2A4 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB335E183E4E940014D2A4 /* AppDelegate.mm */; };
 		9BBB3361183E4E940014D2A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB3360183E4E940014D2A4 /* Images.xcassets */; };
 		9BBB3368183E4E940014D2A4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBB3367183E4E940014D2A4 /* XCTest.framework */; };
 		9BBB3369183E4E940014D2A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBB334E183E4E940014D2A4 /* Foundation.framework */; };
@@ -317,6 +323,7 @@
 		9BBB3531183E62CB0014D2A4 /* topbtn_intercalate_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB3464183E62CB0014D2A4 /* topbtn_intercalate_press.png */; };
 		9BBB3532183E62CB0014D2A4 /* topbtn_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB3465183E62CB0014D2A4 /* topbtn_list.png */; };
 		9BBB3533183E62CB0014D2A4 /* topbtn_list_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB3466183E62CB0014D2A4 /* topbtn_list_press.png */; };
+		9BEA2AFF1846432A00A7B1EF /* libZXingWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEA2AFA184642D900A7B1EF /* libZXingWidget.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -326,6 +333,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9BBB334A183E4E940014D2A4;
 			remoteInfo = YiPei;
+		};
+		9BEA2AF9184642D900A7B1EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BEA2AF4184642D800A7B1EF /* ZXingWidget.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = ZXingWidget;
+		};
+		9BEA2AFB184642D900A7B1EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BEA2AF4184642D800A7B1EF /* ZXingWidget.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1D60398D13DF7CAD006F4B51;
+			remoteInfo = ZXingTests;
+		};
+		9BEA2AFD1846432100A7B1EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BEA2AF4184642D800A7B1EF /* ZXingWidget.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = ZXingWidget;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -591,10 +619,11 @@
 		9B2254E31845F28000E5776F /* scannerVinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scannerVinViewController.xib; sourceTree = "<group>"; };
 		9B2254E61845F30400E5776F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		9B2254E81845F31000E5776F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
-		9B2254EC1845F5AA00E5776F /* AROverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AROverlayViewController.h; sourceTree = "<group>"; };
-		9B2254ED1845F5AA00E5776F /* AROverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AROverlayViewController.m; sourceTree = "<group>"; };
-		9B2254EE1845F5AA00E5776F /* CaptureSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureSessionManager.h; sourceTree = "<group>"; };
-		9B2254EF1845F5AA00E5776F /* CaptureSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureSessionManager.m; sourceTree = "<group>"; };
+		9B22559C184619F700E5776F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		9B22559D184619F700E5776F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		9B22559F18461DE000E5776F /* scannerZxingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scannerZxingViewController.h; sourceTree = "<group>"; };
+		9B2255A018461DE000E5776F /* scannerZxingViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = scannerZxingViewController.mm; sourceTree = "<group>"; };
+		9B2255A118461DE000E5776F /* scannerZxingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scannerZxingViewController.xib; sourceTree = "<group>"; };
 		9BA1B5A1183EFB3500C1DB6D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9BA1B5A3183EFB8300C1DB6D /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		9BA1B5A5183EFB8F00C1DB6D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -607,16 +636,21 @@
 		9BA1B5C2183F12FD00C1DB6D /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
 		9BA1B5C3183F12FD00C1DB6D /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
 		9BA1B5C5183F173200C1DB6D /* allConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = allConfig.h; sourceTree = "<group>"; };
+		9BB5AE8C18462583005F4791 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/AddressBook.framework; sourceTree = DEVELOPER_DIR; };
+		9BB5AE8D18462583005F4791 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/AddressBookUI.framework; sourceTree = DEVELOPER_DIR; };
+		9BB5AE9018462592005F4791 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		9BB5AE921846259B005F4791 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
+		9BB5B0F718462C8D005F4791 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		9BBB334B183E4E940014D2A4 /* YiPei.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YiPei.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBB334E183E4E940014D2A4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9BBB3350183E4E940014D2A4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9BBB3352183E4E940014D2A4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9BBB3356183E4E940014D2A4 /* YiPei-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YiPei-Info.plist"; sourceTree = "<group>"; };
 		9BBB3358183E4E940014D2A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9BBB335A183E4E940014D2A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9BBB335A183E4E940014D2A4 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		9BBB335C183E4E940014D2A4 /* YiPei-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YiPei-Prefix.pch"; sourceTree = "<group>"; };
 		9BBB335D183E4E940014D2A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		9BBB335E183E4E940014D2A4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9BBB335E183E4E940014D2A4 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		9BBB3360183E4E940014D2A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9BBB3366183E4E940014D2A4 /* YiPeiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YiPeiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBB3367183E4E940014D2A4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -834,6 +868,7 @@
 		9BBB3464183E62CB0014D2A4 /* topbtn_intercalate_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbtn_intercalate_press.png; sourceTree = "<group>"; };
 		9BBB3465183E62CB0014D2A4 /* topbtn_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbtn_list.png; sourceTree = "<group>"; };
 		9BBB3466183E62CB0014D2A4 /* topbtn_list_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbtn_list_press.png; sourceTree = "<group>"; };
+		9BEA2AF4184642D800A7B1EF /* ZXingWidget.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZXingWidget.xcodeproj; path = zxing/iphone/ZXingWidget/ZXingWidget.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -841,6 +876,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BEA2AFF1846432A00A7B1EF /* libZXingWidget.a in Frameworks */,
+				9BB5B0F818462C8D005F4791 /* libiconv.dylib in Frameworks */,
+				9BB5AE931846259B005F4791 /* CoreVideo.framework in Frameworks */,
+				9BB5AE9118462592005F4791 /* CoreMedia.framework in Frameworks */,
+				9BB5AE8E18462583005F4791 /* AddressBook.framework in Frameworks */,
+				9BB5AE8F18462583005F4791 /* AddressBookUI.framework in Frameworks */,
 				9B2254E91845F31000E5776F /* AudioToolbox.framework in Frameworks */,
 				9B2254E71845F30400E5776F /* AVFoundation.framework in Frameworks */,
 				9B2254D31845D2EA00E5776F /* liblept.a in Frameworks */,
@@ -915,10 +956,6 @@
 		0A7D0AF818423EA10015C6F1 /* shouye */ = {
 			isa = PBXGroup;
 			children = (
-				9B2254EC1845F5AA00E5776F /* AROverlayViewController.h */,
-				9B2254ED1845F5AA00E5776F /* AROverlayViewController.m */,
-				9B2254EE1845F5AA00E5776F /* CaptureSessionManager.h */,
-				9B2254EF1845F5AA00E5776F /* CaptureSessionManager.m */,
 				0A7D0AF918423EA10015C6F1 /* Cell1.h */,
 				0A7D0AFA18423EA10015C6F1 /* Cell1.m */,
 				0A7D0AFB18423EA10015C6F1 /* Cell1.xib */,
@@ -938,6 +975,9 @@
 				9B2254E11845F28000E5776F /* scannerVinViewController.h */,
 				9B2254E21845F28000E5776F /* scannerVinViewController.m */,
 				9B2254E31845F28000E5776F /* scannerVinViewController.xib */,
+				9B22559F18461DE000E5776F /* scannerZxingViewController.h */,
+				9B2255A018461DE000E5776F /* scannerZxingViewController.mm */,
+				9B2255A118461DE000E5776F /* scannerZxingViewController.xib */,
 			);
 			path = shouye;
 			sourceTree = "<group>";
@@ -1263,6 +1303,15 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		9B22559B184619F700E5776F /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				9B22559C184619F700E5776F /* MBProgressHUD.h */,
+				9B22559D184619F700E5776F /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		9BA1B5A9183EFE8600C1DB6D /* leveytabbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1286,6 +1335,7 @@
 		9BBB3342183E4E930014D2A4 = {
 			isa = PBXGroup;
 			children = (
+				9BEA2AF4184642D800A7B1EF /* ZXingWidget.xcodeproj */,
 				9BBB3354183E4E940014D2A4 /* YiPei */,
 				9BBB336D183E4E940014D2A4 /* YiPeiTests */,
 				9BBB334D183E4E940014D2A4 /* Frameworks */,
@@ -1305,6 +1355,11 @@
 		9BBB334D183E4E940014D2A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9BB5B0F718462C8D005F4791 /* libiconv.dylib */,
+				9BB5AE921846259B005F4791 /* CoreVideo.framework */,
+				9BB5AE9018462592005F4791 /* CoreMedia.framework */,
+				9BB5AE8C18462583005F4791 /* AddressBook.framework */,
+				9BB5AE8D18462583005F4791 /* AddressBookUI.framework */,
 				9B2254E81845F31000E5776F /* AudioToolbox.framework */,
 				9B2254E61845F30400E5776F /* AVFoundation.framework */,
 				0A7D0B0F18423F190015C6F1 /* QuartzCore.framework */,
@@ -1324,6 +1379,7 @@
 		9BBB3354183E4E940014D2A4 /* YiPei */ = {
 			isa = PBXGroup;
 			children = (
+				9B22559B184619F700E5776F /* MBProgressHUD */,
 				9B2253F61843784D00E5776F /* NetCommand */,
 				9B2253F11843782F00E5776F /* dataFunc */,
 				9B2253CA1843781400E5776F /* feiLei */,
@@ -1340,7 +1396,7 @@
 				9BBB3389183E619A0014D2A4 /* pinPaiViewController.m */,
 				9BBB338A183E619A0014D2A4 /* pinPaiViewController.xib */,
 				9BBB335D183E4E940014D2A4 /* AppDelegate.h */,
-				9BBB335E183E4E940014D2A4 /* AppDelegate.m */,
+				9BBB335E183E4E940014D2A4 /* AppDelegate.mm */,
 				9BBB3360183E4E940014D2A4 /* Images.xcassets */,
 				9BBB3355183E4E940014D2A4 /* Supporting Files */,
 				9BA1B5C5183F173200C1DB6D /* allConfig.h */,
@@ -1353,7 +1409,7 @@
 			children = (
 				9BBB3356183E4E940014D2A4 /* YiPei-Info.plist */,
 				9BBB3357183E4E940014D2A4 /* InfoPlist.strings */,
-				9BBB335A183E4E940014D2A4 /* main.m */,
+				9BBB335A183E4E940014D2A4 /* main.mm */,
 				9BBB335C183E4E940014D2A4 /* YiPei-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -1605,6 +1661,15 @@
 			path = "切图320×480";
 			sourceTree = "<group>";
 		};
+		9BEA2AF5184642D800A7B1EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BEA2AFA184642D900A7B1EF /* libZXingWidget.a */,
+				9BEA2AFC184642D900A7B1EF /* ZXingTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1619,6 +1684,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9BEA2AFE1846432100A7B1EF /* PBXTargetDependency */,
 			);
 			name = YiPei;
 			productName = YiPei;
@@ -1663,10 +1729,19 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
+				fr,
+				sv,
 			);
 			mainGroup = 9BBB3342183E4E930014D2A4;
 			productRefGroup = 9BBB334C183E4E940014D2A4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9BEA2AF5184642D800A7B1EF /* Products */;
+					ProjectRef = 9BEA2AF4184642D800A7B1EF /* ZXingWidget.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9BBB334A183E4E940014D2A4 /* YiPei */,
@@ -1674,6 +1749,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9BEA2AFA184642D900A7B1EF /* libZXingWidget.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libZXingWidget.a;
+			remoteRef = 9BEA2AF9184642D900A7B1EF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9BEA2AFC184642D900A7B1EF /* ZXingTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ZXingTests.octest;
+			remoteRef = 9BEA2AFB184642D900A7B1EF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9BBB3349183E4E940014D2A4 /* Resources */ = {
@@ -1738,6 +1830,7 @@
 				9BBB351C183E62CB0014D2A4 /* input_radio_press.png in Resources */,
 				9BBB3530183E62CB0014D2A4 /* topbtn_intercalate.png in Resources */,
 				9BBB3518183E62CB0014D2A4 /* input_choose_press.png in Resources */,
+				9B2255A318461DE000E5776F /* scannerZxingViewController.xib in Resources */,
 				9BBB34A2183E62CB0014D2A4 /* icon_update@2x.png in Resources */,
 				9BBB34F8183E62CB0014D2A4 /* btn_sort.png in Resources */,
 				9BBB3478183E62CB0014D2A4 /* bg_number@2x.png in Resources */,
@@ -1955,6 +2048,7 @@
 				9B2253EB1843781400E5776F /* FenLeiListViewController.m in Sources */,
 				9BA1B5AE183EFE9D00C1DB6D /* LeveyTabBar.m in Sources */,
 				9BBB3390183E61D80014D2A4 /* cheXingViewController.m in Sources */,
+				9B2255A218461DE000E5776F /* scannerZxingViewController.mm in Sources */,
 				9B2254271844400000E5776F /* todayDiscountFunc.m in Sources */,
 				9B225437184583C500E5776F /* scannerViewController.m in Sources */,
 				9B2254221843784D00E5776F /* NetCommand.m in Sources */,
@@ -1962,12 +2056,12 @@
 				9B2254E41845F28000E5776F /* scannerVinViewController.m in Sources */,
 				9B2253F51843782F00E5776F /* todayNewfunc.m in Sources */,
 				0A7D0AF718423E950015C6F1 /* PageControl.m in Sources */,
+				9B22559E184619F700E5776F /* MBProgressHUD.m in Sources */,
 				9B2253ED1843781400E5776F /* fenLeiViewController.m in Sources */,
 				9B2254191843784D00E5776F /* ASIDataCompressor.m in Sources */,
 				9BBB338B183E619A0014D2A4 /* pinPaiViewController.m in Sources */,
 				9B2253EF1843781400E5776F /* GuolvViewController.m in Sources */,
 				9BA1B5C4183F12FD00C1DB6D /* CustomTabBar.m in Sources */,
-				9B2254F01845F5AA00E5776F /* AROverlayViewController.m in Sources */,
 				9BA1B5AF183EFE9D00C1DB6D /* LeveyTabBarController.m in Sources */,
 				9B22541E1843784D00E5776F /* ASIInputStream.m in Sources */,
 				0A7D0B0618423EA20015C6F1 /* Cell1.m in Sources */,
@@ -1976,7 +2070,6 @@
 				9B2253E41843781400E5776F /* FenLeiCell2.m in Sources */,
 				9B2253E81843781400E5776F /* TypeClickCell.m in Sources */,
 				9B2254DC1845D32500E5776F /* Tesseract.mm in Sources */,
-				9B2254F11845F5AA00E5776F /* CaptureSessionManager.m in Sources */,
 				0A7D0B0D18423EA20015C6F1 /* shouYeViewController.m in Sources */,
 				9B2254211843784D00E5776F /* model.m in Sources */,
 				9B22541D1843784D00E5776F /* ASIHTTPRequest.m in Sources */,
@@ -1985,11 +2078,11 @@
 				0A7D0B0818423EA20015C6F1 /* Cell2.m in Sources */,
 				9B22541A1843784D00E5776F /* ASIDataDecompressor.m in Sources */,
 				9B22543018444DBD00E5776F /* fenLeiFunc.m in Sources */,
-				9BBB335F183E4E940014D2A4 /* AppDelegate.m in Sources */,
+				9BBB335F183E4E940014D2A4 /* AppDelegate.mm in Sources */,
 				9B22541F1843784D00E5776F /* ASINetworkQueue.m in Sources */,
 				9B2253E61843781400E5776F /* TypeCell.m in Sources */,
 				9B2254181843784D00E5776F /* ASIAuthenticationDialog.m in Sources */,
-				9BBB335B183E4E940014D2A4 /* main.m in Sources */,
+				9BBB335B183E4E940014D2A4 /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2008,6 +2101,11 @@
 			isa = PBXTargetDependency;
 			target = 9BBB334A183E4E940014D2A4 /* YiPei */;
 			targetProxy = 9BBB336B183E4E940014D2A4 /* PBXContainerItemProxy */;
+		};
+		9BEA2AFE1846432100A7B1EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ZXingWidget;
+			targetProxy = 9BEA2AFD1846432100A7B1EF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2037,7 +2135,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2064,6 +2162,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/zxing/cpp/core/src",
+					"${SRCROOT}/zxing/iphone/ZXingWidget/Classes/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos6.1;
@@ -2076,7 +2178,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2097,6 +2199,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/zxing/cpp/core/src",
+					"${SRCROOT}/zxing/iphone/ZXingWidget/Classes/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos6.1;
 				VALIDATE_PRODUCT = YES;
@@ -2112,6 +2218,10 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YiPei/YiPei-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/zxing/iphone/ZXingWidget/Classes/**",
+					"${SRCROOT}/zxing/cpp/core/src",
+				);
 				INFOPLIST_FILE = "YiPei/YiPei-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -2120,8 +2230,9 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos7.0;
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2135,6 +2246,10 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YiPei/YiPei-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/zxing/iphone/ZXingWidget/Classes/**",
+					"${SRCROOT}/zxing/cpp/core/src",
+				);
 				INFOPLIST_FILE = "YiPei/YiPei-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -2143,8 +2258,9 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos7.0;
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -7,12 +7,16 @@
 //
 
 #import "scannerViewController.h"
+#import "scannerVinViewController.h"
+#import "scannerZxingViewController.h"
 
 @interface scannerViewController ()
 
 @end
 
 @implementation scannerViewController
+@synthesize vinVc = _vinVc;
+@synthesize zxingVc = _zxingVc;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +31,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _vinVc = [[scannerVinViewController  alloc] init];
+    _zxingVc = [[scannerZxingViewController alloc] init];
+    
+    [self.view addSubview:_vinVc.view];
+    [self.view addSubview:_zxingVc.view];
+    [_vinVc.view setHidden:YES];
+    [_zxingVc startScannerZxing];
 }
 
 - (void)didReceiveMemoryWarning

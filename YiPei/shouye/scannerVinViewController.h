@@ -8,24 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-#include <AudioToolbox/AudioToolbox.h>
-#import <AVFoundation/AVFoundation.h>
-@interface scannerVinViewController : UIViewController<
-                                            UINavigationControllerDelegate
-                                            #if HAS_AVFF
-                                                ,AVCaptureVideoDataOutputSampleBufferDelegate
-                                            #endif
-                                        >
+@class MBProgressHUD;
+
+@class Tesseract;
+@interface scannerVinViewController :UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
-    
-#if HAS_AVFF
-    AVCaptureSession *captureSession;
-    AVCaptureVideoPreviewLayer *prevLayer;
-    
-#endif
+    MBProgressHUD *progressHud;
+    Tesseract* tesseract;
+    uint32_t *pixels;
 }
-#if HAS_AVFF
-@property (nonatomic, retain) AVCaptureSession *captureSession;
-@property (nonatomic, retain) AVCaptureVideoPreviewLayer *prevLayer;
-#endif
+
+@property (nonatomic, strong) MBProgressHUD *progressHud;
+@property (nonatomic, strong) Tesseract* tesseract;
+
+- (void)setTesseractImage:(UIImage *)image;
+
 @end

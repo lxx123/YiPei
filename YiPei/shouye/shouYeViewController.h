@@ -12,6 +12,7 @@
 @class todayDiscountFunc;
 @class todayNew;
 @class todayDiscountGoods;
+@class scannerZxingViewController;
 
 @interface shouYeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,dataTodayDiscountProcessProtocol>
 {
@@ -19,6 +20,7 @@
     
     todayNew *todayNewData;
     NSArray *todayDisCount;
+    
 }
 @property(nonatomic, retain) todayDiscountFunc *todayDiscount;
 @property(nonatomic,strong) IBOutlet UITableView *tableview;
@@ -69,6 +71,9 @@
 
 @property(nonatomic,strong) todayNew *todayNewData;
 @property(nonatomic,strong) NSMutableArray *todayDisCountArray;
+
+@property(nonatomic, strong) scannerZxingViewController* scanner;
+
 
 -(IBAction)clickSearchBT:(id)sender;
 

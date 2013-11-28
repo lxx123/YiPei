@@ -11,7 +11,8 @@
 #import "todayDiscountFunc.h"
 #import "ProductDetailsViewController.h"
 
-
+//#import "scannerViewController.h"
+#import "scannerZxingViewController.h"
 
 @interface shouYeViewController ()
 
@@ -68,6 +69,9 @@
 @synthesize todayNewData=_todayNewData;
 @synthesize todayDisCountArray =_todayDisCountArray;
 
+
+@synthesize scanner=_scanner;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -82,9 +86,9 @@
 {
     [super viewDidLoad];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.extendedLayoutIncludesOpaqueBars = NO;
-        self.modalPresentationCapturesStatusBarAppearance = NO;
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//        self.extendedLayoutIncludesOpaqueBars = NO;
+//        self.modalPresentationCapturesStatusBarAppearance = NO;
     }
     self.navigationController.navigationBar.backgroundColor=[UIColor darkGrayColor];
     self.title=@"淘汽档口";
@@ -168,7 +172,8 @@
 
 //扫一扫
 -(IBAction)clickToSweep:(id)sender{
-
+    _scanner = [[scannerZxingViewController alloc]initWithNibName:@"scannerZxingViewController" bundle:nil];
+    [self.navigationController pushViewController:_scanner animated:YES];
 }
 
 //个人信息
