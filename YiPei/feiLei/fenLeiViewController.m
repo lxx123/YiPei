@@ -10,7 +10,7 @@
 #import "fenLeiViewController.h"
 
 #import "FenLeiListViewController.h"
-
+#import "UINavigationView.h"
 #import "GuolvViewController.h"
 
 #import "FenLeiCell.h"
@@ -19,6 +19,7 @@
 @property (assign)BOOL isOpen;
 @property (nonatomic,retain)NSIndexPath *selectIndex;
 
+@property(nonatomic,strong) IBOutlet UINavigationView * headNav;
 
 
 //kdjjkdjgkfj
@@ -34,6 +35,9 @@
 @synthesize fenLeiDataArray = _fenLeiDataArray;
 
 @synthesize feiLFunction=_feiLFunction;
+
+
+@synthesize headNav = _headNav;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,6 +58,7 @@
     _feiLFunction = [[fenLeiFunc alloc] init];
     _feiLFunction.delegateGoodsCateByPid = self;
     [_feiLFunction getGoodsCateByPid:@"0"];
+//    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void) didGoodsCategoryByPidDataSuccess : (id)data
@@ -136,34 +141,38 @@
 
 }
 -(void)initLeftBarButtonItem{
-    UIButton * leftButton = [[UIButton alloc] init];
-    leftButton.frame = CGRectMake(10,7, 30, 30);
-
-    [leftButton setBackgroundImage:[UIImage imageNamed:@"btn_car.png"] forState:UIControlStateNormal];
-    [leftButton addTarget:self action:@selector(leftBarItemClick) forControlEvents:UIControlEventTouchDown];
-    UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton ];
-   
-   
     
-    self.navigationItem.leftBarButtonItem = leftBarItem;
+     [_headNav initWithLeftBarItemWithTitle:@"" withFrame:CGRectMake(10, 7, 30, 30)  withAction:@selector(leftBarItemClick) withButtonImage:[UIImage imageNamed:@"btn_car.png"]  withTarget:self];
     
+//    UIButton * leftButton = [[UIButton alloc] init];
+//    leftButton.frame = CGRectMake(10,7, 30, 30);
+//
+//    [leftButton setBackgroundImage:[UIImage imageNamed:@"btn_car.png"] forState:UIControlStateNormal];
+//    [leftButton addTarget:self action:@selector(leftBarItemClick) forControlEvents:UIControlEventTouchDown];
+//    UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton ];
+//   
+//   
+//    
+//    self.navigationItem.leftBarButtonItem = leftBarItem;
+//    
 }
 -(void)leftBarItemClick{
 }
 -(void)initRightBarButtonItem{
 
+    [_headNav initWithRightBarItemWithTitle:@"" withFrame:CGRectMake(280,7, 30, 30)  withAction:@selector(rightBarItemClick) withButtonImage:[UIImage imageNamed:@"btn_car.png"]  withTarget:self];
     
-    UIButton * rightButton = [[UIButton alloc] init];
-    rightButton.frame = CGRectMake(280,7, 30, 30);
-    
-    [rightButton setBackgroundImage:[UIImage imageNamed:@"topbtn_cart.png"] forState:UIControlStateNormal];
-    [rightButton addTarget:self action:@selector(rightBarItemClick) forControlEvents:UIControlEventTouchDown];
-    UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton ];
-    
-    
-    
-    self.navigationItem.rightBarButtonItem = rightBarItem;
-
+//    UIButton * rightButton = [[UIButton alloc] init];
+//    rightButton.frame = CGRectMake(280,7, 30, 30);
+//    
+//    [rightButton setBackgroundImage:[UIImage imageNamed:@"topbtn_cart.png"] forState:UIControlStateNormal];
+//    [rightButton addTarget:self action:@selector(rightBarItemClick) forControlEvents:UIControlEventTouchDown];
+//    UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton ];
+//    
+//    
+//    
+//    self.navigationItem.rightBarButtonItem = rightBarItem;
+//
 }
 -(void)rightBarItemClick{
     
@@ -307,6 +316,7 @@
         
         FenLeiListViewController * listView = [[FenLeiListViewController alloc] init];
         [self.navigationController pushViewController:listView animated:YES];
+        self.selectIndex = nil;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

@@ -7,14 +7,20 @@
 //
 
 #import "GuolvViewController.h"
-//#import "Cell1.h"
-//#import  "Cell2.h"
-
+#import "GuolvDetailViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "TypeCell.h"
 #import "TypeClickCell.h"
+
+#import "UINavigationView.h"
+
 @interface GuolvViewController ()
 @property (assign)BOOL isOpen;
 @property (nonatomic,retain)NSIndexPath *selectIndex;
+
+@property(nonatomic,strong) IBOutlet UINavigationView * headNav;
+
+
 @end
 
 @implementation GuolvViewController
@@ -31,6 +37,13 @@
 
 @synthesize choseCarButton = _choseCarButton;
 @synthesize universalButton = _universalButton;
+
+
+@synthesize headNav = _headNav;
+
+
+#define  COLOR_WITH_RGB(x,y,z) [UIColor colorWithRed:x/255.0 green:y/255.0 blue:y/255.0 alpha:1.0]
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -89,7 +102,7 @@
     
     
     _typeTableView.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
-//    _filterScrollView.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
+    _universalTableView.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
 
 //    [_universalTableView reloadData];
     NSLog(@"typeArray.count==%i",typeArray.count);
@@ -97,12 +110,12 @@
     universalArray = [[NSMutableArray alloc]initWithObjects:@"品牌",@"车系",@"车型", nil];
     _typeTableView.frame = CGRectMake(0, 0, 320, typeArray.count * 64);
     
-    _universalTableView.frame = CGRectMake(0, 58, 320, universalArray.count *44);
+    _universalTableView.frame = CGRectMake(0, 58, 320, universalArray.count *58);
     _universalView.frame = CGRectMake(0, typeArray.count * 64 + 58, 320, 60 + universalArray.count * 44);
 //    _universalView.backgroundColor = [UIColor redColor];
 //    _universalTableView.backgroundColor = [UIColor blackColor];
 
-    CGSize size = CGSizeMake(320, typeArray.count * 64 + 58 + 80 + universalArray.count * 44);
+    CGSize size = CGSizeMake(320, typeArray.count * 64 + 58 + 80 + universalArray.count * 58);
     [_filterScrollView setContentSize:size];
     
      [_typeTableView reloadData];
@@ -114,37 +127,50 @@
 }
 
 -(void)initLeftBarButtonItem{
-    UIButton * leftButton = [[UIButton alloc] init];
-    leftButton.frame = CGRectMake(10,7, 30, 30);
     
-    [leftButton setBackgroundImage:[UIImage imageNamed:@"btn_back_press.png"] forState:UIControlStateNormal];
-    [leftButton addTarget:self action:@selector(leftBarItemClick) forControlEvents:UIControlEventTouchDown];
-    UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton ];
+         [_headNav initWithLeftBarItemWithTitle:@"" withFrame:CGRectMake(10, 7, 50, 30)  withAction:@selector(leftBarItemClick) withButtonImage:[UIImage imageNamed:@"btn_back_press.png"]  withTarget:self];
     
-    
-    
-    self.navigationItem.leftBarButtonItem = leftBarItem;
+//    UIButton * leftButton = [[UIButton alloc] init];
+//    leftButton.frame = CGRectMake(10,7, 50, 30);
+//    
+//    [leftButton setBackgroundImage:[UIImage imageNamed:@"btn_back_press.png"] forState:UIControlStateNormal];
+//    [leftButton addTarget:self action:@selector(leftBarItemClick) forControlEvents:UIControlEventTouchDown];
+//    UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton ];
+//    
+//    
+//    
+//    self.navigationItem.leftBarButtonItem = leftBarItem;
     
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+//    self.navigationController.navigationBarHidden = NO;
+}
+
 -(void)leftBarItemClick{
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 -(void)initRightBarButtonItem{
     
-    
-    UIButton * rightButton = [[UIButton alloc] init];
-    rightButton.frame = CGRectMake(260,7, 50, 30);
-    
-    [rightButton setBackgroundImage:[UIImage imageNamed:@"topbtn_complete.png"] forState:UIControlStateNormal];
-    [rightButton addTarget:self action:@selector(rightBarItemClick) forControlEvents:UIControlEventTouchDown];
-    UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton ];
+        [_headNav initWithRightBarItemWithTitle:@"" withFrame:CGRectMake(260,7, 50, 30) withAction:@selector(rightBarItemClick) withButtonImage:[UIImage imageNamed:@"topbtn_complete.png"]  withTarget:self];
     
     
-    
-    self.navigationItem.rightBarButtonItem = rightBarItem;
+//    UIButton * rightButton = [[UIButton alloc] init];
+//    rightButton.frame = CGRectMake(260,7, 50, 30);
+//    
+//    [rightButton setBackgroundImage:[UIImage imageNamed:@"topbtn_complete.png"] forState:UIControlStateNormal];
+//    [rightButton addTarget:self action:@selector(rightBarItemClick) forControlEvents:UIControlEventTouchDown];
+//    UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton ];
+//    
+//    
+//    
+//    self.navigationItem.rightBarButtonItem = rightBarItem;
     
 }
 -(void)rightBarItemClick{
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)clickChoseCarButtonNotUniversalButtonImage{
@@ -174,7 +200,7 @@
         
         return 64;
     }else{
-        return 44;
+        return 58;
     }
    
 }
@@ -261,14 +287,57 @@
         UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (!cell) {
               cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            UIView * cellBackView = [[UIView alloc]initWithFrame:CGRectMake(10, 9, 300, 38)];
+            cellBackView.tag = 0x1;
+            
+        [cell addSubview:cellBackView];
+
+            UILabel * lab = [[UILabel alloc]initWithFrame:CGRectMake(23, 13, 200, 30)];
+            lab.textColor = COLOR_WITH_RGB(51, 51, 51);
+            lab.tag = 0x2;
+            lab.backgroundColor = [UIColor clearColor];
+            lab.font = [UIFont systemFontOfSize:18];
+            [cell addSubview:lab];
+            
+            UIButton * button = [[UIButton alloc] init];
+//            button.tag = 0x3;
+//            [button set ]
+            
+            UIImageView * addImage = [[UIImageView alloc] initWithFrame:CGRectMake(285, 22, 14, 14)];
+            addImage.tag = 0x3;
+            [cell addSubview:addImage];
+            
         }
-        cell.textLabel.text = [universalArray objectAtIndex:indexPath.row];
+       
+        
+        UIView * cellBackView = (UIView*)[cell viewWithTag:0x1];
+        UILabel * nameLab = (UILabel *)[cell viewWithTag:0x2];
+        UIImageView * addIamge = (UIImageView *)[cell viewWithTag:0x3];
+        [self setBordForView:cellBackView withBorder:1 withColor:COLOR_WITH_RGB(202, 202, 202)];
+        [self setViewCornerRadius:cellBackView withCornerRadius:6];
+         nameLab.text = [universalArray objectAtIndex:indexPath.row];
+        NSLog(@"text ==%@",nameLab.text);
         return cell;
     }
     
 }
+-(void)setBordForView:(UIView*)view withBorder:(NSInteger)border withColor:(UIColor*)color{
+    //设置layer
+    CALayer *layer=[view layer];
+    //是否设置边框以及是否可见
+    [layer setMasksToBounds:YES];
+   
+    //设置边框线的宽
+   
+    [layer setBorderWidth:border];
+    //设置边框线的颜色
+    [layer setBorderColor:[color CGColor]];
+}
 
-
+-(void)setViewCornerRadius:(UIView *)view withCornerRadius:(NSInteger)radius{
+    view.layer.cornerRadius = radius;
+    view.layer.masksToBounds = YES;
+}
 #pragma mark - Table view delegate
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -299,7 +368,9 @@
         }
 
     }else{
-        
+        GuolvDetailViewController * detaileView = [[GuolvDetailViewController alloc] init];
+//        [self.navigationController pushViewController:detaileView animated:YES];
+        [self presentModalViewController:detaileView animated:YES];
     }
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
