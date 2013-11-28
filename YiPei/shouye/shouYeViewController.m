@@ -13,6 +13,8 @@
 
 //#import "scannerViewController.h"
 #import "scannerZxingViewController.h"
+#import "GuoWuCheViewController.h"
+
 
 @interface shouYeViewController ()
 
@@ -205,6 +207,8 @@
 -(IBAction)clickShoppingCartBT:(id)sender{
     UIButton *but=(UIButton *)sender;
     [self updateview:but.tag];
+    GuoWuCheViewController *guowucheVC=[[GuoWuCheViewController alloc]initWithNibName:@"GuoWuCheViewController" bundle:nil];
+    [self.navigationController pushViewController:guowucheVC animated:YES];
 }
 
 //支付帮助

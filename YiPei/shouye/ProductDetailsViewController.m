@@ -14,6 +14,13 @@
 #import "AppDelegate.h"
 #import "CustomTabBar.h"
 
+#import "JiangJiaTongZhiViewController.h"
+#import "GuoWuCheViewController.h"
+
+#import "goodInfoDetailFunc.h"
+#import "model.h"
+
+
 #import "goodInfoDetailFunc.h"
 #import "model.h"
 
@@ -189,11 +196,14 @@
     _contenrBack.frame=CGRectMake(0, 0, 320, scrollheight);
     BackY=_contenrBack.frame.origin.y;
     
-    [_ContenrScroll setContentSize:CGSizeMake(320,scrollheight+200)];
+    [_ContenrScroll setContentSize:CGSizeMake(320,scrollheight+100)];
     [_ContenrScroll addSubview:_imageView];
     [_ContenrScroll addSubview:_infoView];
     [_ContenrScroll addSubview:_guiGeView];
     [_ContenrScroll addSubview:_detailedTable];
+    
+    float height=[[UIScreen mainScreen] bounds].size.height;
+    _butView.frame=CGRectMake(0, height-45-45-20, 320, 45);
     [self.view addSubview:_butView];
 
 }
@@ -221,7 +231,7 @@
     _detailedTable.frame=CGRectMake(15, _detailedTable.frame.origin.y, 290, 120+AdditionHeight);
     //_butView.frame=CGRectMake(0, butViewY+AdditionHeight, 320, 45);
     _contenrBack.frame=CGRectMake(0, 0, 320, BackY+AdditionHeight);
-    [_ContenrScroll setContentSize:CGSizeMake(320, scrollheight+200+AdditionHeight)];
+    [_ContenrScroll setContentSize:CGSizeMake(320, scrollheight+100+AdditionHeight)];
 }
 
 
@@ -234,7 +244,8 @@
 }
 //购物车
 -(IBAction)clickShoppingCartBT:(id)sender{
-
+    GuoWuCheViewController *guowucheVC=[[GuoWuCheViewController alloc]initWithNibName:@"GuoWuCheViewController" bundle:nil];
+    [self.navigationController pushViewController:guowucheVC animated:YES];
 }
 //左图片按钮
 -(IBAction)clickLeftImageBT:(id)sender{
@@ -246,7 +257,8 @@
 }
 //降价通知
 -(IBAction)clickjianJiaBT:(id)sender{
-
+    JiangJiaTongZhiViewController *jiangJiaVC=[[JiangJiaTongZhiViewController alloc]initWithNibName:@"JiangJiaTongZhiViewController" bundle:nil];
+    [self.navigationController pushViewController:jiangJiaVC animated:YES];
 }
 //减数量
 -(IBAction)clickJianNumBT:(id)sender{
