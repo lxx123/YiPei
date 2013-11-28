@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "dataProcessProtocol.h"
 
-@interface todayMarketfunc : NSObject
+@interface todayNewfunc : NSObject
 {
-    id<dataProcessProtocol> delegate;
+    id<dataTodayNewProcessProtocol> delegate;
 }
 
 @property(nonatomic, retain)id delegate;
 
-- (void)getTodayMarket:(NSString *)index;
+- (void)getTodayNew:(NSString *)index City:(NSString *)cID SortPrice:(NSString *)sortp SortSale:(NSString *)sortS;
 
 @end

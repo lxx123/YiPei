@@ -11,21 +11,29 @@
 #import "NetCommand.h"
 
 //2. 首页 根据客户端发送的页码(index)分页返回今日行情的列表，并且当index=0时（首页），增加一条今日发布信息及一条今日特价信息。
-@interface homeTodayMarketQuery : NSObject
+@interface todayNewQuery : NSObject
 {
     NSString *index;
+    NSString *cid;
+    NSString *sortp;
+    NSString *sorts;
 }
 @property(nonatomic, retain) NSString *index;
+@property(nonatomic, retain) NSString *cid;
+@property(nonatomic, retain) NSString *sortp;
+@property(nonatomic, retain) NSString *sorts;
 @end
 
-@interface homeTodayMarket : NSObject
+@interface todayNew : NSObject
 {
     NSString *min_price; //最低价格
     NSString *market_price; //商品原价
     NSString *goods_id; //商品id
     NSString *goods_sn; //商品出厂编码
+    NSString *barcode;// 商品条形码
     NSString *goods_format; //商品规格型号
     NSString *goods_name; //商品名称
+    NSString *goods_sale_amount;// 商品销售量
     NSArray  *goodsAttrs; //商品属性（有多个）
 }
 
@@ -33,8 +41,10 @@
 @property(nonatomic, retain) NSString *market_price;
 @property(nonatomic, retain) NSString *goods_id;
 @property(nonatomic, retain) NSString *goods_sn;
+@property(nonatomic, retain) NSString *barcode;
 @property(nonatomic, retain) NSString *goods_format;
 @property(nonatomic, retain) NSString *goods_name;
+@property(nonatomic, retain) NSString *goods_sale_amount;
 @property(nonatomic, retain) NSArray *goodsAttrs;
 
 @end
@@ -69,6 +79,7 @@
     NSString *goods_name;   //商品名称
     NSString *goods_sale_amount;//商品销售量
     NSArray  *goodsAttrs;//商品属性（有多个），基本数据结构如下
+    NSString *goods_format;
 }
 @property(nonatomic, retain) NSString *min_price;
 @property(nonatomic, retain) NSString *market_price;
@@ -77,6 +88,8 @@
 @property(nonatomic, retain) NSString *goods_name;
 @property(nonatomic, retain) NSString *goods_sale_amount;
 @property(nonatomic, retain) NSArray *goodsAttrs;
+@property(nonatomic, retain) NSString *goods_format;
+
 @end
 
 //5. 根据商品的id返回商品详情信息：
@@ -94,7 +107,7 @@
     NSString *goods_id;         //商品id
     NSString *goods_sn;         //商品出厂编码
     NSString *goods_barcode;    //商品条形码
-    NSString *goods_formatl;    //商品规格型号
+    NSString *goods_format;    //商品规格型号
     NSString *goods_name;       //商品名称
     NSString *goods_brief;      //商品简介
     NSString *goods_desc;       //商品详情
@@ -107,16 +120,19 @@
     NSString *product_company;  //生产厂家
     NSString *original_img;     //商品图片
     NSArray *goods_car;         //商品适用车型（有多个）
-    NSString *seller_note;      //售后服务
-    NSString *slogan;           //网站slogan
+    NSString *service_after_title;// 售后服务标题，默认为“售后服务”
+    NSString *service_after_content;// 售后服务内容
+    NSString *slogan_title;           //网站slogan
+    NSString *slogan_content;           //网站slogan
     NSArray  *goods_gallery;    //商品相册（多张图片）
+    NSArray  *volume_price;//批发量价
 }
 @property(nonatomic, retain) NSString *min_price;
 @property(nonatomic, retain) NSString *market_price;
 @property(nonatomic, retain) NSString *goods_id;
 @property(nonatomic, retain) NSString *goods_sn;
 @property(nonatomic, retain) NSString *goods_barcode;
-@property(nonatomic, retain) NSString *goods_formatl;
+@property(nonatomic, retain) NSString *goods_format;
 @property(nonatomic, retain) NSString *goods_name;
 @property(nonatomic, retain) NSString *goods_brief;
 @property(nonatomic, retain) NSString *goods_desc;
@@ -128,9 +144,23 @@
 @property(nonatomic, retain) NSString *product_company;
 @property(nonatomic, retain) NSString *original_img;
 @property(nonatomic, retain) NSArray  *goods_car;
-@property(nonatomic, retain) NSString *seller_note;
-@property(nonatomic, retain) NSString *slogan;
+@property(nonatomic, retain) NSString *service_after_title;
+@property(nonatomic, retain) NSString *service_after_content;
+@property(nonatomic, retain) NSString *slogan_title;
+@property(nonatomic, retain) NSString *slogan_content;
+
 @property(nonatomic, retain) NSArray  *goods_gallery;
+@property(nonatomic, retain) NSArray  *volume_price;
+@end
+
+
+@interface volumePrice : NSObject
+{
+    NSString *volume_number;    //批量购物数量
+    NSString *volume_price;     //  批量购物单价
+}
+@property(nonatomic, retain) NSString *volume_number;
+@property(nonatomic, retain) NSString *volume_price;
 @end
 
 @interface goodsCar : NSObject
@@ -534,7 +564,7 @@
 @end
 
 //我的个人信息
-@interface ProfileQuery : NSObject
+@interface profileQuery : NSObject
 {
     NSString *clientsId;//	门店ID
     NSString *uid;      //	会员ID
