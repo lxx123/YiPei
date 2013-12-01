@@ -16,13 +16,10 @@
 
 #import "JiangJiaTongZhiViewController.h"
 #import "GuoWuCheViewController.h"
-
-#import "goodInfoDetailFunc.h"
 #import "model.h"
 
-
 #import "goodInfoDetailFunc.h"
-#import "model.h"
+#import "searchFunc.h"
 
 @interface ProductDetailsViewController (){
     float scrollheight;
@@ -71,6 +68,8 @@
 
 @synthesize goodInfoFunc=_goodInfoFunc;
 @synthesize pid=_pid;
+@synthesize barcode=_barcode;
+@synthesize searchfunc = _searchfunc;
 @synthesize guiGeArray=_guiGeArray;
 
 @synthesize isOpen,selectIndex;
@@ -79,7 +78,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        _pid = nil;
+        _barcode = nil;
     }
     return self;
 }
@@ -87,9 +87,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    _goodInfoFunc = [[goodInfoDetailFunc alloc] init];
-    _goodInfoFunc.delegate = self;
-    [_goodInfoFunc getGoodInfoDetail:_pid];
+
 
 }
 
@@ -101,27 +99,32 @@
     _info.min_price = [data objectForKey:@"min_price"];
     _info.market_price = [data objectForKey:@"market_price"];
     _info.goods_id = [data objectForKey:@"goods_id"];
+    _info.supplier_id = [data objectForKey:@"supplier_id"];
+    _info.warehouse_id = [data objectForKey:@"warehouse_id"];
     _info.goods_sn = [data objectForKey:@"goods_sn"];
-    _info.goods_barcode = [data objectForKey:@"goods_barcode"];
+    _info.goods_barcode = [data objectForKey:@"barcode"];
     _info.goods_format = [data objectForKey:@"goods_format"];
-    _info.goods_name = [data objectForKey:@"min_price"];
-    _info.goods_brief = [data objectForKey:@"goods_name"];
-    _info.goods_desc = [data objectForKey:@"goods_desc"];
-    _info.goods_sale_amount = [data objectForKey:@"goods_sale_amount"];
-    _info.goods_attrs = [data objectForKey:@"goods_attrs"];
-    
     _info.package_format = [data objectForKey:@"package_format"];
     _info.brand_name = [data objectForKey:@"brand_name"];
     _info.measure_unit = [data objectForKey:@"measure_unit"];
     _info.product_company = [data objectForKey:@"product_company"];
+    _info.goods_name = [data objectForKey:@"goods_name"];
+    _info.goods_brief = [data objectForKey:@"goods_name"];
+    _info.goods_desc = [data objectForKey:@"goods_desc"];
+    _info.goods_thumb = [data objectForKey:@"goods_thumb"];
+    _info.goods_img = [data objectForKey:@"goods_img"];
     _info.original_img = [data objectForKey:@"original_img"];
+    _info.goods_sale_amount = [data objectForKey:@"goods_sale_amount"];
+    
+    _info.goods_attrs = [data objectForKey:@"goods_attr"];
+    _info.volume_price = [data objectForKey:@"volume_price"];
     _info.goods_car = [data objectForKey:@"goods_car"];
+    
     _info.service_after_title = [data objectForKey:@"service_after_title"];
     _info.service_after_content = [data objectForKey:@"service_after_content"];
     _info.slogan_title = [data objectForKey:@"slogan_title"];
     _info.slogan_content = [data objectForKey:@"slogan_content"];
     _info.goods_gallery = [data objectForKey:@"goods_gallery"];
-//    _info.volume_price = [data objectForKey:@"vo"]//等待补充
     
     _nameLabel.text = _info.goods_name;
     _jianJieLabel.text = _info.goods_brief;
@@ -149,9 +152,9 @@
     [app.tabBarController hideCustomTabBar];
     scrollheight=448;
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.extendedLayoutIncludesOpaqueBars = NO;
-        self.modalPresentationCapturesStatusBarAppearance = NO;
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//        self.extendedLayoutIncludesOpaqueBars = NO;
+//        self.modalPresentationCapturesStatusBarAppearance = NO;
     }
     self.navigationController.navigationBar.backgroundColor=[UIColor darkGrayColor];
     self.title=@"淘汽档口";
@@ -216,12 +219,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (_pid) {
+        _goodInfoFunc = [[goodInfoDetailFunc alloc] init];
+        _goodInfoFunc.delegate = self;
+        [_goodInfoFunc getGoodInfoDetail:_pid];
+    }
+    else if(_barcode)
+    {
+        _barcode = @"6Q02010511";
+        _searchfunc = [[searchFunc alloc] init];
+        _searchfunc.delegateBarcode = self;
+        [_searchfunc getSearchBarcode:_barcode];
+    }
 
     
 }
+
+- (void) didSearchGoodsByBarCodeDataSuccess : (id)data
+{
+    [self didGoodsInfoDataFailed:data];
+}
+
+- (void) didSearchGoodsByBarCodeDataFailed : (NSString *)err
+{
+}
+
 //规格的frame
 -(void)guiGeTableData{
-    _guiGeTable.frame=CGRectMake(15, 40, 290, 15*35);
+    _guiGeTable.frame=CGRectMake(15, 40, 290, [_guiGeArray count]*35);
     _guiGeView.frame=CGRectMake(0, 448, 320, _guiGeTable.frame.origin.y+_guiGeTable.frame.size.height);
     scrollheight=scrollheight+_guiGeView.frame.size.height+17;
 }
@@ -301,7 +327,7 @@
         return 1;
     }
     if (tableView.tag==SPECIFICATIONTABLE_TAG) {
-        return 15;
+        return [_guiGeArray count];
     }
     return 0;
 }

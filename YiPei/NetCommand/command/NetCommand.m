@@ -77,7 +77,7 @@
 //				} else {
 //					[reqUrl appendString:@"&"];
 //				}
-                if (![key isEqualToString:@"m"] && ![key isEqualToString:@"m"]) {
+                if (![key isEqualToString:@"m"] && ![key isEqualToString:@"a"]) {
                     [reqUrl appendString:@"&"];
                     [reqUrl appendString:key];
                     [reqUrl appendString:@"="];
@@ -114,12 +114,14 @@
 		
     
 	@try {
-        NSMutableDictionary *dictionary=[jsonData objectFromJSONData];
+        NSString *jsonString = [[NSString alloc] initWithBytes:jsonData.bytes length:jsonData.length encoding:NSUTF8StringEncoding];
+        jsonString = [jsonString stringByReplacingOccurrencesOfString:@"null" withString:@"\"\""];
+        
+        NSMutableDictionary *dictionary=[jsonString objectFromJSONString];
         
         self.errorCode = [[dictionary objectForKey:@"errorCode"]intValue];
         self.errorMsg = [dictionary objectForKey:@"errorMsg"];
         self.data = [dictionary objectForKey:@"data"];
-
 	}
 	@catch (NSException * e) {
 		NSLog(@"execute,error=%@",e);

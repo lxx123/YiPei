@@ -11,12 +11,15 @@
 
 @class goodInfoDetailFunc;
 @class GoodsInfo;
+@class searchFunc;
 
-@interface ProductDetailsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,dataGoodsInfoProcessProtocol>
+@interface ProductDetailsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,dataGoodsInfoProcessProtocol,dataSearchGoodsByBarCodeProcessProtocol>
 {
     goodInfoDetailFunc *goodInfoFunc;
     NSString *pid;
     GoodsInfo *info;
+    NSString *barcode;
+    searchFunc *searchfunc;
 }
 
 
@@ -56,6 +59,9 @@
 @property(nonatomic,strong)GoodsInfo *info;
 
 @property(nonatomic,strong)NSString *pid;
+@property(nonatomic,strong)NSString *barcode;
+@property(nonatomic,strong)searchFunc *searchfunc;
+
 @property(nonatomic,strong)NSArray *guiGeArray;
 
 

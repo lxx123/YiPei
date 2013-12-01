@@ -54,15 +54,32 @@
 
 
 
+//返回
+-(IBAction)clickFanHuiBT:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+//完成
+-(void)clickWangChangBT:(id)sender{
+    
+}
+
+//照相按钮
+-(IBAction)ZhaoXiang:(id)sender{
+    
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.extendedLayoutIncludesOpaqueBars = NO;
-        self.modalPresentationCapturesStatusBarAppearance = NO;
-    }
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//        self.extendedLayoutIncludesOpaqueBars = NO;
+//        self.modalPresentationCapturesStatusBarAppearance = NO;
+//    }
     self.navigationController.navigationBar.backgroundColor=[UIColor darkGrayColor];
     self.title=@"降价通知";
     
@@ -84,47 +101,13 @@
     _caiGouPriceText.delegate=self;
     _caiGouNumber.delegate=self;
     _fanDian.delegate=self;
+    }
 }
-
-
-//返回
--(IBAction)clickFanHuiBT:(id)sender{
-    [self.navigationController popViewControllerAnimated:YES];
-
-}
-
-//完成
--(void)clickWangChangBT:(id)sender{
-
-}
-
-//照相按钮
--(IBAction)ZhaoXiang:(id)sender{
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+    
 @end

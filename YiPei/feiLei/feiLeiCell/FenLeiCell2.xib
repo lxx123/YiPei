@@ -21,8 +21,8 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="byZ-ck-zQq">
-                        <rect key="frame" x="287" y="15" width="18" height="13"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow1_right.png" id="byZ-ck-zQq">
+                        <rect key="frame" x="287" y="15" width="11" height="11"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
@@ -33,4 +33,7 @@
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon_arrow1_right.png" width="11" height="11"/>
+    </resources>
 </document>

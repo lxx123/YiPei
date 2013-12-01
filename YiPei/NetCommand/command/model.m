@@ -8,12 +8,12 @@
 
 #import "model.h"
 
-@implementation todayNewQuery
-@synthesize index;
-@synthesize cid;
-@synthesize sortp;
-@synthesize sorts;
-@end
+//@implementation todayNewQuery
+//@synthesize index;
+//@synthesize cid;
+//@synthesize sortp;
+//@synthesize sorts;
+//@end
 
 @implementation todayNew
 
@@ -21,10 +21,18 @@
 @synthesize market_price;
 @synthesize goods_id;
 @synthesize goods_sn;
+@synthesize supplier_id;
+@synthesize warehouse_id;
+@synthesize factory_code;
 @synthesize barcode;
 @synthesize goods_format;
 @synthesize goods_name;
 @synthesize goods_sale_amount;
+@synthesize package_format;
+@synthesize product_company;
+@synthesize goods_thumb;
+@synthesize goods_img;
+@synthesize original_img;
 @synthesize goodsAttrs;
 @end
 
@@ -34,12 +42,12 @@
 @synthesize attr_value;
 @end
 
-@implementation todayDiscountQuery
-
-@synthesize index;
-@synthesize sortPrice;
-@synthesize sortSale;
-@end
+//@implementation todayDiscountQuery
+//
+//@synthesize index;
+//@synthesize sortPrice;
+//@synthesize sortSale;
+//@end
 
 @implementation todayDiscountGoods
 
@@ -47,48 +55,63 @@
 @synthesize market_price;
 @synthesize goods_id;
 @synthesize goods_sn;
+@synthesize supplier_id;
+@synthesize warehouse_id;
+@synthesize factory_code;
+@synthesize barcode;
+@synthesize goods_format;
 @synthesize goods_name;
 @synthesize goods_sale_amount;
+@synthesize package_format;
+@synthesize product_company;
+@synthesize goods_thumb;
+@synthesize goods_img;
+@synthesize original_img;
 @synthesize goodsAttrs;
-@synthesize goods_format;
 @end
 
-@implementation CityGoodsInfoQuery
-
-@synthesize goodsId;
-@end
+//@implementation CityGoodsInfoQuery
+//
+//@synthesize goodsId;
+//@end
 
 @implementation GoodsInfo
 
 @synthesize min_price;
 @synthesize market_price;
 @synthesize goods_id;
+@synthesize supplier_id;
+@synthesize warehouse_id;
 @synthesize goods_sn;
 @synthesize goods_barcode;
 @synthesize goods_format;
-@synthesize goods_name;
-@synthesize goods_brief;
-@synthesize goods_desc;
-@synthesize goods_sale_amount;
-@synthesize goods_attrs;
 @synthesize package_format;
 @synthesize brand_name;
 @synthesize measure_unit;
 @synthesize product_company;
+
+@synthesize goods_name;
+@synthesize goods_brief;
+@synthesize goods_desc;
+@synthesize goods_thumb;
+@synthesize goods_img;
 @synthesize original_img;
+@synthesize goods_sale_amount;
+@synthesize goods_attrs;
+@synthesize volume_price;
 @synthesize goods_car;
-@synthesize service_after_content;
 @synthesize service_after_title;
+@synthesize service_after_content;
 @synthesize slogan_title;
 @synthesize slogan_content;
 @synthesize goods_gallery;
-@synthesize volume_price;
 @end
 
 @implementation volumePrice
-
-@synthesize volume_price;
+@synthesize volume_number_min;
 @synthesize volume_number;
+@synthesize volume_price;
+@synthesize supplier_id;
 
 @end
 
@@ -111,10 +134,10 @@
 @synthesize img_original;
 @end
 
-@implementation uploadImageQuery
-
-@synthesize goodsSn;
-@end
+//@implementation uploadImageQuery
+//
+//@synthesize goodsSn;
+//@end
 
 @implementation uploadImageInfo
 
@@ -126,26 +149,26 @@
 @synthesize filePath;
 @end
 
-@implementation lowPriceNotifyQuery
+//@implementation lowPriceNotifyQuery
+//
+//@synthesize goodsId;
+//@synthesize sysPrice;
+//@synthesize price;
+//@synthesize number;
+//@synthesize rebates;
+//@synthesize imgUrl;
+//
+//@end
 
-@synthesize goodsId;
-@synthesize sysPrice;
-@synthesize price;
-@synthesize number;
-@synthesize rebates;
-@synthesize imgUrl;
-
-@end
-
-@implementation loadCarInfoByPidQuery
-
-@synthesize pid;
-@end
-
-@implementation loadCarInfoByLevelQuery
-
-@synthesize level;
-@end
+//@implementation loadCarInfoByPidQuery
+//
+//@synthesize pid;
+//@end
+//
+//@implementation loadCarInfoByLevelQuery
+//
+//@synthesize level;
+//@end
 
 @implementation loadCarInfo
 
@@ -169,24 +192,23 @@
 @synthesize category_thumb;
 @synthesize ategory_img;
 @synthesize original_img;
-
 @end
 
-@implementation goodsCategoryByPidQuery
-
-@synthesize pid;
-@end
+//@implementation goodsCategoryByPidQuery
+//
+//@synthesize pid;
+//@end
 
 @implementation goodsCategoryByPid
 
 @synthesize category;
 @end
 
-@implementation goodsAllBrandQuery
-
-@synthesize firstLetter;
-@synthesize sortByLetter;
-@end
+//@implementation goodsAllBrandQuery
+//
+//@synthesize firstLetter;
+//@synthesize sortByLetter;
+//@end
 
 
 @implementation goodsAllBrand
@@ -195,54 +217,92 @@
 
 @end
 
-@implementation goodsListQuery
+@implementation ReqionInfoByPid
 
+@synthesize reqion;
+
+@end
+
+@implementation reqionInfo
+
+@synthesize region_id;
+@synthesize region_name;
+
+@end
+
+@implementation filterGoodsList
+
+@synthesize min_price;
+@synthesize market_price;
+@synthesize goods_id;
+@synthesize goods_sn;
+@synthesize supplier_id;
+@synthesize factory_code;
+@synthesize barcode;
+@synthesize goods_format;
+@synthesize goods_name;
+@synthesize goods_sale_amount;
+@synthesize package_format;
+@synthesize product_company;
+@synthesize goods_thumb;
+@synthesize goods_img;
+@synthesize original_img;
+
+@end
+
+@implementation filterAttrByCategory
 @synthesize categoryId;
-@synthesize carModel;
-@synthesize carGeneral;
-@synthesize brandId;
-@synthesize filterAttr;
-@synthesize sortPrice;
-@synthesize sortSale;
-@synthesize index;
-
+@synthesize name;
+@synthesize valuesList;
 @end
+//@implementation goodsListQuery
+//
+//@synthesize categoryId;
+//@synthesize carModel;
+//@synthesize carGeneral;
+//@synthesize brandId;
+//@synthesize filterAttr;
+//@synthesize sortPrice;
+//@synthesize sortSale;
+//@synthesize index;
+//
+//@end
 
-@implementation filterAttrByCategoryQuery
+//@implementation filterAttrByCategoryQuery
+//
+//@synthesize categoryId;
+//
+//@end
 
-@synthesize categoryId;
+//@implementation goodsCarModelByCategoryQuery
+//
+//@synthesize categoryId;
+//
+//@end
+//
+//@implementation goodsCategoryByBrandQuery
+//
+//@synthesize brandId;
+//
+//@end
 
-@end
-
-@implementation goodsCarModelByCategoryQuery
-
-@synthesize categoryId;
-
-@end
-
-@implementation goodsCategoryByBrandQuery
-
-@synthesize brandId;
-
-@end
-
-@implementation filterAttrByBrandQuery
-
-@synthesize brandId;
-
-@end
-
-@implementation goodsBrandByCarModelQuery
-
-@synthesize carModel;
-
-@end
-
-@implementation goodsCategoryByCarModelQuery
-
-@synthesize carModel;
-
-@end
+//@implementation filterAttrByBrandQuery
+//
+//@synthesize brandId;
+//
+//@end
+//
+//@implementation goodsBrandByCarModelQuery
+//
+//@synthesize carModel;
+//
+//@end
+//
+//@implementation goodsCategoryByCarModelQuery
+//
+//@synthesize carModel;
+//
+//@end
 
 @implementation addGoods2Cart
 
@@ -251,11 +311,11 @@
 
 @end
 
-@implementation searchGoodsQuery
-
-@synthesize keywords;
-
-@end
+//@implementation searchGoodsQuery
+//
+//@synthesize keywords;
+//
+//@end
 
 @implementation searchGoods
 
@@ -270,11 +330,11 @@
 
 @end
 
-@implementation searchGoodsByBarCodeQuery
-
-@synthesize barCode;
-
-@end
+//@implementation searchGoodsByBarCodeQuery
+//
+//@synthesize barCode;
+//
+//@end
 
 @implementation searchGoodsByBarCode
 
@@ -287,34 +347,60 @@
 @synthesize min_price;
 @synthesize market_price;
 @synthesize goods_id;
+@synthesize supplier_id;
+@synthesize warehouse_id;
 @synthesize goods_sn;
+@synthesize goods_barcode;
+@synthesize goods_format;
+@synthesize package_format;
+@synthesize brand_name;
+@synthesize measure_unit;
+@synthesize product_company;
+
 @synthesize goods_name;
 @synthesize goods_brief;
 @synthesize goods_desc;
+@synthesize goods_thumb;
+@synthesize goods_img;
 @synthesize original_img;
 @synthesize goods_sale_amount;
-@synthesize goods_attr;
+@synthesize goods_attrs;
+@synthesize volume_price;
 @synthesize goods_car;
-@synthesize seller_note;
-@synthesize slogan;
+@synthesize service_after_title;
+@synthesize service_after_content;
+@synthesize slogan_title;
+@synthesize slogan_content;
 @synthesize goods_gallery;
 @end
 
-@implementation searchGoodsByVinCodeQuery
+@implementation searchGoodsByVinCode
 
-@synthesize searchGoodsByVinCode;
-
-@end
-
-@implementation myOrderListsQuery
-
-@synthesize index;
-@synthesize uid;
-@synthesize clientsId;
-@synthesize t;
-@synthesize p;
+@synthesize searchCarID;
+@synthesize searchName;
+@synthesize searchPower;
+@synthesize searchLevel;
+@synthesize searchSeries;
+@synthesize searchBrand;
+@synthesize searchCompany;
+@synthesize searchImportInfo;
 
 @end
+//@implementation searchGoodsByVinCodeQuery
+//
+//@synthesize searchGoodsByVinCode;
+//
+//@end
+
+//@implementation myOrderListsQuery
+//
+//@synthesize index;
+//@synthesize uid;
+//@synthesize clientsId;
+//@synthesize t;
+//@synthesize p;
+//
+//@end
 
 @implementation myOrderLists
 
@@ -345,12 +431,12 @@
 
 @end
 
-@implementation profileQuery
-
-@synthesize clientsId;
-@synthesize uid;
-
-@end
+//@implementation profileQuery
+//
+//@synthesize clientsId;
+//@synthesize uid;
+//
+//@end
 
 @implementation myProfile
 
@@ -359,12 +445,12 @@
 
 @end
 
-@implementation profileIndexQuery
-
-@synthesize clientsId;
-@synthesize uid;
-
-@end
+//@implementation profileIndexQuery
+//
+//@synthesize clientsId;
+//@synthesize uid;
+//
+//@end
 
 @implementation myProfileIndex
 
@@ -377,6 +463,39 @@
 @synthesize addr;
 @end
 
+@implementation MyCredit
+
+@synthesize level;
+@synthesize amounts;
+@end
+
+@implementation saveClientInfo
+
+@synthesize uid;
+@synthesize user_name;
+@synthesize client_id;
+@synthesize city;
+@end
+
+
+@implementation orderSubmit
+
+@synthesize order_id;
+@synthesize order_sn;
+
+@end
+
+@implementation howMuchHongBaoLeft
+
+@synthesize hongbao;
+
+@end
+
+@implementation citySite
+
+@synthesize cName;
+@synthesize cID;
+@end
 
 
 

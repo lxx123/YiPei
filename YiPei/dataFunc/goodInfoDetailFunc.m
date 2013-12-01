@@ -8,7 +8,7 @@
 
 #import "goodInfoDetailFunc.h"
 #import "model.h"
-
+#import "userDataManager.h"
 @implementation goodInfoDetailFunc
 @synthesize delegate;
 
@@ -18,6 +18,7 @@
     [command.paramDict setObject:@"CityGoods" forKey:@"m"];
     [command.paramDict setObject:@"getCityGoodsInfo" forKey:@"a"];
     [command.paramDict setObject:goodID forKey:@"goodsId"];
+    [command.paramDict setObject:[userDataManager sharedUserDataManager].cityID forKey:@"city"];
     [command execute];
     if (command.errorCode == 0) {
         NSLog(@"getGoodInfoDetail success!");
