@@ -158,7 +158,7 @@ _queDingView.hidden=YES;
 //是否选中
 -(void)selectShangping:(id)sender{
     UIButton *but=(UIButton *)sender;
-    UITableViewCell* cell = (UITableViewCell* )but.superview.superview;
+    UITableViewCell* cell = (UITableViewCell* )but.superview.superview.superview;
     NSIndexPath *index = [_tableview indexPathForCell:cell];
     NSString *str=[selectDictionary objectForKey:[NSString stringWithFormat:@"%d",index.row]];
     if ([str isEqualToString:@"1"]) {
@@ -181,10 +181,10 @@ _queDingView.hidden=YES;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
      NSString *identifier =[NSString stringWithFormat: @"mycell%d",indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: identifier];
-    cell.backgroundColor=[UIColor clearColor];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor=[UIColor clearColor];
     }
     UIView *spcell = [cell viewWithTag:1001];
     if (spcell==nil) {
@@ -199,7 +199,7 @@ _queDingView.hidden=YES;
     UILabel *NameLa=(UILabel *)[spcell viewWithTag:2];
     NameLa.text=@"MANN 空气滤清器";
     
-    UIButton *button=(UIButton *)[spcell viewWithTag:3];
+    UIButton *button=(UIButton *)[spcell.subviews objectAtIndex:0];
     [button addTarget:self action:@selector(selectShangping:) forControlEvents:UIControlEventTouchUpInside];
     if ([[selectDictionary objectForKey:[NSString stringWithFormat:@"%d",indexPath.row]] isEqualToString:@"1"]) {
         [button setBackgroundImage:[UIImage imageNamed:@"cart_input_choose_press.png"] forState:UIControlStateNormal];

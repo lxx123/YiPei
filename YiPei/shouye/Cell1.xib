@@ -21,14 +21,13 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icon_arrow1_down.png" id="7">
-                        <rect key="frame" x="290" y="17" width="11" height="11"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icon_arrow1_down.png" id="1Ht-Ft-AeE">
+                        <rect key="frame" x="297" y="16" width="11" height="11"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="arrowImageView" destination="7" id="9"/>
                 <outlet property="titleLabel" destination="3" id="8"/>
             </connections>
         </tableViewCell>

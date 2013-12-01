@@ -135,7 +135,11 @@
     [_ContenrScroll addSubview:_detailedTable];
     
     float height=[[UIScreen mainScreen] bounds].size.height;
-    _butView.frame=CGRectMake(0, height-45-45-20, 320, 45);
+    if (height==480) {
+         _butView.frame=CGRectMake(0, height-45-45-20, 320, 45);
+    }else{
+         _butView.frame=CGRectMake(0, height-45-45-20, 320, 45);//模拟器是可以的 你在真机上把这个后面的减20去掉试试
+    }
     [self.view addSubview:_butView];
 
     
@@ -242,8 +246,6 @@
             if (!cell) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil] objectAtIndex:0];
             }
-//            NSArray *list = [infoArray objectAtIndex:self.selectIndex.section] ;
-//            NSLog(@"%d",list.count);
             cell.titleLabel.text = [sheHeCheXingArray objectAtIndex:indexPath.row-1];
             return cell;
         }else

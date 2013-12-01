@@ -11,7 +11,8 @@
 #import "todayMarketfunc.h"
 #import "ProductDetailsViewController.h"
 #import "GuoWuCheViewController.h"
-
+#import "JinRiFaBuViewController.h"
+#import "SaoMiaoXingXiViewController.h"
 
 @interface shouYeViewController ()
 
@@ -138,7 +139,8 @@
 
 //扫一扫
 -(IBAction)clickToSweep:(id)sender{
-
+    SaoMiaoXingXiViewController *SaoMiaoXingXiVC=[[SaoMiaoXingXiViewController alloc]initWithNibName:@"SaoMiaoXingXiViewController" bundle:nil];
+    [self.navigationController pushViewController:SaoMiaoXingXiVC animated:YES];
 }
 
 //个人信息
@@ -281,6 +283,7 @@
 
 
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
@@ -353,8 +356,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ProductDetailsViewController *ProductVc=[[ProductDetailsViewController alloc]initWithNibName:@"ProductDetailsViewController" bundle:nil];
-    [self.navigationController pushViewController:ProductVc animated:YES];
+    if (indexPath.section==0) {
+        JinRiFaBuViewController *jinrifabuVC=[[JinRiFaBuViewController alloc]initWithNibName:@"JinRiFaBuViewController" bundle:nil];
+        [self.navigationController pushViewController:jinrifabuVC animated:YES];
+    }else{
+        ProductDetailsViewController *ProductVc=[[ProductDetailsViewController alloc]initWithNibName:@"ProductDetailsViewController" bundle:nil];
+        [self.navigationController pushViewController:ProductVc animated:YES];
+    }
 }
 
 
