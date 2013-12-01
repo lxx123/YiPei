@@ -8,6 +8,7 @@
 #import "model.h"
 #import "fenLeiFunc.h"
 #import "fenLeiViewController.h"
+#import "CheShenFenLeiViewController.h"
 
 #import "FenLeiListViewController.h"
 #import "UINavigationView.h"
@@ -54,11 +55,16 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+       self.selectIndex = nil;
     _feiLFunction = [[fenLeiFunc alloc] init];
     _feiLFunction.delegateGoodsCateByPid = self;
     [_feiLFunction getGoodsCateByPid:@"0"];
 //    self.navigationController.navigationBarHidden = NO;
+    
+    self.view.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
+    
+    
+       _fenLeiTableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void) didGoodsCategoryByPidDataSuccess : (id)data
@@ -90,38 +96,8 @@
 
     }
 
-//    [dic setValue:arry forKey:@"0"];
-//    [_fenLeiDataArray addObject:dic];
-//    
-//    arry = [[NSMutableArray alloc] init];
-//    dic = [[NSMutableDictionary alloc] init];
-//    [dic setValue:arry forKey:@"1"];
-//    [dic setValue:@"第一" forKey:@"name"];
-//    [_fenLeiDataArray addObject:dic];
-//    
-//    arry = [[NSMutableArray alloc] initWithObjects:@"21",@"22",@"23", nil];
-//    dic = [[NSMutableDictionary alloc] init];
-//    [dic setValue:@"第二" forKey:@"name"];
-//    
-//    [dic setValue:arry forKey:@"2"];
-//    [_fenLeiDataArray addObject:dic];
-//    
-//    arry = [[NSMutableArray alloc] initWithObjects:@"31",@"32",@"33", nil];
-//    dic = [[NSMutableDictionary alloc] init];
-//    [dic setValue:@"第三" forKey:@"name"];
-//    
-//    [dic setValue:arry forKey:@"3"];
-//    [_fenLeiDataArray addObject:dic];
-//    
-//    arry = [[NSMutableArray alloc] initWithObjects:@"41",@"42",@"43", nil];
-//    dic = [[NSMutableDictionary alloc] init];
-//    [dic setValue:@"第四" forKey:@"name"];
-//    
-//    [dic setValue:arry forKey:@"4"];
-//    [_fenLeiDataArray addObject:dic];
-    
     [_fenLeiTableView reloadData];
-    _fenLeiTableView.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
+//    _fenLeiTableView.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
 
 }
 
@@ -142,7 +118,7 @@
 }
 -(void)initLeftBarButtonItem{
     
-     [_headNav initWithLeftBarItemWithTitle:@"" withFrame:CGRectMake(10, 7, 30, 30)  withAction:@selector(leftBarItemClick) withButtonImage:[UIImage imageNamed:@"btn_car.png"]  withTarget:self];
+     [_headNav initWithLeftBarItemWithTitle:@"" withFrame:CGRectMake(10, 7, 30, 30)  withAction:@selector(leftBarItemClick) withButtonImage:[UIImage imageNamed:@"btn_car.png"] withHighlighted:nil withTarget:self];
     
 //    UIButton * leftButton = [[UIButton alloc] init];
 //    leftButton.frame = CGRectMake(10,7, 30, 30);
@@ -157,10 +133,12 @@
 //    
 }
 -(void)leftBarItemClick{
+    CheShenFenLeiViewController * cheshenView = [[CheShenFenLeiViewController alloc] init];
+    [self.navigationController pushViewController:cheshenView animated:YES];
 }
 -(void)initRightBarButtonItem{
 
-    [_headNav initWithRightBarItemWithTitle:@"" withFrame:CGRectMake(280,7, 30, 30)  withAction:@selector(rightBarItemClick) withButtonImage:[UIImage imageNamed:@"btn_car.png"]  withTarget:self];
+    [_headNav initWithRightBarItemWithTitle:@"" withFrame:CGRectMake(280,7, 30, 30)  withAction:@selector(rightBarItemClick) withButtonImage:[UIImage imageNamed:@"topbtn_cart.png"] withHighlighted:nil withTarget:self];
     
 //    UIButton * rightButton = [[UIButton alloc] init];
 //    rightButton.frame = CGRectMake(280,7, 30, 30);
@@ -247,6 +225,7 @@
         FenLeiCell *cell = (FenLeiCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil] objectAtIndex:0];
+            
         }
 //        cell.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
         if (indexPath.row==0) {

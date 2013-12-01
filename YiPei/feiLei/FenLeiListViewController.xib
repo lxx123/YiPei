@@ -70,7 +70,7 @@
         <view alpha="0.79999999999999982" contentMode="scaleToFill" id="qGf-QO-aJJ">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" red="0.31793478260869568" green="0.31793478260869568" blue="0.31793478260869568" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.38597571331521741" green="0.38597571331521741" blue="0.38597571331521741" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sR0-ef-26R">
@@ -78,6 +78,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="dataSource" destination="-1" id="Ttc-WP-Rhz"/>
+                <outlet property="delegate" destination="-1" id="ZGl-V0-pht"/>
+            </connections>
         </tableView>
     </objects>
     <resources>

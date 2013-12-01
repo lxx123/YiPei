@@ -28,17 +28,25 @@
     // Drawing code
 }
 */
--(void)initWithLeftBarItemWithTitle:(NSString *)title withFrame:(CGRect)frame withAction:(SEL)action withButtonImage:(UIImage *)image withTarget:(UIViewController *)controller{
+-(void)initWithLeftBarItemWithTitle:(NSString *)title withFrame:(CGRect)frame withAction:(SEL)action withButtonImage:(UIImage *)image withHighlighted:(UIImage*)highlightedImage withTarget:(UIViewController *)controller{
     UIButton * button = [[UIButton alloc] initWithFrame:frame];
     [button setTitle:title forState:UIControlStateNormal];
     [button setBackgroundImage:image forState:UIControlStateNormal];
+    if (highlightedImage) {
+        [button setBackgroundImage:highlightedImage forState:UIControlStateHighlighted];
+    }
+    
+ 
     [self addSubview:button];
     [button addTarget:controller action:action forControlEvents:UIControlEventTouchDown];
     
 }
--(void)initWithRightBarItemWithTitle:(NSString *)title withFrame:(CGRect)frame withAction:(SEL)action withButtonImage:(UIImage *)image withTarget:(UIViewController *)controller{
+-(void)initWithRightBarItemWithTitle:(NSString *)title withFrame:(CGRect)frame withAction:(SEL)action withButtonImage:(UIImage *)image withHighlighted:(UIImage*)highlightedImage withTarget:(UIViewController *)controller{
     UIButton * button = [[UIButton alloc] initWithFrame:frame];
     [button setTitle:title forState:UIControlStateNormal];
+    if (highlightedImage) {
+        [button setBackgroundImage:highlightedImage forState:UIControlStateHighlighted];
+    }
     [self addSubview:button];
     [button setBackgroundImage:image forState:UIControlStateNormal];
 

@@ -13,8 +13,8 @@
 
 
 
--(void)initWithLeftBarItemWithTitle:(NSString *)title withFrame:(CGRect)frame withAction:(SEL)action withButtonImage:(UIImage *)image withTarget:(UIViewController *)controller;
--(void)initWithRightBarItemWithTitle:(NSString *)title withFrame:(CGRect)frame   withAction:(SEL)action  withButtonImage:(UIImage *)image  withTarget:(UIViewController *)controller;
+-(void)initWithLeftBarItemWithTitle:(NSString *)title withFrame:(CGRect)frame withAction:(SEL)action withButtonImage:(UIImage *)image withHighlighted:(UIImage*)highlightedImage withTarget:(UIViewController *)controller;
+-(void)initWithRightBarItemWithTitle:(NSString *)title withFrame:(CGRect)frame   withAction:(SEL)action  withButtonImage:(UIImage *)image  withHighlighted:(UIImage*)highlightedImage withTarget:(UIViewController *)controller;
 
 -(void)initWithCenterItemWithTitle:(NSString *)title;
 

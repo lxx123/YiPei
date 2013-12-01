@@ -93,13 +93,15 @@
     _smallTableView.delegate = self;
     [_fenLeiListTableView reloadData];
     _fenLeiListTableView.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
+    
     _smallTableView.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
+    
     [self initLeftBarButtonItem];
     
 }
 -(void)initLeftBarButtonItem{
     
-     [_headNav initWithLeftBarItemWithTitle:@"" withFrame:CGRectMake(10, 7, 50, 30)  withAction:@selector(backToFeileiView) withButtonImage:[UIImage imageNamed:@"topbtn_back_press.png"]  withTarget:self];
+     [_headNav initWithLeftBarItemWithTitle:@"" withFrame:CGRectMake(10, 7, 50, 30)  withAction:@selector(backToFeileiView) withButtonImage:[UIImage imageNamed:@"topbtn_back_press.png"] withHighlighted:nil withTarget:self];
     
 //    UIButton * leftButton = [[UIButton alloc] init];
 //    leftButton.frame = CGRectMake(10,7, 50, 30);
@@ -136,9 +138,9 @@
 }
 -(void)setBlckViewAndSmarllTable:(NSInteger)count{
     
-    _blckView.frame = CGRectMake(0, 30, 320, MAINVIEW_HEIGHT-30);
+    _blckView.frame = CGRectMake(0, 74, 320, MAINVIEW_HEIGHT-74);
     [self.view addSubview:_blckView];
-    _smallTableView.frame = CGRectMake(0, 30, 320, count * 44);
+    _smallTableView.frame = CGRectMake(0, 74, 320, count * 44);
     [self.view addSubview:_smallTableView];
     [_smallTableView reloadData];
 }
@@ -271,12 +273,13 @@
             
             
         }
-//        FenLeiListModel * model = [fenLeiListArray objectAtIndex:indexPath.row];
+        FenLeiListModel * model = [smallTableArray objectAtIndex:indexPath.row];
         
     
         UILabel * nameLab = (UILabel *)[cell viewWithTag:0x1];
-    
-//        nameLab.text = model.name;
+        NSLog(@"nameLab.text==%@",nameLab.text);
+        
+        nameLab.text = model.name;
         
         return cell;
     }

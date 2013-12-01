@@ -10,6 +10,7 @@
                 <outlet property="choseCarButton" destination="Twc-Kv-Up5" id="PZN-R1-gu6"/>
                 <outlet property="filterScrollView" destination="EHd-dx-OeU" id="Qj8-no-xcJ"/>
                 <outlet property="headNav" destination="xN2-go-jCK" id="v9E-5y-AVX"/>
+                <outlet property="lineView" destination="i3O-Z3-BF5" id="Z6z-PB-xhv"/>
                 <outlet property="typeTableView" destination="RAw-df-dcE" id="If0-So-Qfg"/>
                 <outlet property="universalButton" destination="5tb-0L-IbE" id="qPQ-gA-JH3"/>
                 <outlet property="universalTableView" destination="eiJ-iG-Mi5" id="hrw-Qx-WHu"/>
@@ -52,9 +53,10 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Twc-Kv-Up5">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Twc-Kv-Up5">
                                     <rect key="frame" x="158" y="8" width="71" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="Button">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -62,9 +64,10 @@
                                         <action selector="clickChoseCarButton:" destination="-1" eventType="touchUpInside" id="Nms-92-LMp"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5tb-0L-IbE">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5tb-0L-IbE">
                                     <rect key="frame" x="229" y="8" width="71" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="Button">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -72,6 +75,11 @@
                                         <action selector="clickUniversalButton:" destination="-1" eventType="touchUpInside" id="qoR-of-3Zw"/>
                                     </connections>
                                 </button>
+                                <view contentMode="scaleToFill" id="i3O-Z3-BF5">
+                                    <rect key="frame" x="0.0" y="45" width="320" height="1"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </view>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eiJ-iG-Mi5">
                                     <rect key="frame" x="0.0" y="58" width="320" height="53"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

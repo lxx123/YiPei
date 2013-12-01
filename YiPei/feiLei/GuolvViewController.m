@@ -7,7 +7,7 @@
 //
 
 #import "GuolvViewController.h"
-#import "GuolvDetailViewController.h"
+#import "GuolvListViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TypeCell.h"
 #import "TypeClickCell.h"
@@ -40,7 +40,7 @@
 
 
 @synthesize headNav = _headNav;
-
+@synthesize lineView =_lineView;
 
 #define  COLOR_WITH_RGB(x,y,z) [UIColor colorWithRed:x/255.0 green:y/255.0 blue:y/255.0 alpha:1.0]
 
@@ -60,6 +60,8 @@
     // Do any additional setup after loading the view from its nib.
     
     self.isOpen = NO;
+    selectRow = 0;
+    
     typeArray = [[NSMutableArray alloc] init];
     NSMutableDictionary * dic ;
     NSMutableArray  * arry;
@@ -111,12 +113,19 @@
     _typeTableView.frame = CGRectMake(0, 0, 320, typeArray.count * 64);
     
     _universalTableView.frame = CGRectMake(0, 58, 320, universalArray.count *58);
-    _universalView.frame = CGRectMake(0, typeArray.count * 64 + 58, 320, 60 + universalArray.count * 44);
-//    _universalView.backgroundColor = [UIColor redColor];
+    _universalView.frame = CGRectMake(0, typeArray.count * 64 , 320, 60 + universalArray.count * 58);
+    
+    _universalView.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
 //    _universalTableView.backgroundColor = [UIColor blackColor];
+//217
+    _lineView.backgroundColor = [UIColor colorWithRed:217/255.0 green:217/255.0 blue:217/255.0 alpha:1.0];
 
-    CGSize size = CGSizeMake(320, typeArray.count * 64 + 58 + 80 + universalArray.count * 58);
+    CGSize size = CGSizeMake(320, typeArray.count * 64  + 80 + universalArray.count * 58);
     [_filterScrollView setContentSize:size];
+    
+    
+    CGRect frameScroll = _filterScrollView.frame;
+    _filterScrollView.frame = CGRectMake(frameScroll.origin.x, frameScroll.origin.y, frameScroll.size.width, frameScroll.size.height-88);
     
      [_typeTableView reloadData];
     [_universalTableView reloadData];
@@ -128,7 +137,7 @@
 
 -(void)initLeftBarButtonItem{
     
-         [_headNav initWithLeftBarItemWithTitle:@"" withFrame:CGRectMake(10, 7, 50, 30)  withAction:@selector(leftBarItemClick) withButtonImage:[UIImage imageNamed:@"btn_back_press.png"]  withTarget:self];
+         [_headNav initWithLeftBarItemWithTitle:@"" withFrame:CGRectMake(10, 7, 50, 30)  withAction:@selector(leftBarItemClick) withButtonImage:[UIImage imageNamed:@"btn_back_press.png"] withHighlighted:nil withTarget:self];
     
 //    UIButton * leftButton = [[UIButton alloc] init];
 //    leftButton.frame = CGRectMake(10,7, 50, 30);
@@ -154,7 +163,7 @@
 }
 -(void)initRightBarButtonItem{
     
-        [_headNav initWithRightBarItemWithTitle:@"" withFrame:CGRectMake(260,7, 50, 30) withAction:@selector(rightBarItemClick) withButtonImage:[UIImage imageNamed:@"topbtn_complete.png"]  withTarget:self];
+        [_headNav initWithRightBarItemWithTitle:@"" withFrame:CGRectMake(260,7, 50, 30) withAction:@selector(rightBarItemClick) withButtonImage:[UIImage imageNamed:@"topbtn_complete.png"] withHighlighted:nil withTarget:self];
     
     
 //    UIButton * rightButton = [[UIButton alloc] init];
@@ -308,7 +317,7 @@
             [cell addSubview:addImage];
             
         }
-       
+        
         
         UIView * cellBackView = (UIView*)[cell viewWithTag:0x1];
         UILabel * nameLab = (UILabel *)[cell viewWithTag:0x2];
@@ -316,6 +325,16 @@
         [self setBordForView:cellBackView withBorder:1 withColor:COLOR_WITH_RGB(202, 202, 202)];
         [self setViewCornerRadius:cellBackView withCornerRadius:6];
          nameLab.text = [universalArray objectAtIndex:indexPath.row];
+       
+        if (indexPath.row ==selectRow) {
+            cellBackView.backgroundColor = [UIColor whiteColor];
+           
+            addIamge.image = [UIImage imageNamed:@"icon_add1_press.png"];
+        }else
+            addIamge.image = [UIImage imageNamed:@"icon_add1.png"];
+
+          
+        
         NSLog(@"text ==%@",nameLab.text);
         return cell;
     }
@@ -368,7 +387,7 @@
         }
 
     }else{
-        GuolvDetailViewController * detaileView = [[GuolvDetailViewController alloc] init];
+        GuolvListViewController * detaileView = [[GuolvListViewController alloc] init];
 //        [self.navigationController pushViewController:detaileView animated:YES];
         [self presentModalViewController:detaileView animated:YES];
     }

@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 //过滤详情  如选择了品牌进入品牌的列表
-@interface GuolvDetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface GuolvListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray * datailArray;
+    NSMutableArray * dataArray;//存放每一步的数据
+    NSInteger step;//纪录每一步
+    
+    NSIndexPath * indexPa;//选择 了那一个
+    
 }
 
 

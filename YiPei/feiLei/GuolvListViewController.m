@@ -26,17 +26,18 @@
 
 
 
-#import "GuolvDetailViewController.h"
+#import "GuolvListViewController.h"
 #import "UINavigationView.h"
+#import "SVProgressHUD.h"
 #define  COLOR_WITH_RGB(x,y,z) [UIColor colorWithRed:x/255.0 green:y/255.0 blue:y/255.0 alpha:1.0]
 
 
-@interface GuolvDetailViewController ()
+@interface GuolvListViewController ()
 @property(nonatomic,strong) IBOutlet UINavigationView * headNav;
 
 @end
 
-@implementation GuolvDetailViewController
+@implementation GuolvListViewController
 
 @synthesize  tableHeadView = _tableHeadView;
 @synthesize nameLab = _nameLab;
@@ -57,12 +58,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    indexPa = nil;
+    
     _tableHeadView.backgroundColor = COLOR_WITH_RGB(45,45,45);
     _nameLab.textColor = COLOR_WITH_RGB(252,187,1);
    
     _detailTableView.backgroundColor = COLOR_WITH_RGB(45,45,45);
     _detailTableView.separatorColor = COLOR_WITH_RGB(34, 34, 34);
     datailArray = [[NSMutableArray alloc]init];
+    dataArray = [[NSMutableArray alloc]init];
+    step = 1;
     
     GuolvDetailModel * model = [[GuolvDetailModel alloc] init];
     model.name = @"宝马";
@@ -71,7 +77,7 @@
     [datailArray addObject:model];
     [_detailTableView reloadData];
   
-    [_headNav initWithLeftBarItemWithTitle:@"" withFrame:CGRectMake(10, 7, 50, 30)  withAction:@selector(back) withButtonImage:[UIImage imageNamed:@"topbtn_back_press.png"]  withTarget:self];
+    [_headNav initWithLeftBarItemWithTitle:@"" withFrame:CGRectMake(10, 7, 50, 30)  withAction:@selector(back) withButtonImage:[UIImage imageNamed:@"topbtn_back_press.png"] withHighlighted:nil withTarget:self];
 }
 -(void)back{
     
@@ -89,7 +95,26 @@
     
     return datailArray.count;
 }
-
+//上一步
+-(IBAction)previous:(id)sender{
+    if (step==1) {
+        [SVProgressHUD showErrorWithStatus:@"已经是第一个了"];
+    }
+    step --;
+    NSString * key = [NSString stringWithFormat:@"%i",step];
+    NSMutableDictionary * dic = nil ;
+    for (NSMutableDictionary * dicT in dataArray) {
+        if ([[dic objectForKey:@"key"] isEqualToString:key]) {
+            dic = [[NSMutableDictionary alloc] initWithDictionary:dicT];
+            break;
+        }
+    }
+    if (dic) {
+        indexPa = [dic objectForKey:@"path"];
+    }
+    
+    
+}
 //返回TableView中有多少数据
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
@@ -132,7 +157,8 @@
             UIButton * clickBut = [[UIButton alloc] init];
             clickBut.frame = CGRectMake(276, 17, 17, 17);
             clickBut.tag = 0x4;
-            clickBut.backgroundColor = [UIColor clearColor];
+//            clickBut.backgroundColor = [UIColor clearColor];
+            clickBut.backgroundColor = [UIColor whiteColor];
 //            [clickBut addTarget:self action:@selector() forControlEvents:UIControlEventTouchDown];
              [cell addSubview:clickBut];
             
@@ -143,10 +169,16 @@
         UILabel * nameLab = (UILabel *)[cell viewWithTag:0x2];
         UILabel * letterLab = (UILabel *)[cell viewWithTag:0x3];
         UIButton * clickbut  = (UIButton *)[cell viewWithTag:0x4];
+    if (indexPa.row ==indexPath.row) {
+        [clickbut setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+
+    }else{
+        [clickbut setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+
+    }
     GuolvDetailModel * model = [datailArray objectAtIndex:indexPath.row];
     nameLab.text = model.name;
     letterLab.text = model.letter;
-    [clickbut setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     
         
         return cell;
@@ -168,6 +200,13 @@
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
     UIButton * clickbut  = (UIButton *)[cell viewWithTag:0x4];
     [clickbut setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc]init];
+    NSString * key = [NSString stringWithFormat:@"%i",step];
+    [dic setValue:key forKey:@"key"];
+    [dic setValue:indexPath forKey:@"path"];
+    [dataArray addObject:dic];
+    step++;
     
 
 }
