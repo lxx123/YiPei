@@ -135,7 +135,11 @@
     [_ContenrScroll addSubview:_detailedTable];
     
     float height=[[UIScreen mainScreen] bounds].size.height;
-    _butView.frame=CGRectMake(0, height-45-45-20, 320, 45);
+    if (height==480) {
+         _butView.frame=CGRectMake(0, height-45-45-20, 320, 45);
+    }else{
+         _butView.frame=CGRectMake(0, height-45-45-20, 320, 45);//模拟器是可以的 你在真机上把这个后面的减20去掉试试
+    }
     [self.view addSubview:_butView];
 
     

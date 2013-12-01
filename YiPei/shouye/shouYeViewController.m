@@ -11,7 +11,7 @@
 #import "todayMarketfunc.h"
 #import "ProductDetailsViewController.h"
 #import "GuoWuCheViewController.h"
-
+#import "JinRiFaBuViewController.h"
 
 @interface shouYeViewController ()
 
@@ -281,6 +281,7 @@
 
 
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
@@ -353,8 +354,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ProductDetailsViewController *ProductVc=[[ProductDetailsViewController alloc]initWithNibName:@"ProductDetailsViewController" bundle:nil];
-    [self.navigationController pushViewController:ProductVc animated:YES];
+    if (indexPath.section==0) {
+        JinRiFaBuViewController *jinrifabuVC=[[JinRiFaBuViewController alloc]initWithNibName:@"JinRiFaBuViewController" bundle:nil];
+        [self.navigationController pushViewController:jinrifabuVC animated:YES];
+    }else{
+        ProductDetailsViewController *ProductVc=[[ProductDetailsViewController alloc]initWithNibName:@"ProductDetailsViewController" bundle:nil];
+        [self.navigationController pushViewController:ProductVc animated:YES];
+    }
 }
 
 

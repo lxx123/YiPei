@@ -181,10 +181,10 @@ _queDingView.hidden=YES;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
      NSString *identifier =[NSString stringWithFormat: @"mycell%d",indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: identifier];
-    cell.backgroundColor=[UIColor clearColor];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor=[UIColor clearColor];
     }
     UIView *spcell = [cell viewWithTag:1001];
     if (spcell==nil) {
