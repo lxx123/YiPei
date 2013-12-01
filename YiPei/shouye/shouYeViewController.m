@@ -69,7 +69,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
+    
     if (self) {
         // Custom initialization
     }
@@ -134,7 +134,7 @@
 
 //搜索
 -(IBAction)clickSearchBT:(id)sender{
-
+    
 }
 
 //扫一扫

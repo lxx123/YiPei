@@ -62,7 +62,7 @@
     for (int i=0; i<3; i++) {
         [selectCheXingDictionary setObject:@"0" forKey:[NSString stringWithFormat:@"%d",i]];//选中的车型 0表示没选中 1表示选中 默认为都不选中
     }
-     cheXingArray=[[NSMutableArray alloc]initWithObjects:@"奥迪 A4L 2013款 30 TFSI自动舒适型",@"奥迪 A4L 2013款 30 TFSI自动舒适型",@"奥迪 A4L 2013款 30 TFSI自动舒适型",nil];
+    cheXingArray=[[NSMutableArray alloc]initWithObjects:@"奥迪 A4L 2013款 30 TFSI自动舒适型",@"奥迪 A4L 2013款 30 TFSI自动舒适型",@"奥迪 A4L 2013款 30 TFSI自动舒适型",nil];
     peiJianArray=[[NSMutableArray alloc]initWithObjects:@"润滑系", @"润滑系",@"润滑系",@"润滑系",@"润滑系",nil];
     peijianInfoArray=[[NSMutableArray alloc]initWithObjects:@"1", @"2",@"3",@"4",@"5",nil];
     
@@ -99,7 +99,7 @@
     [_rightitem setImage:[UIImage imageNamed:@"topbtn_cart_press.png"] forState:UIControlStateHighlighted];
     [_rightitem addTarget:self action:@selector(clickShoppingCartBT:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:_rightitem];
-   
+    
     _cheXingTable.delegate=self;
     _cheXingTable.dataSource=self;
     _cheXingTable.rowHeight=40;
@@ -147,7 +147,7 @@
 -(void)detailedTableFrame:(NSInteger)row{
     AdditionHeight=row*40;
     _InfoTable.frame=CGRectMake(0, 35, 320, 40*[peiJianArray count]+AdditionHeight);
-   [_ContenrScroll setContentSize:CGSizeMake(320, scrollheight+AdditionHeight)];
+    [_ContenrScroll setContentSize:CGSizeMake(320, scrollheight+AdditionHeight)];
 }
 
 
@@ -211,12 +211,12 @@
             spcell=[nib objectAtIndex:1];
             [cell addSubview:spcell];
         }
-       
+        
         UIButton *but=(UIButton *)[spcell.subviews objectAtIndex:0];
         if ([cheXingArray count]==1) {
             but.hidden=YES;
         }else{
-             but.hidden=NO;
+            but.hidden=NO;
             [but addTarget:self action:@selector(selectCheXing:) forControlEvents:UIControlEventTouchUpInside];
             if ([[selectCheXingDictionary objectForKey:[NSString stringWithFormat:@"%d",indexPath.row]] isEqualToString:@"1"]) {
                 [but setBackgroundImage:[UIImage imageNamed:@"input_radio_press.png"] forState:UIControlStateNormal];
@@ -236,7 +236,7 @@
             
             if (!cell) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil] objectAtIndex:0];
-                 cell.backgroundColor=[UIColor clearColor];
+                cell.backgroundColor=[UIColor clearColor];
             }
             cell.titleLabel.textColor=[UIColor darkGrayColor];
             cell.titleLabel.text = [peijianInfoArray objectAtIndex:indexPath.row-1];
@@ -247,7 +247,7 @@
             Cell1 *cell = (Cell1*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             if (!cell) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil] objectAtIndex:0];
-                 cell.backgroundColor=[UIColor clearColor];
+                cell.backgroundColor=[UIColor clearColor];
             }
             NSString *name = [peiJianArray objectAtIndex:indexPath.section] ;
             cell.titleLabel.textColor=[UIColor darkGrayColor];
@@ -257,7 +257,7 @@
             [cell changeArrowWithUp:([self.selectIndex isEqual:indexPath]?YES:NO)];
             return cell;
         }
-
+        
     }
     return nil;
 }

@@ -7,8 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "dataProcessProtocol.h"
 
-@interface ProductDetailsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@class goodInfoDetailFunc;
+@class GoodsInfo;
+
+@interface ProductDetailsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,dataGoodsInfoProcessProtocol>
+{
+    goodInfoDetailFunc *goodInfoFunc;
+    NSString *pid;
+    GoodsInfo *info;
+}
+
+
 @property(nonatomic,strong)IBOutlet UIScrollView *ContenrScroll;
 @property(nonatomic,strong)IBOutlet UIView *contenrBack;
 
@@ -40,6 +51,13 @@
 
 @property(nonatomic,strong)UIButton *leftitem;
 @property(nonatomic,strong)UIButton *rightitem;
+
+@property(nonatomic,strong)goodInfoDetailFunc *goodInfoFunc;
+@property(nonatomic,strong)GoodsInfo *info;
+
+@property(nonatomic,strong)NSString *pid;
+@property(nonatomic,strong)NSArray *guiGeArray;
+
 
 //返回
 -(IBAction)clickFanHuiBT:(id)sender;

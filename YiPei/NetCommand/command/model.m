@@ -8,18 +8,23 @@
 
 #import "model.h"
 
-@implementation homeTodayMarketQuery
-@synthesize index=_index;
+@implementation todayNewQuery
+@synthesize index;
+@synthesize cid;
+@synthesize sortp;
+@synthesize sorts;
 @end
 
-@implementation homeTodayMarket
+@implementation todayNew
 
 @synthesize min_price;
 @synthesize market_price;
 @synthesize goods_id;
 @synthesize goods_sn;
+@synthesize barcode;
 @synthesize goods_format;
 @synthesize goods_name;
+@synthesize goods_sale_amount;
 @synthesize goodsAttrs;
 @end
 
@@ -45,6 +50,7 @@
 @synthesize goods_name;
 @synthesize goods_sale_amount;
 @synthesize goodsAttrs;
+@synthesize goods_format;
 @end
 
 @implementation CityGoodsInfoQuery
@@ -59,7 +65,7 @@
 @synthesize goods_id;
 @synthesize goods_sn;
 @synthesize goods_barcode;
-@synthesize goods_formatl;
+@synthesize goods_format;
 @synthesize goods_name;
 @synthesize goods_brief;
 @synthesize goods_desc;
@@ -71,9 +77,19 @@
 @synthesize product_company;
 @synthesize original_img;
 @synthesize goods_car;
-@synthesize seller_note;
-@synthesize slogan;
+@synthesize service_after_content;
+@synthesize service_after_title;
+@synthesize slogan_title;
+@synthesize slogan_content;
 @synthesize goods_gallery;
+@synthesize volume_price;
+@end
+
+@implementation volumePrice
+
+@synthesize volume_price;
+@synthesize volume_number;
+
 @end
 
 @implementation goodsCar
@@ -329,7 +345,7 @@
 
 @end
 
-@implementation ProfileQuery
+@implementation profileQuery
 
 @synthesize clientsId;
 @synthesize uid;
