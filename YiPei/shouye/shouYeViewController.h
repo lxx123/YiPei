@@ -9,12 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "dataProcessProtocol.h"
 
-@class todayMarketfunc;
-@interface shouYeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,dataProcessProtocol>
+@class todayDiscountFunc;
+@class todayNew;
+@class todayDiscountGoods;
+
+@interface shouYeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,dataTodayDiscountProcessProtocol>
 {
-    todayMarketfunc *todayMarket;
+    todayDiscountFunc *todayDiscount;
+    
+    todayNew *todayNewData;
+    NSArray *todayDisCount;
 }
-@property(nonatomic, retain) todayMarketfunc *todayMarket;
+@property(nonatomic, retain) todayDiscountFunc *todayDiscount;
 @property(nonatomic,strong) IBOutlet UITableView *tableview;
 @property(nonatomic,strong) IBOutlet UIView *personalInfoView;
 @property(nonatomic,strong) IBOutlet UIView *searchView;
@@ -61,6 +67,8 @@
 @property(nonatomic,strong)UIButton *leftitem;
 @property(nonatomic,strong)UIButton *rightitem;
 
+@property(nonatomic,strong) todayNew *todayNewData;
+@property(nonatomic,strong) NSMutableArray *todayDisCountArray;
 
 -(IBAction)clickSearchBT:(id)sender;
 
