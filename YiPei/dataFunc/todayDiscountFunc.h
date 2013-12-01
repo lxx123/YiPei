@@ -28,6 +28,6 @@
 
 @property(nonatomic, retain)id delegate;
 
-- (void)getTodayDiscount:(NSString *)cID Index:(NSString *)index sortPrice:(NSString *)sortP sortSale:(NSString *)sortS;
+- (void)getTodayDiscount:(NSString *)index sortPrice:(NSString *)sortP sortSale:(NSString *)sortS;
 
 @end

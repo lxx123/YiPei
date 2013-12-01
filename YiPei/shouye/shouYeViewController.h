@@ -8,19 +8,33 @@
 
 #import <UIKit/UIKit.h>
 #import "dataProcessProtocol.h"
+#import "ZXingWidgetController.h"
 
 @class todayDiscountFunc;
 @class todayNew;
 @class todayDiscountGoods;
+//@class scannerViewController;
+@class MBProgressHUD;
+@class  Tesseract;
+
+@class scannerVinViewController;
 @class scannerZxingViewController;
 
-@interface shouYeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,dataTodayDiscountProcessProtocol>
+
+
+
+@interface shouYeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,dataTodayDiscountProcessProtocol,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ZXingDelegate>
 {
     todayDiscountFunc *todayDiscount;
     
     todayNew *todayNewData;
     NSArray *todayDisCount;
     
+    MBProgressHUD *progressHud;
+    Tesseract* tesseract;
+    uint32_t *pixels;
+    
+    NSString *barcode;
 }
 @property(nonatomic, retain) todayDiscountFunc *todayDiscount;
 @property(nonatomic,strong) IBOutlet UITableView *tableview;
@@ -72,8 +86,16 @@
 @property(nonatomic,strong) todayNew *todayNewData;
 @property(nonatomic,strong) NSMutableArray *todayDisCountArray;
 
-@property(nonatomic, strong) scannerZxingViewController* scanner;
+//@property(nonatomic, strong) scannerViewController* scanner;
 
+@property(nonatomic, retain) scannerVinViewController *vinVc;
+@property(nonatomic, retain) scannerZxingViewController *zxingVc;
+
+- (void)zxingController:(ZXingWidgetController*)controller didScanResult:(NSString *)result;
+- (void)zxingControllerDidCancel:(ZXingWidgetController*)controller;
+
+@property (nonatomic, strong) MBProgressHUD *progressHud;
+@property (nonatomic, strong) Tesseract* tesseract;
 
 -(IBAction)clickSearchBT:(id)sender;
 

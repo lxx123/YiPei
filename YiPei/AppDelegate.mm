@@ -5,13 +5,20 @@
 //  Created by lee on 13-11-21.
 //  Copyright (c) 2013年 lee. All rights reserved.
 //
-
+#import "allConfig.h"
 #import "AppDelegate.h"
 #import "shouYeViewController.h"
 #import "fenLeiViewController.h"
 #import "pinPaiViewController.h"
 #import "cheXingViewController.h"
 #import "CustomTabBar.h"
+
+#import "ELSelectCityViewController.h"
+
+#import "userInfo.h"
+
+#import "userDataManager.h"
+#import "model.h"
 
 @implementation AppDelegate
 @synthesize shouYeVc=_shouYeVc;
@@ -23,6 +30,8 @@
 @synthesize pinPaiNavCtrl=_pinPaiNavCtrl;
 @synthesize cheXingNavCtrl=_cheXingNavCtrl;
 @synthesize tabBarController=_tabBarController;
+
+@synthesize selectCity=_selectCity;
 
 static AppDelegate *appDelegate=nil;
 +(AppDelegate *)shsharedeApp{
@@ -38,6 +47,16 @@ static AppDelegate *appDelegate=nil;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    userInfo *userdb = [[userInfo alloc] init];
+    [userdb creatDatabase];
+    
+    citySite *site  = [userdb getCityInfo];
+    [userDataManager sharedUserDataManager].cityID = site.cID;
+    [userDataManager sharedUserDataManager].cityName = site.cName;
+    
+
+
     
     _shouYeVc=[[shouYeViewController alloc] initWithNibName:@"shouYeViewController" bundle:nil];
     _shouYeNavCtrl = [[UINavigationController alloc]initWithRootViewController:_shouYeVc];
@@ -82,9 +101,35 @@ static AppDelegate *appDelegate=nil;
     _tabBarController = [[CustomTabBar alloc] init];
     _tabBarController.viewControllers = [NSArray arrayWithObjects:_shouYeNavCtrl, _fenLeiNavCtrl,_pinPaiNavCtrl,_cheXingNavCtrl, nil];
     _tabBarController.selectedIndex = 0;
-    self.window.rootViewController = _tabBarController;
+    if (!site.cID) {
+        _selectCity=[[ELSelectCityViewController alloc]initWithNibName:@"ELSelectCityViewController" bundle:nil];
+        _selectCity.view.frame=__MainScreenFrame;
+        [self.window addSubview:_selectCity.view];
+    }
+    else
+    {
+        self.window.rootViewController = _tabBarController;
+
+    }
 
     return YES;
+}
+
+-(void)citySelected
+{
+    for (UIView *views in self.window.subviews)
+    {
+        [views removeFromSuperview];
+    }
+
+    [self.window addSubview:_tabBarController.view];
+    if (_selectCity) {
+		[_selectCity.view removeFromSuperview];
+		_selectCity = nil;
+      	}
+
+//    self.window.rootViewController = _tabBarController;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

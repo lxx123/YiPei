@@ -8,6 +8,7 @@
 
 #import "lowPriceFunc.h"
 #import "model.h"
+#import "userDataManager.h"
 
 @implementation lowPriceFunc
 
@@ -37,6 +38,7 @@
     }
 }
 
+//调用该接口之前必须验证UID是否是空，空则提示验证
 - (void)getLowPriceNotify:(NSString *)goodID SysPrice:(NSString *)sys Price:(NSString *)p Number:(NSString *)num Rebates:(NSString *)bates Imageurl:(NSString *)url
 {
     NetCommand *command = [[NetCommand alloc] init];
@@ -48,6 +50,9 @@
     [command.paramDict setObject:goodID forKey:@"number"];
     [command.paramDict setObject:goodID forKey:@"rebates"];//10进制 小数点后两位
     [command.paramDict setObject:goodID forKey:@"imgUrl"];
+    [command.paramDict setObject:[userDataManager sharedUserDataManager].cityID forKey:@"city"];
+    [command.paramDict setObject:[userDataManager sharedUserDataManager].uID forKey:@"city"];
+
     [command execute];
     if (command.errorCode == 0) {
         NSLog(@"getLowPriceNotify success!");

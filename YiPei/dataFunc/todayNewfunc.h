@@ -16,6 +16,6 @@
 
 @property(nonatomic, retain)id delegate;
 
-- (void)getTodayNew:(NSString *)index City:(NSString *)cID SortPrice:(NSString *)sortp SortSale:(NSString *)sortS;
+- (void)getTodayNew:(NSString *)index SortPrice:(NSString *)sortp SortSale:(NSString *)sortS;
 
 @end

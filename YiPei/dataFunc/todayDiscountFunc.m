@@ -12,6 +12,9 @@
 #import "NetConfig.h"
 #import "JSONKit.h"
 
+#import "userDataManager.h"
+
+
 @implementation todayDiscountommand
 @synthesize data_base;
 @synthesize data_extension;
@@ -34,7 +37,7 @@
         [reqUrl appendString:[paramDict valueForKey:@"a"]];
         
         for (NSString *key in allkeys) {
-            if (![key isEqualToString:@"m"] && ![key isEqualToString:@"m"]) {
+            if (![key isEqualToString:@"m"] && ![key isEqualToString:@"a"]) {
                 [reqUrl appendString:@"&"];
                 [reqUrl appendString:key];
                 [reqUrl appendString:@"="];
@@ -52,12 +55,17 @@
     
     
 	@try {
-        NSMutableDictionary *dictionary=[jsonData objectFromJSONData];
+        NSString *jsonString = [[NSString alloc] initWithBytes:jsonData.bytes length:jsonData.length encoding:NSUTF8StringEncoding];
+        jsonString = [jsonString stringByReplacingOccurrencesOfString:@"null" withString:@"\"\""];
+       
+        NSLog(@"jsonString=%@",jsonString);
+        NSMutableDictionary *dictionary=[jsonString objectFromJSONString];
         
         self.errorCode = [[dictionary objectForKey:@"errorCode"]intValue];
         self.errorMsg = [dictionary objectForKey:@"errorMsg"];
         self.data_base = [dictionary objectForKey:@"data"];
         self.data_extension = [dictionary objectForKey:@"todayNews"];
+
 	}
 	@catch (NSException * e) {
 		NSLog(@"execute,error=%@",e);
@@ -71,12 +79,12 @@
 
 @implementation todayDiscountFunc
 @synthesize delegate;
-- (void)getTodayDiscount:(NSString *)cID Index:(NSString *)index sortPrice:(NSString *)sortP sortSale:(NSString *)sortS
+- (void)getTodayDiscount:(NSString *)index sortPrice:(NSString *)sortP sortSale:(NSString *)sortS
 {
     todayDiscountommand *command = [[todayDiscountommand alloc] init];
     [command.paramDict setObject:@"CityGoods" forKey:@"m"];
     [command.paramDict setObject:@"todayDiscountGoods" forKey:@"a"];
-    [command.paramDict setObject:cID forKey:@"city"];
+    [command.paramDict setObject:[userDataManager sharedUserDataManager].cityID forKey:@"city"];
     [command.paramDict setObject:index forKey:@"index"];
     [command.paramDict setObject:sortP forKey:@"sortPrice"];
     [command.paramDict setObject:sortS forKey:@"sortSale"];

@@ -160,5 +160,12 @@
 
 @end
 
+@protocol dataCitySiteProcessProtocol <NSObject>
+@required
+- (void) didCitySiteDataSuccess : (id)data;
+- (void) didCitySiteDataFailed : (NSString *)err;
+
+@end
+
 
 

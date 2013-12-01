@@ -11,18 +11,18 @@
 #import "NetCommand.h"
 
 //2. 首页 根据客户端发送的页码(index)分页返回今日行情的列表，并且当index=0时（首页），增加一条今日发布信息及一条今日特价信息。
-@interface todayNewQuery : NSObject
-{
-    NSString *index;
-    NSString *cid;
-    NSString *sortp;
-    NSString *sorts;
-}
-@property(nonatomic, retain) NSString *index;
-@property(nonatomic, retain) NSString *cid;
-@property(nonatomic, retain) NSString *sortp;
-@property(nonatomic, retain) NSString *sorts;
-@end
+//@interface todayNewQuery : NSObject
+//{
+//    NSString *index;
+//    NSString *cid;
+//    NSString *sortp;
+//    NSString *sorts;
+//}
+//@property(nonatomic, retain) NSString *index;
+//@property(nonatomic, retain) NSString *cid;
+//@property(nonatomic, retain) NSString *sortp;
+//@property(nonatomic, retain) NSString *sorts;
+//@end
 
 @interface todayNew : NSObject
 {
@@ -30,10 +30,18 @@
     NSString *market_price; //商品原价
     NSString *goods_id; //商品id
     NSString *goods_sn; //商品出厂编码
-    NSString *barcode;// 商品条形码
+    NSString *supplier_id;  //供货商id
+    NSString *warehouse_id; //商品所在仓库id
+    NSString *factory_code; //商品出厂编码（商户定义）
+    NSString *barcode;      //商品条形码
     NSString *goods_format; //商品规格型号
     NSString *goods_name; //商品名称
     NSString *goods_sale_amount;// 商品销售量
+    NSString *package_format;  //商品包装规格
+    NSString *product_company; //生产厂家
+    NSString *goods_thumb; //商品图片（小）
+    NSString *goods_img;   //商品图片（中）
+    NSString *original_img;    //商品图片（原图）
     NSArray  *goodsAttrs; //商品属性（有多个）
 }
 
@@ -41,10 +49,18 @@
 @property(nonatomic, retain) NSString *market_price;
 @property(nonatomic, retain) NSString *goods_id;
 @property(nonatomic, retain) NSString *goods_sn;
+@property(nonatomic, retain) NSString *supplier_id;
+@property(nonatomic, retain) NSString *warehouse_id;
+@property(nonatomic, retain) NSString *factory_code;
 @property(nonatomic, retain) NSString *barcode;
 @property(nonatomic, retain) NSString *goods_format;
 @property(nonatomic, retain) NSString *goods_name;
 @property(nonatomic, retain) NSString *goods_sale_amount;
+@property(nonatomic, retain) NSString *package_format;
+@property(nonatomic, retain) NSString *product_company;
+@property(nonatomic, retain) NSString *goods_thumb;
+@property(nonatomic, retain) NSString *goods_img;
+@property(nonatomic, retain) NSString *original_img;
 @property(nonatomic, retain) NSArray *goodsAttrs;
 
 @end
@@ -59,108 +75,137 @@
 @end
 
 //4. 今日特价列表（可以与今日发布的接口进行合并）
-@interface todayDiscountQuery : NSObject
-{
-    NSString *index;   //当前页数（0表示第一页） integer
-    NSString *sortPrice;//按照价格排序（0：降序1：升序）
-    NSString *sortSale; //按照销售量排序（0：降序1：升序
-}
-@property(nonatomic, retain) NSString *index;
-@property(nonatomic, retain) NSString *sortPrice;
-@property(nonatomic, retain) NSString *sortSale;
-@end
+//@interface todayDiscountQuery : NSObject
+//{
+//    NSString *index;   //当前页数（0表示第一页） integer
+//    NSString *sortPrice;//按照价格排序（0：降序1：升序）
+//    NSString *sortSale; //按照销售量排序（0：降序1：升序
+//}
+//@property(nonatomic, retain) NSString *index;
+//@property(nonatomic, retain) NSString *sortPrice;
+//@property(nonatomic, retain) NSString *sortSale;
+//@end
 
 @interface todayDiscountGoods : NSObject
 {
     NSString *min_price;    //最低价格
     NSString *market_price; //商品原价
     NSString *goods_id;     //商品id
+    NSString *supplier_id;  //供货商id
+    NSString *warehouse_id; //商品所在仓库id
     NSString *goods_sn;     //商品编号
+    NSString *factory_code; //商品出厂编码（商户定义）
+    NSString *barcode;      //商品条形码
+    NSString *goods_format; //商品规格型号
     NSString *goods_name;   //商品名称
     NSString *goods_sale_amount;//商品销售量
+    NSString *package_format;  //商品包装规格
+    NSString *product_company; //生产厂家
+    NSString *goods_thumb; //商品图片（小）
+    NSString *goods_img;   //商品图片（中）
+    NSString *original_img;    //商品图片（原图）
     NSArray  *goodsAttrs;//商品属性（有多个），基本数据结构如下
-    NSString *goods_format;
 }
 @property(nonatomic, retain) NSString *min_price;
 @property(nonatomic, retain) NSString *market_price;
 @property(nonatomic, retain) NSString *goods_id;
 @property(nonatomic, retain) NSString *goods_sn;
+@property(nonatomic, retain) NSString *supplier_id;
+@property(nonatomic, retain) NSString *warehouse_id;
+@property(nonatomic, retain) NSString *factory_code;
+@property(nonatomic, retain) NSString *barcode;
+@property(nonatomic, retain) NSString *goods_format;
 @property(nonatomic, retain) NSString *goods_name;
 @property(nonatomic, retain) NSString *goods_sale_amount;
+@property(nonatomic, retain) NSString *package_format;
+@property(nonatomic, retain) NSString *product_company;
+@property(nonatomic, retain) NSString *goods_thumb;
+@property(nonatomic, retain) NSString *goods_img;
+@property(nonatomic, retain) NSString *original_img;
 @property(nonatomic, retain) NSArray *goodsAttrs;
-@property(nonatomic, retain) NSString *goods_format;
 
 @end
 
 //5. 根据商品的id返回商品详情信息：
-@interface CityGoodsInfoQuery : NSObject
-{
-    NSString *goodsId;//商品id integer;
-}
-@property(nonatomic, retain)  NSString *goodsId;
-@end
+//@interface CityGoodsInfoQuery : NSObject
+//{
+//    NSString *goodsId;//商品id integer;
+//}
+//@property(nonatomic, retain)  NSString *goodsId;
+//@end
 
 @interface GoodsInfo : NSObject
 {
     NSString *min_price;        //最低价格
     NSString *market_price;     //商品原价
     NSString *goods_id;         //商品id
+    NSString *supplier_id;      //供货商id
+    NSString *warehouse_id;     //商品所在仓库id
     NSString *goods_sn;         //商品出厂编码
     NSString *goods_barcode;    //商品条形码
-    NSString *goods_format;    //商品规格型号
-    NSString *goods_name;       //商品名称
-    NSString *goods_brief;      //商品简介
-    NSString *goods_desc;       //商品详情
-    NSString *goods_sale_amount;//商品销售量
-    NSArray  *goods_attrs;       //商品属性（有多个）
-    
+    NSString *goods_format;     //商品规格型号
     NSString *package_format;   //商品包装规格
     NSString *brand_name;       //商品品牌
     NSString *measure_unit;     //商品计量单位
     NSString *product_company;  //生产厂家
-    NSString *original_img;     //商品图片
-    NSArray *goods_car;         //商品适用车型（有多个）
+    NSString *goods_name;       //商品名称
+    NSString *goods_brief;      //商品简介
+    NSString *goods_desc;       //商品详情
+    NSString *goods_thumb;      //商品图片（小）
+    NSString *goods_img;        //商品图片（中）
+    NSString *original_img;     //商品图片（原图）
+    NSString *goods_sale_amount;//商品销售量
+    NSArray  *goods_attrs;      //商品属性（有多个）
+    NSArray  *volume_price;     //批发量价
+    NSArray  *goods_car;         //商品适用车型（有多个）
     NSString *service_after_title;// 售后服务标题，默认为“售后服务”
     NSString *service_after_content;// 售后服务内容
-    NSString *slogan_title;           //网站slogan
-    NSString *slogan_content;           //网站slogan
+    NSString *slogan_title;      //网站slogan
+    NSString *slogan_content;   //网站slogan
     NSArray  *goods_gallery;    //商品相册（多张图片）
-    NSArray  *volume_price;//批发量价
 }
 @property(nonatomic, retain) NSString *min_price;
 @property(nonatomic, retain) NSString *market_price;
 @property(nonatomic, retain) NSString *goods_id;
+@property(nonatomic, retain) NSString *supplier_id;
+@property(nonatomic, retain) NSString *warehouse_id;
 @property(nonatomic, retain) NSString *goods_sn;
 @property(nonatomic, retain) NSString *goods_barcode;
 @property(nonatomic, retain) NSString *goods_format;
-@property(nonatomic, retain) NSString *goods_name;
-@property(nonatomic, retain) NSString *goods_brief;
-@property(nonatomic, retain) NSString *goods_desc;
-@property(nonatomic, retain) NSString *goods_sale_amount;
-@property(nonatomic, retain) NSArray  *goods_attrs;
 @property(nonatomic, retain) NSString *package_format;
 @property(nonatomic, retain) NSString *brand_name;
 @property(nonatomic, retain) NSString *measure_unit;
 @property(nonatomic, retain) NSString *product_company;
+
+@property(nonatomic, retain) NSString *goods_name;
+@property(nonatomic, retain) NSString *goods_brief;
+@property(nonatomic, retain) NSString *goods_desc;
+@property(nonatomic, retain) NSString *goods_thumb;
+@property(nonatomic, retain) NSString *goods_img;
 @property(nonatomic, retain) NSString *original_img;
+@property(nonatomic, retain) NSString *goods_sale_amount;
+@property(nonatomic, retain) NSArray  *goods_attrs;
+@property(nonatomic, retain) NSArray  *volume_price;
 @property(nonatomic, retain) NSArray  *goods_car;
 @property(nonatomic, retain) NSString *service_after_title;
 @property(nonatomic, retain) NSString *service_after_content;
 @property(nonatomic, retain) NSString *slogan_title;
 @property(nonatomic, retain) NSString *slogan_content;
-
 @property(nonatomic, retain) NSArray  *goods_gallery;
-@property(nonatomic, retain) NSArray  *volume_price;
 @end
 
 
 @interface volumePrice : NSObject
 {
-    NSString *volume_number;    //批量购物数量
-    NSString *volume_price;     //  批量购物单价
+    NSString *volume_number_min;//批量价格区间下限
+    NSString *volume_number;//批量价格区间上限
+    NSString *volume_price; //批量购物单价
+    NSString *supplier_id;  //批量优惠价格供货商
 }
+@property(nonatomic, retain) NSString *volume_number_min;
 @property(nonatomic, retain) NSString *volume_number;
 @property(nonatomic, retain) NSString *volume_price;
+@property(nonatomic, retain) NSString *supplier_id;
 @end
 
 @interface goodsCar : NSObject
@@ -196,18 +241,18 @@
 @end
 
 //6. 用户上传小票凭证的图片返回图片信息（id、url）
-@interface uploadImageQuery : NSObject
-{
-    NSString *goodsSn;//商品编码
-}
-@property(nonatomic, retain) NSString *goodsSn;
-@end
+//@interface uploadImageQuery : NSObject
+//{
+//    NSString *goodsSn;//商品编码
+//}
+//@property(nonatomic, retain) NSString *goodsSn;
+//@end
 
 @interface uploadImageInfo : NSObject
 {
-    NSArray *ImageInfo;
+    NSString *ImageInfo;
 }
-@property(nonatomic, retain) NSArray *ImageInfo;
+@property(nonatomic, retain) NSString *ImageInfo;
 
 @end
 
@@ -220,38 +265,38 @@
 @end
 
 //7. 降价通知
-@interface lowPriceNotifyQuery : NSObject
-{
-    NSString *goodsId;  //商品id         integer
-    NSString *sysPrice; //系统商品价格    decimal（10，2）
-    NSString *price;    //采购价格        decimal（10，2）
-    NSString *number;   //一次性采购数量   integer
-    NSString *rebates;  //返点           decimal（10，2）
-    NSString *imgUrl;   //购物小票图片路径  string
-}
-@property(nonatomic, retain) NSString *goodsId;
-@property(nonatomic, retain) NSString *sysPrice;
-@property(nonatomic, retain) NSString *price;
-@property(nonatomic, retain) NSString *number;
-@property(nonatomic, retain) NSString *rebates;
-@property(nonatomic, retain) NSString *imgUrl;
-@end
+//@interface lowPriceNotifyQuery : NSObject
+//{
+//    NSString *goodsId;  //商品id         integer
+//    NSString *sysPrice; //系统商品价格    decimal（10，2）
+//    NSString *price;    //采购价格        decimal（10，2）
+//    NSString *number;   //一次性采购数量   integer
+//    NSString *rebates;  //返点           decimal（10，2）
+//    NSString *imgUrl;   //购物小票图片路径  string
+//}
+//@property(nonatomic, retain) NSString *goodsId;
+//@property(nonatomic, retain) NSString *sysPrice;
+//@property(nonatomic, retain) NSString *price;
+//@property(nonatomic, retain) NSString *number;
+//@property(nonatomic, retain) NSString *rebates;
+//@property(nonatomic, retain) NSString *imgUrl;
+//@end
 
 //8.1根据车型父级分类，获取该父级分类下面的所有子分类信息
-@interface loadCarInfoByPidQuery : NSObject
-{
-    NSString *pid;//父级分类 integer
-}
-@property(nonatomic, retain) NSString *pid;
-@end
-
-//8.2根据车型数据等级获取该等级车型信息
-@interface loadCarInfoByLevelQuery : NSObject
-{
-    NSString *level;    //车型数据等级（1：品牌2：车系3：排量4：年款）integer
-}
-@property(nonatomic, retain) NSString *level;
-@end
+//@interface loadCarInfoByPidQuery : NSObject
+//{
+//    NSString *pid;//父级分类 integer
+//}
+//@property(nonatomic, retain) NSString *pid;
+//@end
+//
+////8.2根据车型数据等级获取该等级车型信息
+//@interface loadCarInfoByLevelQuery : NSObject
+//{
+//    NSString *level;    //车型数据等级（1：品牌2：车系3：排量4：年款）integer
+//}
+//@property(nonatomic, retain) NSString *level;
+//@end
 
 @interface loadCarInfo : NSObject
 {
@@ -294,12 +339,12 @@
 @property(nonatomic, retain) NSString *original_img;
 @end
 
-//9.分类列表
-@interface goodsCategoryByPidQuery : NSObject {
-    NSString *pid; //父级分类    integer
-}
-@property(nonatomic, retain) NSString *pid;
-@end
+//分类列表
+//@interface goodsCategoryByPidQuery : NSObject {
+//    NSString *pid; //父级分类    integer
+//}
+//@property(nonatomic, retain) NSString *pid;
+//@end
 
 @interface goodsCategoryByPid : NSObject {
     NSArray *category; //goodsCategory类的数组
@@ -307,15 +352,15 @@
 @property(nonatomic, retain) NSArray *category;
 @end
 
-//10.品牌列表（每一级为一个接口）
-@interface goodsAllBrandQuery : NSObject
-{
-    NSString *firstLetter;    //首字母    char     可选
-    NSString *sortByLetter;   //是否按照首字母排序升序排列（0：否1：是）    可选
-}
-@property(nonatomic, retain) NSString *firstLetter;
-@property(nonatomic, retain) NSString *sortByLetter;
-@end
+//品牌列表（每一级为一个接口）
+//@interface goodsAllBrandQuery : NSObject
+//{
+//    NSString *firstLetter;    //首字母    char     可选
+//    NSString *sortByLetter;   //是否按照首字母排序升序排列（0：否1：是）    可选
+//}
+//@property(nonatomic, retain) NSString *firstLetter;
+//@property(nonatomic, retain) NSString *sortByLetter;
+//@end
 
 @interface goodsAllBrand : NSObject {
     NSArray *category; //goodsCategory类的数组
@@ -323,6 +368,21 @@
 @property(nonatomic, retain) NSArray *category;
 @end
 
+@interface ReqionInfoByPid : NSObject
+{
+    NSArray *reqion; //goodsCategory类的数组
+}
+@property(nonatomic, retain) NSArray *reqion;
+@end
+
+@interface reqionInfo : NSObject
+{
+    NSString *region_id;//区域id
+    NSString *region_name;//区域名称
+}
+@property(nonatomic, retain) NSString *region_id;
+@property(nonatomic, retain) NSString *region_name;
+@end
 //11. 根据具体车型获取对应的配件列表（可以对价格及销量进行排序）
 //提供数据过滤（这个比较麻烦，需要等数据机构确定下来才能定）
 //
@@ -334,75 +394,115 @@
 
 //根据筛选条件获取商品列表：
 //api.com/index.php?m= GoodsCategory&a=getGoodsList&city=城市id&categoryId=配件分类&carModel =车型id&carGeneral =是否是通用配件（1：是0：否，取代之前选定的唯一车型）&brandId=配件品牌&filterAttr=筛选属性&sortPrice=价格排序（0：降序，1：升序）&sortSale=销量（0：降序，1：升序）&index=当前页数（0表示第一页）
-@interface goodsListQuery : NSObject
+//@interface goodsListQuery : NSObject
+//{
+//    NSString *categoryId;     //配件分类
+//    NSString *carModel;       //车型
+//    NSString *carGeneral;     //是否是通用配件（1：是0：否，取代之前选定的唯一车型
+//    NSString *brandId;        //配件品牌
+//    NSString *filterAttr;     //筛选属性
+//    NSString *sortPrice;      //价格排序（0：降序，1：升序）
+//    NSString *sortSale;       //销量（0：降序，1：升序
+//    NSString *index;          //当前页数（0表示第一页）
+//}
+//@property(nonatomic, retain) NSString *categoryId;
+//@property(nonatomic, retain) NSString *carModel;
+//@property(nonatomic, retain) NSString *carGeneral;
+//@property(nonatomic, retain) NSString *brandId;
+//@property(nonatomic, retain) NSString *filterAttr;
+//@property(nonatomic, retain) NSString *sortPrice;
+//@property(nonatomic, retain) NSString *sortSale;
+//@property(nonatomic, retain) NSString *index;
+//@end
+
+@interface filterGoodsList : NSObject
 {
-    NSString *categoryId;     //配件分类
-    NSString *carModel;       //车型
-    NSString *carGeneral;     //是否是通用配件（1：是0：否，取代之前选定的唯一车型
-    NSString *brandId;        //配件品牌
-    NSString *filterAttr;     //筛选属性
-    NSString *sortPrice;      //价格排序（0：降序，1：升序）
-    NSString *sortSale;       //销量（0：降序，1：升序
-    NSString *index;          //当前页数（0表示第一页）
+    NSString *min_price;    //最低价格
+    NSString *market_price; //商品原价
+    NSString *goods_id;     //商品id
+    NSString *supplier_id;  //供货商id
+    NSString *goods_sn;     //商品编号
+    NSString *factory_code; //商品出厂编码（商户定义）
+    NSString *barcode;      //商品条形码
+    NSString *goods_format; //商品规格型号
+    NSString *goods_name;   //商品名称
+    NSString *goods_sale_amount;//商品销售量
+    NSString *package_format;  //商品包装规格
+    NSString *product_company; //生产厂家
+    NSString *goods_thumb; //商品图片（小）
+    NSString *goods_img;   //商品图片（中）
+    NSString *original_img;    //商品图片（原图）
 }
-@property(nonatomic, retain) NSString *categoryId;
-@property(nonatomic, retain) NSString *carModel;
-@property(nonatomic, retain) NSString *carGeneral;
-@property(nonatomic, retain) NSString *brandId;
-@property(nonatomic, retain) NSString *filterAttr;
-@property(nonatomic, retain) NSString *sortPrice;
-@property(nonatomic, retain) NSString *sortSale;
-@property(nonatomic, retain) NSString *index;
+@property(nonatomic, retain) NSString *min_price;
+@property(nonatomic, retain) NSString *market_price;
+@property(nonatomic, retain) NSString *goods_id;
+@property(nonatomic, retain) NSString *goods_sn;
+@property(nonatomic, retain) NSString *supplier_id;
+@property(nonatomic, retain) NSString *factory_code;
+@property(nonatomic, retain) NSString *barcode;
+@property(nonatomic, retain) NSString *goods_format;
+@property(nonatomic, retain) NSString *goods_name;
+@property(nonatomic, retain) NSString *goods_sale_amount;
+@property(nonatomic, retain) NSString *package_format;
+@property(nonatomic, retain) NSString *product_company;
+@property(nonatomic, retain) NSString *goods_thumb;
+@property(nonatomic, retain) NSString *goods_img;
+@property(nonatomic, retain) NSString *original_img;
 @end
 
 //根据商品分类获取筛选条件：api.com/index.php?m= GoodsCategory&a= getFilterAttrByCategory&categoryId =商品分类id（如：机油滤清器）
-@interface filterAttrByCategoryQuery : NSObject
+@interface filterAttrByCategory : NSObject
 {
     NSString *categoryId;//商品分类id
+    NSString *name;      //属性名称
+    NSArray  *valuesList;
 }
 @property(nonatomic, retain) NSString *categoryId;
+@property(nonatomic, retain) NSString *name;
+@property(nonatomic, retain) NSArray *valuesList;
+
 @end
 
 
 //根据商品分类获取具有该分类配件的车型：api.com/index.php?m= GoodsCategory&a= getGoodsCarModelByCategory&categoryId=商品分类id（如：机油滤清器）
-@interface goodsCarModelByCategoryQuery : NSObject
-{
-    NSString *categoryId;//商品分类id
-}
-@property(nonatomic, retain) NSString *categoryId;
-@end
+//@interface goodsCarModelByCategoryQuery : NSObject
+//{
+//    NSString *categoryId;//商品分类id
+//}
+//@property(nonatomic, retain) NSString *categoryId;
+//@end
 
 //根据供应商品牌获取其生产的所有配件分类：api.com/index.php?m= GoodsCategory&a= getGoodsCategoryByBrand&brandId=供应商品牌id（如：博世）
-@interface goodsCategoryByBrandQuery : NSObject
-{
-    NSString *brandId;//供应商品牌id
-}
-@property(nonatomic, retain) NSString *brandId;
-@end
+//@interface goodsCategoryByBrandQuery : NSObject
+//{
+//    NSString *brandId;//供应商品牌id
+//}
+//@property(nonatomic, retain) NSString *brandId;
+//@end
 
 //根据供应商品牌获取其生产的配件所适应的所有车型：api.com/index.php?m= GoodsCategory&a= getFilterAttrByCategory&brandId =供应商品牌id（如：博世）
-@interface filterAttrByBrandQuery : NSObject
-{
-    NSString *brandId;//供应商品牌id
-}
-@property(nonatomic, retain) NSString *brandId;
-@end
+//@interface filterAttrByBrandQuery : NSObject
+//{
+//    NSString *brandId;//供应商品牌id
+//}
+//@property(nonatomic, retain) NSString *brandId;
+//@end
 
 //根据车型获取生产适用于该车型配件的配件品牌：api.com/index.php?m= GoodsCategory&a=getGoodsBrandByCarModel&carModel=车型id（如：进口奥迪A6 2001款 1.8T）
-@interface goodsBrandByCarModelQuery : NSObject
-{
-    NSString *carModel;//车型id
-}
-@property(nonatomic, retain) NSString *carModel;
-@end
+//@interface goodsBrandByCarModelQuery : NSObject
+//{
+//    NSString *carModel;//车型id
+//}
+//@property(nonatomic, retain) NSString *carModel;
+//@end
 
 //根据车型获取生产适用于该车型配件的配件品牌：api.com/index.php?m= GoodsCategory&a=getGoodsCategoryByCarModel & carModel=车型id（如：进口奥迪A6 2001款 1.8T）
-@interface goodsCategoryByCarModelQuery : NSObject
-{
-    NSString *carModel;//车型id
-}
-@property(nonatomic, retain) NSString *carModel;
-@end
+//@interface goodsCategoryByCarModelQuery : NSObject
+//{
+//    NSString *carModel;//车型id
+//}
+//@property(nonatomic, retain) NSString *carModel;
+//@end
 
 //14 本地购物车 数据结构（数据库）
 @interface addGoods2Cart : NSObject
@@ -418,13 +518,13 @@
 //15 提交订单
 
 //16 按照关键字搜索商品
-@interface searchGoodsQuery : NSObject
-{
-    NSString *keywords;  //关键字 string
-}
-@property(nonatomic, retain) NSString *keywords;
-
-@end
+//@interface searchGoodsQuery : NSObject
+//{
+//    NSString *keywords;  //关键字 string
+//}
+//@property(nonatomic, retain) NSString *keywords;
+//
+//@end
 
 @interface searchGoods : NSObject
 {
@@ -446,12 +546,12 @@
 @end
 
 //17 根据条形码扫描结果返回商品信息
-@interface searchGoodsByBarCodeQuery : NSObject
-{
-    NSString *barCode;    //  商品条形码 string
-}
-@property(nonatomic, retain) NSString *barCode;
-@end
+//@interface searchGoodsByBarCodeQuery : NSObject
+//{
+//    NSString *barCode;    //  商品条形码 string
+//}
+//@property(nonatomic, retain) NSString *barCode;
+//@end
 
 @interface searchGoodsByBarCode : NSObject
 {
@@ -463,60 +563,109 @@
 
 @interface searchGoodsByBarCodeInfo : NSObject
 {
-    NSString *min_price;    //最低价格
-    NSString *market_price; //商品原价
-    NSString *goods_id;     // 商品id
-    NSString *goods_sn;     //商品出厂编码
-    NSString *goods_name;   // 商品名称
-    NSString *goods_brief;  // 商品简介
-    NSString *goods_desc;   //  商品详情
-    NSString *original_img; // 商品图片
-    NSString *goods_sale_amount;// 商品销售量
-    NSArray *goods_attr;    // 商品属性（有多个）    goodsAttr
-    NSArray *goods_car;     // 商品适用车型（有多个） goodsCar
-    NSString *seller_note;  // 售后服务
-    NSString *slogan;       // 网站slogan
-    NSArray *goods_gallery; // 商品相册（多张图片）goodsGallery
+    NSString *min_price;        //最低价格
+    NSString *market_price;     //商品原价
+    NSString *goods_id;         //商品id
+    NSString *supplier_id;      //供货商id
+    NSString *warehouse_id;     //商品所在仓库id
+    NSString *goods_sn;         //商品出厂编码
+    NSString *goods_barcode;    //商品条形码
+    NSString *goods_format;     //商品规格型号
+    NSString *package_format;   //商品包装规格
+    NSString *brand_name;       //商品品牌
+    NSString *measure_unit;     //商品计量单位
+    NSString *product_company;  //生产厂家
+    NSString *goods_name;       //商品名称
+    NSString *goods_brief;      //商品简介
+    NSString *goods_desc;       //商品详情
+    NSString *goods_thumb;      //商品图片（小）
+    NSString *goods_img;        //商品图片（中）
+    NSString *original_img;     //商品图片（原图）
+    NSString *goods_sale_amount;//商品销售量
+    NSArray  *goods_attrs;      //商品属性（有多个）
+    NSArray  *volume_price;     //批发量价
+    NSArray  *goods_car;         //商品适用车型（有多个）
+    NSString *service_after_title;// 售后服务标题，默认为“售后服务”
+    NSString *service_after_content;// 售后服务内容
+    NSString *slogan_title;      //网站slogan
+    NSString *slogan_content;   //网站slogan
+    NSArray  *goods_gallery;    //商品相册（多张图片）
 }
 @property(nonatomic, retain) NSString *min_price;
 @property(nonatomic, retain) NSString *market_price;
 @property(nonatomic, retain) NSString *goods_id;
+@property(nonatomic, retain) NSString *supplier_id;
+@property(nonatomic, retain) NSString *warehouse_id;
 @property(nonatomic, retain) NSString *goods_sn;
+@property(nonatomic, retain) NSString *goods_barcode;
+@property(nonatomic, retain) NSString *goods_format;
+@property(nonatomic, retain) NSString *package_format;
+@property(nonatomic, retain) NSString *brand_name;
+@property(nonatomic, retain) NSString *measure_unit;
+@property(nonatomic, retain) NSString *product_company;
+
 @property(nonatomic, retain) NSString *goods_name;
 @property(nonatomic, retain) NSString *goods_brief;
 @property(nonatomic, retain) NSString *goods_desc;
+@property(nonatomic, retain) NSString *goods_thumb;
+@property(nonatomic, retain) NSString *goods_img;
 @property(nonatomic, retain) NSString *original_img;
 @property(nonatomic, retain) NSString *goods_sale_amount;
-@property(nonatomic, retain) NSArray  *goods_attr;
+@property(nonatomic, retain) NSArray  *goods_attrs;
+@property(nonatomic, retain) NSArray  *volume_price;
 @property(nonatomic, retain) NSArray  *goods_car;
-@property(nonatomic, retain) NSString *seller_note;
-@property(nonatomic, retain) NSString *slogan;
+@property(nonatomic, retain) NSString *service_after_title;
+@property(nonatomic, retain) NSString *service_after_content;
+@property(nonatomic, retain) NSString *slogan_title;
+@property(nonatomic, retain) NSString *slogan_content;
 @property(nonatomic, retain) NSArray  *goods_gallery;
 @end
 
+
 //18. 根据vin码返回车辆基本信息
-@interface searchGoodsByVinCodeQuery : NSObject
+//@interface searchGoodsByVinCodeQuery : NSObject
+//{
+//    NSString *searchGoodsByVinCode;
+//}
+//@property(nonatomic, retain) NSString *searchGoodsByVinCode;
+//@end
+
+@interface searchGoodsByVinCode : NSObject
 {
-    NSString *searchGoodsByVinCode;
+    NSString *searchCarID;
+    NSString *searchName;     //车型数据名称
+    NSString *searchPower;    //排量
+    NSString *searchLevel;    //车型数据等级
+    NSString *searchSeries;   //车系名称
+    NSString *searchBrand;    //品牌名称
+    NSString *searchCompany;  //生产厂商
+    NSString *searchImportInfo;// 进口|国产|合资
 }
-@property(nonatomic, retain) NSString *searchGoodsByVinCode;
+@property(nonatomic, retain) NSString *searchCarID;
+@property(nonatomic, retain) NSString *searchName;
+@property(nonatomic, retain) NSString *searchPower;
+@property(nonatomic, retain) NSString *searchLevel;
+@property(nonatomic, retain) NSString *searchSeries;
+@property(nonatomic, retain) NSString *searchBrand;
+@property(nonatomic, retain) NSString *searchCompany;
+@property(nonatomic, retain) NSString *searchImportInfo;
 @end
 
 //我的订单
-@interface myOrderListsQuery : NSObject
-{
-    NSString *index;		//当前页码， 起始值为0
-    NSString *uid;			//用户ID
-    NSString *clientsId;	//门店ID
-    NSString *t;            //时间筛选。（1=>1个月，2=>3个月，3=>6个月，默认：全部）
-    NSString *p;			//每页显几条条数据，默认为10条数据
-}
-@property(nonatomic, retain) NSString *index;
-@property(nonatomic, retain) NSString *uid;
-@property(nonatomic, retain) NSString *clientsId;
-@property(nonatomic, retain) NSString *t;
-@property(nonatomic, retain) NSString *p;
-@end
+//@interface myOrderListsQuery : NSObject
+//{
+//    NSString *index;		//当前页码， 起始值为0
+//    NSString *uid;			//用户ID
+//    NSString *clientsId;	//门店ID
+//    NSString *t;            //时间筛选。（1=>1个月，2=>3个月，3=>6个月，默认：全部）
+//    NSString *p;			//每页显几条条数据，默认为10条数据
+//}
+//@property(nonatomic, retain) NSString *index;
+//@property(nonatomic, retain) NSString *uid;
+//@property(nonatomic, retain) NSString *clientsId;
+//@property(nonatomic, retain) NSString *t;
+//@property(nonatomic, retain) NSString *p;
+//@end
 
 @interface myOrderLists : NSObject
 {
@@ -564,14 +713,14 @@
 @end
 
 //我的个人信息
-@interface profileQuery : NSObject
-{
-    NSString *clientsId;//	门店ID
-    NSString *uid;      //	会员ID
-}
-@property(nonatomic, retain) NSString *clientsId;
-@property(nonatomic, retain) NSString *uid;
-@end
+//@interface profileQuery : NSObject
+//{
+//    NSString *clientsId;//	门店ID
+//    NSString *uid;      //	会员ID
+//}
+//@property(nonatomic, retain) NSString *clientsId;
+//@property(nonatomic, retain) NSString *uid;
+//@end
 
 @interface myProfile : NSObject
 {
@@ -583,14 +732,14 @@
 @end
 
 //个人中心首页
-@interface profileIndexQuery : NSObject
-{
-    NSString *clientsId;//	门店ID
-    NSString *uid;      //	会员ID
-}
-@property(nonatomic, retain) NSString *clientsId;
-@property(nonatomic, retain) NSString *uid;
-@end
+//@interface profileIndexQuery : NSObject
+//{
+//    NSString *clientsId;//	门店ID
+//    NSString *uid;      //	会员ID
+//}
+//@property(nonatomic, retain) NSString *clientsId;
+//@property(nonatomic, retain) NSString *uid;
+//@end
 
 @interface myProfileIndex : NSObject
 {
@@ -609,4 +758,54 @@
 @property(nonatomic, retain) NSString *city;
 @property(nonatomic, retain) NSString *district;
 @property(nonatomic, retain) NSString *addr;
+@end
+
+@interface MyCredit : NSObject
+{
+    NSString *level;     //0,1,2,3,4,5		授信等级
+    NSString *amounts;   //0.00			授信金额
+}
+@property(nonatomic, retain) NSString *level;
+@property(nonatomic, retain) NSString *amounts;
+@end
+
+
+@interface saveClientInfo : NSObject
+{
+    NSString *uid;       //会员id
+    NSString *user_name; //会员用户名
+    NSString *client_id; //会员所在门店id
+    NSString *city;      //会员所在门店所在城市id
+}
+@property(nonatomic, retain) NSString *uid;
+@property(nonatomic, retain) NSString *user_name;
+@property(nonatomic, retain) NSString *client_id;
+@property(nonatomic, retain) NSString *city;
+@end
+
+
+@interface orderSubmit : NSObject
+{
+    NSString *order_id;       //会员id
+    NSString *order_sn;       //会员用户名
+}
+@property(nonatomic, retain) NSString *order_id;
+@property(nonatomic, retain) NSString *order_sn;
+@end
+
+@interface howMuchHongBaoLeft : NSObject
+{
+    NSString *hongbao;  //剩余红包
+}
+@property(nonatomic, retain) NSString *hongbao;
+@end
+
+@interface citySite : NSObject
+{
+    NSString *cName;    //省份
+    NSString *cID;     //城市ID
+}
+
+@property(nonatomic, retain) NSString *cName;
+@property(nonatomic, retain) NSString *cID;
 @end

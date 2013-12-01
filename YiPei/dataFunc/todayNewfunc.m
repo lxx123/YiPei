@@ -10,6 +10,7 @@
 #import "model.h"
 #import "dataProcessProtocol.h"
 
+#import "userDataManager.h"
 
 @implementation todayNewfunc
 @synthesize delegate;
@@ -17,12 +18,12 @@
 //@synthesize callback=_callback;
 
 
-- (void)getTodayNew:(NSString *)index City:(NSString *)cID SortPrice:(NSString *)sortp SortSale:(NSString *)sortS;
+- (void)getTodayNew:(NSString *)index SortPrice:(NSString *)sortp SortSale:(NSString *)sortS;
 {
     NetCommand *command = [[NetCommand alloc] init];
     [command.paramDict setObject:@"CityGoods" forKey:@"m"];
     [command.paramDict setObject:@"todayNewGoods" forKey:@"a"];
-    [command.paramDict setObject:cID forKey:@"city"];
+    [command.paramDict setObject:[userDataManager sharedUserDataManager].cityID forKey:@"city"];
     [command.paramDict setObject:index forKey:@"index"];
     [command.paramDict setObject:sortp forKey:@"sortPrice"];
     [command.paramDict setObject:sortS forKey:@"sortSale"];

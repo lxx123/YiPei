@@ -13,14 +13,13 @@
 @class Tesseract;
 @interface scannerVinViewController :UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
-    MBProgressHUD *progressHud;
-    Tesseract* tesseract;
-    uint32_t *pixels;
+    UIImage *img;
+    Tesseract *tesseract;
 }
 
-@property (nonatomic, strong) MBProgressHUD *progressHud;
-@property (nonatomic, strong) Tesseract* tesseract;
+@property (nonatomic, strong) NSString *scannerVString;
+@property (nonatomic, strong) UIImage *img;
 
-- (void)setTesseractImage:(UIImage *)image;
+@property (nonatomic, strong)  Tesseract *tesseract;
 
 @end

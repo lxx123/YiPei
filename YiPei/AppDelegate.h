@@ -13,6 +13,9 @@
 @class pinPaiViewController;
 @class cheXingViewController;
 @class CustomTabBar;
+
+@class  ELSelectCityViewController;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate,LeveyTabBarControllerDelegate,LeveyTabBarDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -27,6 +30,9 @@
 @property (strong, nonatomic) UINavigationController *fenLeiNavCtrl;
 @property (strong, nonatomic) UINavigationController *pinPaiNavCtrl;
 @property (strong, nonatomic) UINavigationController *cheXingNavCtrl;
-
+@property (strong, nonatomic) ELSelectCityViewController *selectCity;
 +(AppDelegate *)shsharedeApp;
+
+-(void)citySelected;
+
 @end
