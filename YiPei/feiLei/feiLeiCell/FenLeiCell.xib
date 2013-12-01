@@ -17,6 +17,7 @@
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3">
                         <rect key="frame" x="75" y="8" width="208" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -25,12 +26,13 @@
                         <rect key="frame" x="10" y="8" width="48" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="UpAccessory.png" id="7">
-                        <rect key="frame" x="282" y="25" width="18" height="10"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icon_arrow1_up.png" id="7">
+                        <rect key="frame" x="282" y="25" width="11" height="11"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="arrowImageView" destination="7" id="9"/>
                 <outlet property="showImageView" destination="rWI-5a-bmq" id="Tlq-cO-KQQ"/>
@@ -39,6 +41,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="UpAccessory.png" width="18" height="10"/>
+        <image name="icon_arrow1_up.png" width="11" height="11"/>
     </resources>
 </document>

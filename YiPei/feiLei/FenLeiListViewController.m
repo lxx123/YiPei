@@ -40,14 +40,16 @@
 
 @end
 
-
+#import "GuolvViewController.h"
 #import "FenLeiListViewController.h"
-
+#import "UINavigationView.h"
 
 #define MAINVIEW_HEIGHT [[UIScreen mainScreen]bounds].size.height
 #define MAINVIEW_WIDTH [[UIScreen mainScreen]bounds].size.width
 
 @interface FenLeiListViewController ()
+
+@property(nonatomic,strong) IBOutlet UINavigationView * headNav;
 
 @end
 
@@ -61,6 +63,9 @@
 
 
 @synthesize blckView = _blckView;
+
+
+@synthesize headNav = _headNav;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -88,13 +93,33 @@
     _smallTableView.delegate = self;
     [_fenLeiListTableView reloadData];
     _fenLeiListTableView.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
+    
     _smallTableView.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
-
+    
+    [self initLeftBarButtonItem];
     
 }
-
+-(void)initLeftBarButtonItem{
+    
+     [_headNav initWithLeftBarItemWithTitle:@"" withFrame:CGRectMake(10, 7, 50, 30)  withAction:@selector(backToFeileiView) withButtonImage:[UIImage imageNamed:@"topbtn_back_press.png"] withHighlighted:nil withTarget:self];
+    
+//    UIButton * leftButton = [[UIButton alloc] init];
+//    leftButton.frame = CGRectMake(10,7, 50, 30);
+//    
+//    [leftButton setBackgroundImage:[UIImage imageNamed:@"topbtn_back_press.png"] forState:UIControlStateNormal];
+//    [leftButton addTarget:self action:@selector(backToFeileiView) forControlEvents:UIControlEventTouchDown];
+//    UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton ];
+//    
+//    
+//    
+//    self.navigationItem.leftBarButtonItem = leftBarItem;
+    
+}
+-(void)backToFeileiView{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 -(IBAction)sortClick:(id)sender{
-    if (!isSort && !isFilter) {
+    if (!isSort ) {
         isSort = YES;
 //        isFilter = YES;
         smallTableArray = [[NSMutableArray alloc] init];
@@ -104,31 +129,18 @@
         
         [self setBlckViewAndSmarllTable:smallTableArray.count];
         
-    }else if (!isSort && isFilter) {//说明筛选 按钮已经点击
-        [self removeBlckViewAndSmarllTable];
-        
-        [self setBlckViewAndSmarllTable:smallTableArray.count];
-        isFilter = NO;
-        isSort = YES;
-        
-    }else if (isSort && !isFilter){
+    }else if(isSort ){
         [self removeBlckViewAndSmarllTable];
         isSort = NO;
-        isFilter = NO;
     }
-    else{
-        isSort = NO;
-//        isFilter = NO;
-        
-        [self removeBlckViewAndSmarllTable];
-    }
+    
     
 }
 -(void)setBlckViewAndSmarllTable:(NSInteger)count{
     
-    _blckView.frame = CGRectMake(0, 30, 320, MAINVIEW_HEIGHT-30);
+    _blckView.frame = CGRectMake(0, 74, 320, MAINVIEW_HEIGHT-74);
     [self.view addSubview:_blckView];
-    _smallTableView.frame = CGRectMake(0, 30, 320, count * 44);
+    _smallTableView.frame = CGRectMake(0, 74, 320, count * 44);
     [self.view addSubview:_smallTableView];
     [_smallTableView reloadData];
 }
@@ -144,34 +156,16 @@
     
     
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+ 
+//    self.navigationController.navigationBarHidden = NO;
+}
 -(IBAction)filterClick:(id)sender{
-    if (!isFilter &&!isSort) {
-//        isSort = YES;
-        isFilter = YES;
-        
-        smallTableArray = [[NSMutableArray alloc] init];
-        FenLeiListSortModel * sortModel = [[FenLeiListSortModel alloc] init];
-        sortModel.name = @"价格";
-        [smallTableArray addObject:sortModel];
-        
-        [self setBlckViewAndSmarllTable:smallTableArray.count];
-    }else if (isSort && !isFilter) {
-        [self removeBlckViewAndSmarllTable];
-        
-        [self setBlckViewAndSmarllTable:smallTableArray.count];
-        isSort = NO;
-        isFilter = YES;
-    }else if (!isSort && isFilter){
-          [self removeBlckViewAndSmarllTable];
-        isSort = NO;
-        isFilter = NO;
-    }
-    else{
-        isSort = NO;
-        isFilter = NO;
-        [self removeBlckViewAndSmarllTable];
-    }
+    GuolvViewController * guolvView = [[GuolvViewController alloc] init];
+    [self removeBlckViewAndSmarllTable];
+    isSort = NO;
+    [self.navigationController pushViewController:guolvView animated:YES];
 }
 -(void)loadFilterData{
     
@@ -279,12 +273,13 @@
             
             
         }
-//        FenLeiListModel * model = [fenLeiListArray objectAtIndex:indexPath.row];
+        FenLeiListModel * model = [smallTableArray objectAtIndex:indexPath.row];
         
     
         UILabel * nameLab = (UILabel *)[cell viewWithTag:0x1];
-    
-//        nameLab.text = model.name;
+        NSLog(@"nameLab.text==%@",nameLab.text);
+        
+        nameLab.text = model.name;
         
         return cell;
     }

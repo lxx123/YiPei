@@ -13,7 +13,7 @@
     NSMutableArray * smallTableArray;
     
     BOOL isSort;
-    BOOL isFilter;
+//    BOOL isFilter;
 }
 @property(nonatomic, strong) IBOutlet UITableView * fenLeiListTableView;
 

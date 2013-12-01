@@ -13,6 +13,7 @@
     NSMutableArray * typeArray;
     
     NSMutableArray * universalArray;
+    NSInteger selectRow;
     
 }
 @property(nonatomic,strong) IBOutlet UIScrollView * filterScrollView;
@@ -21,6 +22,7 @@
 @property(nonatomic,strong) IBOutlet UIView * universalView;
 @property(nonatomic,strong) IBOutlet UITableView * universalTableView;
 
+@property(nonatomic,strong) IBOutlet UIView * lineView;
 
 @property(nonatomic,strong) IBOutlet UIButton * choseCarButton;
 @property(nonatomic,strong) IBOutlet UIButton * universalButton;
